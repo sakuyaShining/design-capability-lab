@@ -1,0 +1,64 @@
+{
+  "date": "2026-11-11",
+  "method": "Crop screenshot content area, proportionally contain, place three columns; labels use installed Microsoft YaHei. No source UI image retouching.",
+  "canvas": [
+    1800,
+    690
+  ],
+  "sources": [
+    {
+      "input": "runs/prototypes-final/A-desktop.png",
+      "sha256": "026d3a40e83474810cfb8741555cd8948eac06ca0f4994a86d1159d38308f54d",
+      "crop": [
+        195,
+        65,
+        1440,
+        1350
+      ],
+      "thumbnail_max": [
+        580,
+        600
+      ],
+      "position": [
+        10,
+        55
+      ]
+    },
+    {
+      "input": "runs/review-02/layers-final/G-desktop.png",
+      "sha256": "3a306184cc09ce79b1777305cffb0e7b71f5ea7182d20ef070319685075566a4",
+      "crop": [
+        195,
+        65,
+        1440,
+        1256
+      ],
+      "thumbnail_max": [
+        580,
+        600
+      ],
+      "position": [
+        610,
+        55
+      ]
+    },
+    {
+      "input": "runs/review-02/layers-final/H-desktop.png",
+      "sha256": "40f8ac99ec6a2cf9fcdf9f8c797b50958ec28aae9c42181ee250af0d2b023072",
+      "crop": [
+        195,
+        65,
+        1440,
+        1259
+      ],
+      "thumbnail_max": [
+        580,
+        600
+      ],
+      "position": [
+        1210,
+        55
+      ]
+    }
+  ]
+}
