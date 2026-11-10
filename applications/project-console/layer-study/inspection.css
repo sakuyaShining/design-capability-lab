@@ -1,0 +1,195 @@
+#task-tools > summary,
+#inspection-picker-label {
+  display: none;
+}
+
+[data-profile="I"] {
+  --inspection-hero: var(--dcl-shell);
+  --inspection-light: #f4faf5;
+  --inspection-accent: var(--dcl-accent);
+  --inspection-paper: #f5efdf;
+}
+
+[data-profile="I"][data-theme="dark"] {
+  --inspection-paper: #302c21;
+}
+
+[data-profile="I"] .shell { display: block; }
+[data-profile="I"] .navigation,
+[data-profile="I"] #profile-label { display: none; }
+[data-profile="I"] main { max-width: 1240px; padding: 24px 36px 36px; margin: 0 auto; }
+[data-profile="I"] .section-label { font-size: 13px; font-weight: 650; }
+[data-profile="I"] .experiment > a { color: var(--dcl-ink); }
+
+[data-profile="I"] #task-tools { margin: 10px 0 6px; }
+[data-profile="I"] #task-tools > summary {
+  display: list-item;
+  width: fit-content;
+  cursor: pointer;
+  color: var(--dcl-action);
+  font-weight: 650;
+  font-size: 13px;
+  padding: 9px 0;
+}
+[data-profile="I"] #task-tools[open] {
+  padding: 0 14px 14px;
+  background: var(--dcl-panel);
+  border: 1px solid var(--dcl-line);
+  border-radius: 6px;
+}
+[data-profile="I"] #task-tools .filters { margin: 10px 0; }
+[data-profile="I"] #inspection-picker-label { display: grid; gap: 4px; font-size: 12px; }
+#inspection-picker { width: 100%; min-width: 0; }
+
+.inspection-path {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 5px 9px;
+  min-height: 34px;
+  margin-bottom: 8px;
+  font-size: 12px;
+  color: var(--dcl-muted);
+}
+.inspection-path button {
+  min-height: 36px;
+  padding: 4px 9px;
+  border-color: var(--dcl-line);
+  color: var(--dcl-action);
+}
+.inspection-path [aria-current] {
+  color: var(--dcl-ink);
+  font-weight: 700;
+  letter-spacing: .04em;
+}
+.inspection-stage {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(165px, 23%);
+  gap: 22px;
+  align-items: end;
+  padding: clamp(22px, 4vw, 52px);
+  min-height: 228px;
+  border-radius: 12px;
+  border-bottom: 4px solid var(--inspection-accent);
+  background: var(--inspection-hero);
+  color: var(--inspection-light);
+  box-shadow: 0 12px 32px #0b291923;
+}
+[data-texture="on"] .inspection-stage.has-photo {
+  background-image: linear-gradient(90deg, #102820 0%, #102820 27%, #102820e8 52%, #10282074 100%), url('assets/electronics-workbench.png');
+  background-position: center, right 50%;
+  background-repeat: no-repeat;
+  background-size: cover, 79% auto;
+}
+.inspection-meta { display: flex; align-items: center; flex-wrap: wrap; gap: 8px 12px; font-size: 12px; }
+.inspection-meta > span:first-child { color: #d2e3d8; letter-spacing: .05em; }
+.inspection-stage h1 {
+  font-size: clamp(25px, 3.1vw, 45px);
+  line-height: 1.24;
+  margin-top: 14px;
+  overflow-wrap: anywhere;
+  text-wrap: pretty;
+}
+.inspection-stage h1:focus-visible { outline: 2px solid var(--inspection-accent); outline-offset: 5px; }
+.inspection-summary {
+  background: #091b15ed;
+  border: 1px solid #f1fae544;
+  padding: 12px 15px;
+  border-radius: 6px;
+}
+.inspection-summary p { color: #d8e6db; font-size: 12px; }
+.inspection-count { display: flex; gap: 9px; align-items: baseline; color: var(--inspection-accent); font-size: 13px; }
+.inspection-count strong { font-size: 44px; line-height: 1; font-variant-numeric: tabular-nums; }
+.inspection-meter { height: 4px; border-radius: 2px; margin: 10px 0; background: #796d4c; }
+.inspection-meter span { display: block; height: 100%; width: var(--satisfied); border-radius: inherit; background: #a9d7b6; }
+
+.inspection-work {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(215px, 24%);
+  gap: 23px;
+  margin-top: 26px;
+}
+.inspection-main { min-width: 0; }
+.inspection-section-head { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; margin-bottom: 12px; }
+.inspection-section-head h2 { font-size: 20px; }
+.inspection-section-head > span { color: var(--dcl-muted); font-size: 12px; }
+.inspection-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.inspection-item {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  min-width: 0;
+  background: var(--dcl-panel);
+  padding: 15px 17px;
+  border: 1px solid var(--dcl-line);
+  border-top: 3px solid #9a7332;
+  border-radius: 7px;
+  box-shadow: 0 3px 8px #122e1c0c;
+}
+.inspection-item-meta { display: flex; gap: 8px 10px; align-items: center; flex-wrap: wrap; color: var(--dcl-muted); font-size: 11px; }
+.inspection-item h3 { margin: 8px 0 4px; font-size: 17px; line-height: 1.45; overflow-wrap: anywhere; }
+.inspection-item p { color: var(--dcl-muted); font-size: 13px; margin-bottom: 13px; overflow-wrap: anywhere; }
+.inspection-item button {
+  background: var(--dcl-action);
+  color: var(--dcl-actionInk);
+  border: 1px solid transparent;
+  font-weight: 650;
+  margin-top: auto;
+  font-size: 13px;
+}
+.inspection-item button:hover { filter: brightness(1.12); }
+.inspection-item button span { margin-left: 9px; }
+.inspection-unavailable { font-size: 13px; color: var(--dcl-attention); }
+.inspection-complete { margin-top: 22px; border-top: 1px solid var(--dcl-line); padding-top: 11px; }
+.inspection-complete .inspection-section-head { margin-bottom: 4px; }
+.inspection-complete h2 { font-size: 15px; }
+.inspection-complete ul { list-style: none; padding: 0; margin: 0; }
+.inspection-complete li { display: flex; align-items: center; justify-content: space-between; gap: 10px; border-bottom: 1px solid var(--dcl-line); min-height: 44px; font-size: 13px; }
+.inspection-complete li > span { overflow-wrap: anywhere; }
+.inspection-complete li span[aria-hidden] { color: var(--dcl-done); margin-right: 7px; }
+.inspection-complete button { background: transparent; color: var(--dcl-action); border: 0; min-width: 62px; padding: 6px; white-space: nowrap; font-size: 12px; }
+.inspection-complete button:hover { text-decoration: underline; }
+.inspection-output {
+  align-self: start;
+  padding: 16px 18px;
+  background: var(--inspection-paper);
+  border: 1px solid var(--dcl-line);
+  border-left: 3px solid #9a7332;
+  border-radius: 5px;
+}
+.inspection-output h2 { font-size: 13px; color: var(--dcl-muted); margin-bottom: 7px; }
+.inspection-output p { font-size: 15px; overflow-wrap: anywhere; }
+.inspection-reason,
+.inspection-warning { padding: 18px 20px; margin-bottom: 16px; background: var(--dcl-attentionSoft); color: var(--dcl-attention); border-left: 4px solid #b57232; border-radius: 5px; overflow-wrap: anywhere; }
+.inspection-reason h2 { font-size: 13px; margin-bottom: 8px; }
+.inspection-reason p { font-size: clamp(19px, 3vw, 29px); font-weight: 650; line-height: 1.45; }
+.inspection-clear { background: var(--dcl-inset); padding: 14px 16px; border-radius: 5px; }
+.inspection-muted { font-size: 13px; color: var(--dcl-muted); margin-top: 14px; }
+
+@media (max-width: 780px) {
+  [data-profile="I"] main { padding: 18px 20px 26px; }
+  .inspection-work { grid-template-columns: 1fr; gap: 16px; }
+}
+
+@media (max-width: 620px) {
+  [data-profile="I"] .experiment { padding: 8px 12px; }
+  [data-profile="I"] .experiment > a { flex-basis: auto; margin-bottom: 0; }
+  [data-profile="I"] .experiment nav { flex: 0 0 auto; }
+  [data-profile="I"] .experiment nav button { padding-inline: 8px; }
+  [data-profile="I"] main { padding: 12px 14px 22px; }
+  [data-profile="I"] #task-tools { margin: 4px 0 1px; }
+  .inspection-path { min-height: 28px; margin-bottom: 5px; }
+  .inspection-stage { grid-template-columns: 1fr; gap: 13px; min-height: 0; padding: 17px; }
+  [data-texture="on"] .inspection-stage.has-photo {
+    background-image: linear-gradient(90deg, #102820 0%, #102820e8 54%, #102820ad 100%), url('assets/electronics-workbench.png');
+    background-size: cover, auto 100%;
+  }
+  .inspection-stage h1 { font-size: 25px; margin-top: 9px; }
+  .inspection-summary { display: flex; align-items: baseline; flex-wrap: wrap; gap: 8px 12px; padding: 0; border: 0; background: transparent; }
+  .inspection-count strong { font-size: 28px; }
+  .inspection-meter { display: none; }
+  .inspection-work { margin-top: 16px; }
+  .inspection-section-head h2 { font-size: 17px; }
+  .inspection-complete h2 { font-size: 15px; }
+  .inspection-grid { grid-template-columns: 1fr; }
+}

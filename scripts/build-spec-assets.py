@@ -1,8 +1,13 @@
 from pathlib import Path
-import json,sys
+import argparse
+import json
 
 ROOT=Path(__file__).resolve().parents[1]
 DIR=ROOT/'standards/interface-capability'
+parser = argparse.ArgumentParser()
+parser.add_argument('--check', action='store_true')
+parser.add_argument('--report', type=Path)
+args = parser.parse_args()
 data=json.loads((DIR/'tokens.json').read_text(encoding='utf-8'))
 rules=json.loads((DIR/'rules.json').read_text(encoding='utf-8'))['rules']
 required=['id','kind','status','version','problem','applies_when','avoid_when','decision','invariants','freedom','anti_pattern','evidence_path','evidence_ids','validation','limitations']
@@ -33,10 +38,13 @@ for profile,themes in data['profiles'].items():
             a,b=sorted([luminance(values[fg]),luminance(values[bg])])
             ratio=(b+.05)/(a+.05);assert ratio>=4.5,(profile,theme,fg,bg,ratio)
             contrasts.append({'profile':profile,'theme':theme,'pair':fg+'/'+bg,'ratio':round(ratio,2)})
-if '--check' in sys.argv:
+if args.check:
     assert (DIR/'tokens.css').read_text(encoding='utf-8')==css,'Regenerate tokens.css'
 else:(DIR/'tokens.css').write_text(css,encoding='utf-8',newline='\n')
 record={'date':'2026-11-11','rule_count':len(rules),'selected_token_contrasts':contrasts,'scope':'selected solid pairs only, not whole-page accessibility certification'}
-out=ROOT/'runs/review-02';out.mkdir(parents=True,exist_ok=True)
-(out/'spec-asset-check.json').write_text(json.dumps(record,indent=2)+'\n',encoding='utf-8')
+if args.report:
+    report = (ROOT / args.report).resolve()
+    assert report.is_relative_to(ROOT), 'Report must be inside the project'
+    report.parent.mkdir(parents=True, exist_ok=True)
+    report.write_text(json.dumps(record, indent=2)+'\n', encoding='utf-8')
 print(f'PASS {len(rules)} rule cards, {len(contrasts)} selected color pairs, CSS consistent')

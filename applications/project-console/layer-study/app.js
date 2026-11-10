@@ -11,12 +11,16 @@ window.Study=(()=>{
  };
  Object.assign(scenarios,window.EXTRA_CASES||{});
  const menu=document.getElementById('scenario');for(const [key,value] of Object.entries(scenarios)){if(![...menu.options].some(o=>o.value===key))menu.add(new Option(value.name,key));}
- const params=new URLSearchParams(location.search);const state={view:params.get('view')==='H'?'H':'G',scenario:scenarios[params.get('scenario')]?params.get('scenario'):'baseline',origin:'scheme',path:['scheme'],scope:'all',query:'',hideDone:false,warning:'',originScroll:0};
+ const params = new URLSearchParams(location.search);
+ const viewLabels = { G: 'G / 工作台', H: 'H / 研判页', I: 'I / 任务排查' };
+ const initialView = Object.hasOwn(viewLabels, params.get('view')) ? params.get('view') : 'I';
+ const initialScenario = Object.hasOwn(scenarios, params.get('scenario')) ? params.get('scenario') : 'baseline';
+ const state = {view:initialView, scenario:initialScenario, origin:'scheme', path:['scheme'], scope:'all', query:'', hideDone:false, warning:'', originScroll:0};
  let current=scenarios[state.scenario];state.origin=current.root;state.path=[current.root];
  const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
  const task=id=>current.tasks.find(t=>t.id===id)||{id,code:'?',title:'缺失的前置记录',project:'unknown',status:'引用缺失',deps:[],missing:true,output:'无法核对原对象，请修复来源引用。'};
  const deps=t=>t.deps.map(task),open=t=>deps(t).filter(d=>d.status!=='已完成');
- const project=id=>({ic:'集创赛',soc:'SoC / 系统',unknown:'未知项目'}[id]||id);
+ const project=id=>({ic:'集创赛',soc:'SoC / 系统',publishing:'资料发布',unknown:'未知项目'}[id]||id);
  const visible=()=>current.tasks.filter(t=>(state.scope==='all'||t.project===state.scope)&&(!state.query||(t.title+t.code).toLowerCase().includes(state.query.toLowerCase())));
  function findPath(from,to,seen=new Set()){if(from===to)return[from];if(seen.has(from))return null;seen.add(from);for(const id of task(from).deps){if(task(id).missing)continue;const tail=findPath(id,to,new Set(seen));if(tail)return[from,...tail];}return null;}
  function hasCycle(id,stack=new Set(),seen=new Set()){if(stack.has(id))return true;if(seen.has(id))return false;seen.add(id);stack.add(id);for(const dep of task(id).deps){if(!task(dep).missing&&hasCycle(dep,stack,seen))return true;}stack.delete(id);return false;}
@@ -26,8 +30,35 @@ window.Study=(()=>{
  const objectHead=t=>`<header class="object-head"><div class="identity"><span>${esc(t.code)} / ${esc(project(t.project))}</span>${badge(t)}${t.project!==task(state.origin).project?'<b>跨项目</b>':''}</div><h2 id="current-title" tabindex="-1">${esc(t.title)}</h2></header>`;
  function body(t){const all=deps(t),shown=all.filter(d=>!state.hideDone||d.status!=='已完成');return `${state.warning?`<div class="warning" role="alert"><b>发现循环，已停止这次下钻</b>${esc(state.warning)}</div>`:hasCycle(t.id)?'<div class="warning"><b>这条依赖链存在循环</b>请核对关系；循环不是可以完成的前置步骤。</div>':''}${t.reason?`<div class="warning"><b>人工标记的阻塞原因</b>${esc(t.reason)}</div>`:''}<div class="section-head"><h3>${state.view==='G'?'直接前置':'逐项核对原因'}</h3><small>显示 ${shown.length} / 全部 ${all.length}</small></div>${shown.map((d,i)=>`<article class="cause ${d.status==='已完成'?'is-done':d.reason||d.missing?'is-blocked':''}"><span class="cause-symbol" aria-hidden="true">${state.view==='H'?String(i+1).padStart(2,'0'):d.status==='已完成'?'✓':d.reason||d.missing?'!':'↗'}</span><div><small>${esc(d.code)} / ${esc(project(d.project))}</small><h3>${esc(d.title)}</h3><p>${d.reason?esc(d.reason):d.missing?'引用不可用，仍计入未满足前置。':d.status==='已完成'?'前置已完成，保留核对依据。':open(d).length?`下级还有 ${open(d).length} 项未完成前置。`:'没有下级前置，等待工作本身完成。'}</p>${badge(d)}</div><button data-act="follow" data-parent="${esc(t.id)}" data-id="${esc(d.id)}" ${d.missing?'disabled':''}>${d.missing?'无法查看':'查看前置 →'}</button></article>`).join('')}${!shown.length?`<p class="empty">${!all.length?'没有前置依赖。'+(t.reason?'人工阻塞仍需单独处理。':'仍需核对任务本身是否完成。'):'已完成前置被筛选隐藏；总数保持不变。'}</p>`:''}${state.view==='G'?`<div class="expected"><small>预期产出 / 未读取真实文件</small>${esc(t.output)}</div>`:''}`;}
  function picker(){const list=visible();return `<label class="origin-picker">切换排查的原任务<select id="origin-picker"><option value="" selected disabled>${list.length?'选择另一项任务':'没有匹配任务，当前路径仍保留'}</option>${list.map(t=>`<option value="${esc(t.id)}">${esc(t.code+' '+t.title)}</option>`).join('')}</select></label>`;}
+ function refreshProjectOptions() {
+  const scope = document.getElementById('scope');
+  const ids = [...new Set(current.tasks.map(item => item.project))];
+  if (!ids.includes(state.scope)) state.scope = 'all';
+  scope.replaceChildren(new Option('全部项目', 'all'), ...ids.map(id => new Option(project(id), id)));
+  scope.value = state.scope;
+ }
+ function refreshInspectionPicker() {
+  const picker = document.getElementById('inspection-picker');
+  const tasks = visible();
+  const prompt = new Option(tasks.length ? '选择任务' : '没有匹配任务', '');
+  prompt.disabled = true;
+  picker.replaceChildren(prompt, ...tasks.map(item => new Option(`${item.code} ${item.title}`, item.id)));
+  picker.value = tasks.some(item => item.id === state.origin) ? state.origin : '';
+ }
  function render(){
-  document.documentElement.dataset.profile=state.view;document.getElementById('profile-label').textContent=state.view==='G'?'G / 工作台':'H / 研判页';document.querySelectorAll('[data-view]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.view===state.view)));
+  document.documentElement.dataset.profile = state.view;
+  document.getElementById('profile-label').textContent = viewLabels[state.view];
+  document.getElementById('texture-label').textContent = state.view === 'I' ? '氛围图' : '背景纹理';
+  document.querySelectorAll('[data-view]').forEach(button => button.setAttribute('aria-pressed', String(button.dataset.view === state.view)));
+  if (state.view === 'I') {
+   refreshInspectionPicker();
+   document.getElementById('surface').innerHTML = window.renderInspection({
+    current: task(state.path.at(-1)), path: state.path, warning: state.warning,
+    hideDone: state.hideDone, task, deps, project, badge, esc, hasCycle,
+   });
+   return;
+  }
+  document.getElementById('task-tools').open = true;
   const t=task(state.path.at(-1)),origin=task(state.origin);const heading=`<header class="heading hero-pattern"><div><p class="kicker">${esc(project(origin.project))} / ${esc(origin.code)}</p><h1>${state.view==='G'?'让每一项前置，都有明确去向。':'先厘清原因，再决定下一步。'}</h1><p class="sub">为“${esc(origin.title)}”检查前置条件。</p></div>${completion(origin)}</header>`;
   document.getElementById('surface').innerHTML=heading+(state.view==='G'?`${route()}<div class="workspace"><details class="task-palette" ${innerWidth>620?'open':''}><summary>排查对象 / ${visible().length} 项</summary><div class="rail-list">${visible().length?visible().map(x=>`<button class="rail-item ${x.id===state.origin?'chosen':''}" data-act="origin" data-id="${esc(x.id)}"><small>${esc(x.code)} / ${esc(project(x.project))}</small>${esc(x.title)}</button>`).join(''):'<p class="empty">没有匹配任务。当前依赖仍保留。</p>'}</div></details><section class="work-focus">${objectHead(t)}<div class="body">${body(t)}</div></section></div>`:`${picker()}${route()}<div class="editorial"><section class="report-body">${objectHead(t)}<div class="body">${body(t)}</div></section><aside class="report-aside"><section class="origin-note"><small>这次排查要支持的工作</small><h3>${esc(origin.title)}</h3><button data-act="return">回到原任务 ↗</button></section><section class="paper-preview"><small>预期产物 / 内容摘要</small><h3>${esc(t.code)} 的成果要求</h3><p>${esc(t.output)}</p><small>此为样例文字，不是已生成文件预览。</small></section><p class="read-note">查看前置不会改变执行状态。<br>已查看的原因也不代表已解决。</p></aside></div>`);
  }
@@ -35,11 +66,26 @@ window.Study=(()=>{
  function follow(id,parent){if(task(id).missing||!task(parent).deps.includes(id))return false;if(state.path.includes(id)){state.warning=task(parent).title+'需要'+task(id).title+'，它已出现在当前路径。';render();document.querySelector('[role=alert]').focus?.();return false;}if(state.path.length===1)state.originScroll=scrollY;const index=state.path.indexOf(parent),prefix=index>=0?state.path.slice(0,index+1):findPath(state.origin,parent);if(!prefix)return false;state.path=[...prefix,id];state.warning='';render();focusContent();return true;}
  function origin(id){if(task(id).missing)return;state.origin=id;state.path=[id];state.warning='';state.originScroll=0;render();focusContent();}
  function back(){state.path=[state.origin];state.warning='';render();document.getElementById('current-title').focus({preventScroll:true});scrollTo(0,state.originScroll);}
- function loadScenario(value){current=value;state.origin=value.root;state.path=[value.root];state.warning='';state.originScroll=0;render();}
- document.addEventListener('click',e=>{const view=e.target.closest('[data-view]');if(view){state.view=view.dataset.view;history.replaceState(null,'',`?view=${state.view}&scenario=${state.scenario}`);render();return;}const b=e.target.closest('[data-act]');if(!b||b.disabled)return;const a=b.dataset.act;if(a==='follow')follow(b.dataset.id,b.dataset.parent);if(a==='origin')origin(b.dataset.id);if(a==='return')back();if(a==='ancestor'){state.path=state.path.slice(0,state.path.indexOf(b.dataset.id)+1);state.warning='';render();focusContent();}});
- document.addEventListener('change',e=>{if(e.target.id==='origin-picker')origin(e.target.value);});
+ function loadScenario(value) {
+  current = value;
+  state.origin = value.root;
+  state.path = [value.root];
+  state.warning = '';
+  state.originScroll = 0;
+  refreshProjectOptions();
+  render();
+ }
+ document.addEventListener('click',e=>{const view=e.target.closest('[data-view]');if(view){if(view.dataset.view!==state.view)document.getElementById('task-tools').open=false;state.view=view.dataset.view;history.replaceState(null,'',`?view=${state.view}&scenario=${state.scenario}`);render();return;}const b=e.target.closest('[data-act]');if(!b||b.disabled)return;const a=b.dataset.act;if(a==='follow')follow(b.dataset.id,b.dataset.parent);if(a==='origin')origin(b.dataset.id);if(a==='return')back();if(a==='ancestor'){state.path=state.path.slice(0,state.path.indexOf(b.dataset.id)+1);state.warning='';render();focusContent();}});
+ document.addEventListener('change', event => {
+  if (event.target.id === 'origin-picker') origin(event.target.value);
+  if (event.target.id === 'inspection-picker') {
+   document.getElementById('task-tools').open = false;
+   origin(event.target.value);
+  }
+ });
  document.getElementById('scenario').value=state.scenario;document.getElementById('scenario').onchange=e=>{state.scenario=e.target.value;loadScenario(scenarios[state.scenario]);};
  for(const [id,key,event] of [['scope','scope','change'],['query','query','input'],['done','hideDone','change']])document.getElementById(id).addEventListener(event,e=>{state[key]=e.target.type==='checkbox'?e.target.checked:e.target.value;render();});
  document.getElementById('theme').onclick=()=>{const d=document.documentElement;d.dataset.theme=d.dataset.theme==='dark'?'light':'dark';};document.getElementById('texture').onchange=e=>document.documentElement.dataset.texture=e.target.checked?'on':'off';
+ refreshProjectOptions();
  render();return{state,task,deps,open,visible,findPath,hasCycle,follow,origin,back,loadScenario,render,get current(){return current;}};
 })();
