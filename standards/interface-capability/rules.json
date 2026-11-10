@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "asset_version": "0.1",
+  "asset_version": "0.2",
   "updated_on": "2026-11-11",
   "scope": "task context, navigation and visual hierarchy; not a universal design system",
   "rules": [
@@ -38,15 +38,15 @@
       "problem": "用文字与空间形成节奏",
       "applies_when": "内容有目标、解释、对象和元数据",
       "avoid_when": "极少字段时不强凑标题层级",
-      "decision": "先突出业务目标与原因，再排列辅助信息；不让装饰编号抢占正文",
+      "decision": "以当前任务及其未满足前置作为首屏焦点。等权条目对齐，已满足项用紧凑记录回看。下钻时更新当前标题和计数，原任务留在路径中。",
       "invariants": "长标题不截去关键区别；元信息仍可读",
       "freedom": "字族、字号、行距、密度和图文比例由内容决定",
       "anti_pattern": "所有文本一个尺度，或用巨大口号挤占任务",
       "evidence_path": "cases/surface-hierarchy-comparison/case.md",
-      "evidence_ids": "V01-S03",
-      "validation": "检查长标题、放大文字、手机纵向成本和主动作可发现性",
+      "evidence_ids": "V01-S03,F01-S01,F01-S02,F01-S03",
+      "validation": "同一数据比较默认手机首屏、全部满足、人工阻塞和下钻。记录首个可用动作的位置，核对计数和视觉权重是否随当前对象变化。",
       "limitations": "文字比例是原创待审阅选择，不抄固定字号表",
-      "version": "0.1",
+      "version": "0.2",
       "status": "candidate",
       "evidence_refs": [
         {
@@ -54,6 +54,15 @@
           "manifest": "cases/surface-hierarchy-comparison/sources.json",
           "source_ids": [
             "V01-S03"
+          ]
+        },
+        {
+          "report": "cases/focused-workspaces/case.md",
+          "manifest": "cases/focused-workspaces/sources.json",
+          "source_ids": [
+            "F01-S01",
+            "F01-S02",
+            "F01-S03"
           ]
         }
       ]

@@ -1,0 +1,68 @@
+{
+  "schema_version": 1,
+  "case_id": "DCL-F01",
+  "status": "comparative_documentary_analysis_not_user_test",
+  "sources": [
+    {
+      "id": "F01-S01",
+      "url": "https://www.ableton.com/en/manual/session-view/",
+      "title": "Session View — Ableton Reference Manual Version 12",
+      "locator": "7.1 Session View Clips, 7.2 Tracks and Scenes, 7.3 The Track Status Fields, 7.4.1 Select on Launch",
+      "retrieved_on": "2026-11-11",
+      "kind": "official_manual_and_ui_examples",
+      "limits": "Static examples and documented desktop behavior. Custom clip colors and launch settings vary."
+    },
+    {
+      "id": "F01-S02",
+      "url": "https://grafana.com/docs/grafana/latest/visualizations/explore/logs-integration/",
+      "title": "Logs in Explore — Grafana documentation",
+      "locator": "Log details view, Fields, Links, Log details modes, Log context",
+      "retrieved_on": "2026-11-11",
+      "kind": "official_manual_and_ui_example",
+      "limits": "The latest documentation selector displayed v13.3 at lookup. The embedded image filename contains 9-4. Screenshot scope is the inline detail and data link. Split query behavior is documented text."
+    },
+    {
+      "id": "F01-S03",
+      "url": "https://helpx.adobe.com/lightroom-classic/desktop/process-and-develop-photos/masking.html",
+      "title": "Masking tool — Lightroom Classic",
+      "locator": "Select Subject, Masks overlay, Customize adjustment panels and sliders",
+      "retrieved_on": "2026-11-11",
+      "kind": "official_manual_and_ui_example",
+      "limits": "Official static subject-selection example. No complete live editing session or mask accuracy assessment."
+    }
+  ],
+  "assets": [
+    {
+      "file": "evidence/ableton-session.png",
+      "url": "https://ableton-production.imgix.net/live-manual/12/SessionViewSceneL12.png?auto=&w=640",
+      "source_id": "F01-S01",
+      "bytes": 49704,
+      "sha256": "ced2f2b68abefb801ea97d91da0051fff5143e62d85a4c02d4f79c2498644a29",
+      "transformation": "Official CDN width-640 rendition. No local edits."
+    },
+    {
+      "file": "evidence/ableton-group.png",
+      "url": "https://ableton-production.imgix.net/live-manual/12/GroupSlots.png?auto=&w=640",
+      "source_id": "F01-S01",
+      "bytes": 52102,
+      "sha256": "aa9b84dfde822fa55dee49c7d333823ed475639d6ca77688d97f98a515520708",
+      "transformation": "Official CDN width-640 rendition. No local edits."
+    },
+    {
+      "file": "evidence/grafana-data-link.png",
+      "url": "https://grafana.com/static/img/docs/explore/data-link-9-4.png",
+      "source_id": "F01-S02",
+      "bytes": 147323,
+      "sha256": "b0abcf2231ee26cbbdb5adcdc4a9f05091b31b7d7322cab987b1d2b0ea0ee412",
+      "transformation": "Unmodified official documentation image."
+    },
+    {
+      "file": "evidence/lightroom-subject.jpg",
+      "url": "https://helpx-prod.scene7.com/is/image/HelpxProd/select_subject_masking-new?%24png%24=&jpegSize=200&wid=791",
+      "source_id": "F01-S03",
+      "bytes": 61220,
+      "sha256": "9b56ffaa7197df6d45de948b2fcfe3f5f846e8bca14815db84639f8e2e6bd29f",
+      "transformation": "Unmodified official CDN response. The server returned JPEG for this request."
+    }
+  ]
+}
