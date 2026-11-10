@@ -1,0 +1,261 @@
+{
+  "date": "2026-11-11",
+  "method": "local SHA256/size, component headings, link targets, node syntax; no source truth or human UX claim",
+  "cases": [
+    {
+      "case": "DCL-C09",
+      "four_components": true
+    },
+    {
+      "case": "DCL-C05",
+      "four_components": true
+    },
+    {
+      "case": "DCL-C01",
+      "four_components": true
+    },
+    {
+      "case": "DCL-C07",
+      "four_components": true
+    },
+    {
+      "case": "DCL-C10",
+      "four_components": true
+    },
+    {
+      "case": "DCL-C08",
+      "four_components": true
+    },
+    {
+      "case": "DCL-C06",
+      "four_components": true
+    },
+    {
+      "case": "DCL-C03",
+      "four_components": true
+    },
+    {
+      "case": "DCL-C02",
+      "four_components": true
+    },
+    {
+      "case": "DCL-C04",
+      "four_components": true
+    }
+  ],
+  "media_records_checked": 51,
+  "assets": [
+    {
+      "file": "cases\\endfield-blueprint-placement\\evidence\\blueprint-selected.png",
+      "hash_and_size": true
+    },
+    {
+      "file": "cases\\endfield-blueprint-placement\\evidence\\blueprint-placement.png",
+      "hash_and_size": true
+    },
+    {
+      "file": "cases\\endfield-blueprint-placement\\evidence\\blueprint-open.mp4",
+      "hash_and_size": true
+    },
+    {
+      "file": "cases\\endfield-blueprint-placement\\evidence\\open-frames\\t0-000.png",
+      "hash_and_size": true
+    },
+    {
+      "file": "cases\\endfield-blueprint-placement\\evidence\\open-frames\\t2-070.png",
+      "hash_and_size": true
+    },
+    {
+      "file": "cases\\endfield-blueprint-placement\\evidence\\open-frames\\t4-140.png",
+      "hash_and_size": true
+    },
+    {
+      "file": "cases\\endfield-blueprint-placement\\evidence\\open-frames\\t6-209.png",
+      "hash_and_size": true
+    },
+    {
+      "file": "cases\\endfield-blueprint-placement\\evidence\\open-frames\\t8-279.png",
+      "hash_and_size": true
+    },
+    {
+      "file": "cases\\endfield-blueprint-placement\\evidence\\result-frames\\t10-300.png",
+      "hash_and_size": true
+    },
+    {
+      "file": "cases\\endfield-blueprint-placement\\evidence\\result-frames\\t9-000.png",
+      "hash_and_size": true
+    },
+    {
+      "file": "cases\\endfield-blueprint-placement\\evidence\\result-frames\\t9-700.png",
+      "hash_and_size": true
+    },
+    {
+      "file": "cases\\endfield-inventory-filter\\evidence\\frame-0.png",
+      "hash_and_size": true
+    },
+    {
+      "file": "cases\\endfield-inventory-filter\\evidence\\frame-16.png",
+      "hash_and_size": true
+    },
+    {
+      "file": "cases\\endfield-inventory-filter\\evidence\\frame-25.png",
+      "hash_and_size": true
+    },
+    {
+      "file": "cases\\endfield-inventory-filter\\evidence\\frame-32.png",
+      "hash_and_size": true
+    },
+    {
+      "file": "cases\\endfield-inventory-filter\\evidence\\frame-8.png",
+      "hash_and_size": true
+    },
+    {
+      "file": "cases\\endfield-inventory-filter\\evidence\\quick-stash-official.gif",
+      "hash_and_size": true
+    },
+    {
+      "file": "cases\\endfield-map-navigation\\evidence\\official-layered-map-20251101.jpg",
+      "hash_and_size": true
+    },
+    {
+      "file": "cases\\endfield-map-navigation\\evidence\\official-map-zipline-20260302.png",
+      "hash_and_size": true
+    },
+    {
+      "file": "cases\\endfield-map-navigation\\evidence\\gamewith-map-entry.png",
+      "hash_and_size": true
+    },
+    {
+      "file": "cases\\endfield-map-navigation\\evidence\\gamewith-map-target.png",
+      "hash_and_size": true
+    },
+    {
+      "file": "cases\\endfield-map-navigation\\evidence\\gamewith-map-marker.png",
+      "hash_and_size": true
+    },
+    {
+      "file": "cases\\endfield-material-shortage\\evidence\\resource-location-gamewith.png",
+      "hash_and_size": true
+    },
+    {
+      "file": "cases\\endfield-material-shortage\\evidence\\skill-upgrade-gamewith.png",
+      "hash_and_size": true
+    },
+    {
+      "file": "cases\\endfield-overview-selection\\evidence\\top-view.png",
+      "hash_and_size": true
+    },
+    {
+      "file": "cases\\endfield-overview-selection\\evidence\\stash-mode.png",
+      "hash_and_size": true
+    },
+    {
+      "file": "cases\\endfield-overview-selection\\evidence\\connected-remain.png",
+      "hash_and_size": true
+    },
+    {
+      "file": "cases\\endfield-overview-selection\\evidence\\facility-select.mp4",
+      "hash_and_size": true
+    },
+    {
+      "file": "cases\\endfield-overview-selection\\evidence\\official-overlap-selection.png",
+      "hash_and_size": true
+    },
+    {
+      "file": "cases\\endfield-overview-selection\\evidence\\frames\\t0-000.png",
+      "hash_and_size": true
+    },
+    {
+      "file": "cases\\endfield-overview-selection\\evidence\\frames\\t0-587.png",
+      "hash_and_size": true
+    },
+    {
+      "file": "cases\\endfield-overview-selection\\evidence\\frames\\t1-173.png",
+      "hash_and_size": true
+    },
+    {
+      "file": "cases\\endfield-overview-selection\\evidence\\frames\\t1-760.png",
+      "hash_and_size": true
+    },
+    {
+      "file": "cases\\endfield-overview-selection\\evidence\\frames\\t2-347.png",
+      "hash_and_size": true
+    },
+    {
+      "file": "cases\\endfield-overview-selection\\evidence\\frames-v2\\t0-000.png",
+      "hash_and_size": true
+    },
+    {
+      "file": "cases\\endfield-overview-selection\\evidence\\frames-v2\\t0-587.png",
+      "hash_and_size": true
+    },
+    {
+      "file": "cases\\endfield-overview-selection\\evidence\\frames-v2\\t1-173.png",
+      "hash_and_size": true
+    },
+    {
+      "file": "cases\\endfield-overview-selection\\evidence\\frames-v2\\t1-760.png",
+      "hash_and_size": true
+    },
+    {
+      "file": "cases\\endfield-overview-selection\\evidence\\frames-v2\\t2-347.png",
+      "hash_and_size": true
+    },
+    {
+      "file": "cases\\endfield-production-diagnosis\\evidence\\smart-recipe.jpg",
+      "hash_and_size": true
+    },
+    {
+      "file": "cases\\endfield-production-diagnosis\\evidence\\power-error.png",
+      "hash_and_size": true
+    },
+    {
+      "file": "cases\\endfield-production-diagnosis\\evidence\\idle-state.png",
+      "hash_and_size": true
+    },
+    {
+      "file": "cases\\endfield-production-diagnosis\\evidence\\power-details.png",
+      "hash_and_size": true
+    },
+    {
+      "file": "cases\\endfield-tech-prerequisite\\evidence\\tech-node-appmedia.webp",
+      "hash_and_size": true
+    },
+    {
+      "file": "cases\\endfield-tech-prerequisite\\evidence\\tech-stage-appmedia.webp",
+      "hash_and_size": true
+    },
+    {
+      "file": "cases\\operator-identity\\evidence\\operator-overview.jpg",
+      "hash_and_size": true
+    },
+    {
+      "file": "cases\\operator-identity\\evidence\\operator-attributes.jpg",
+      "hash_and_size": true
+    },
+    {
+      "file": "cases\\task-tracking\\evidence\\task-list.jpg",
+      "hash_and_size": true
+    },
+    {
+      "file": "cases\\weapon-comparison\\evidence\\menu.png",
+      "hash_and_size": true
+    },
+    {
+      "file": "cases\\weapon-comparison\\evidence\\weapon-details.png",
+      "hash_and_size": true
+    },
+    {
+      "file": "cases\\weapon-comparison\\evidence\\weapon-materials.png",
+      "hash_and_size": true
+    }
+  ],
+  "unregistered_case_media": [],
+  "local_links_checked": 142,
+  "javascript_files_checked": 8,
+  "font_matches_product_source": [
+    "D:\\Dev\\projects\\project-console\\.sites-checkout\\public\\fonts\\Saira.ttf"
+  ],
+  "errors": [],
+  "passed": true
+}

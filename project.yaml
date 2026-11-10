@@ -1,0 +1,104 @@
+project:
+  id: DCL-001
+  name: Design Capability Lab
+  version: 0.3
+  type: applied_design_research
+  status: prototype_review_with_partial_research
+
+objective:
+  primary: >
+    Develop an Agent's UI and art-style design capabilities
+    by extracting transferable design principles from mature
+    products and applying them to novel interface problems.
+
+relationships:
+  first_usage_scenario:
+    project: project-console
+    name: 项目总控台
+    relationship: independent_project_using_design_capabilities
+    entry: D:/Dev/projects/project-console/README.md
+
+research:
+  study_plan:
+    id: DCL-RP01
+    entry: docs/ten-case-study-plan.md
+    target_cases: 10
+    includes_existing_case: true
+    source_products: 1
+    style_instances: 1
+    status: documentary_analysis_complete_original_workflows_partial
+    documentary_reports: 10
+    accepted_complete_workflows: 0
+    synthesis: docs/research-synthesis.md
+  case:
+    id: DCL-C01
+    entry: cases/endfield-map-navigation/case.md
+    observation_flow: open_map_select_target_return_to_action
+    style_family: 鹰角美术风格
+    product: Arknights Endfield
+    domain: game_ui
+    focus:
+      - visual_hierarchy
+      - wayfinding
+      - interaction_design
+      - motion_design
+
+  transfer:
+    target_project: project-console
+    domain: project_management
+    task: task_blocker_and_dependency_navigation
+    overall_product_plan: D:/Dev/projects/project-console/.sites-checkout/planning/overall-plan.md
+    prototype_entry: applications/project-console/prototypes/index.html
+    prototype_variants: 6
+    prototype_rounds: 3
+    evaluation: applications/project-console/evaluation-results.md
+    validation: agent_checks_with_synthetic_data
+    human_usability_validation: not_performed
+
+change_policy:
+  file_changes: scoped_local_git_commits
+  product_mutations: draft_revision_check_atomic_commit_compensating_undo
+  product_mutations_status: planned_not_implemented
+
+method:
+  - collect_evidence
+  - analyze_case
+  - extract_principles
+  - generate_alternative_designs
+  - build_prototype
+  - evaluate_results
+
+deliverables:
+  - case_study_report
+  - candidate_design_principles
+  - alternative_wireframes
+  - interactive_prototype
+  - evaluation_report
+
+constraints:
+  scope: ten_case_research_cycle
+  max_cases: 10
+  max_transfer_tasks: 1
+
+non_goals:
+  - universal_design_system
+  - large_case_database
+  - custom_agent_framework
+  - model_fine_tuning
+  - production_ready_ui
+
+acceptance_criteria:
+  - evidence_traceability
+  - principle_transferability
+  - interaction_usability
+  - visual_quality
+  - design_originality
+
+next_action:
+  id: DCL-001-T02
+  title: Review six structural alternatives and their tradeoffs
+  status: awaiting_design_review
+research_gap:
+  id: DCL-001-T01
+  title: Complete original-workflow evidence where reliable material becomes available
+  status: partial_no_user_recordings_available
