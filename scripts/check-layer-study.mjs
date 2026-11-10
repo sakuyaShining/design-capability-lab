@@ -1,0 +1,36 @@
+import fs from 'node:fs';import path from 'node:path';import crypto from 'node:crypto';import {pathToFileURL} from 'node:url';
+const {chromium}=await import(pathToFileURL('C:/Users/Sakuya/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright/index.mjs'));
+const output=process.argv[2]||'runs/review-02/layers';fs.mkdirSync(output,{recursive:true});
+const browser=await chromium.launch({headless:true,executablePath:'C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe'});const results=[];const url='http://127.0.0.1:5198/applications/project-console/layer-study/';
+const expect=(ok,text)=>{if(!ok)throw Error(text);};
+try{for(const view of ['G','H']){
+ const page=await browser.newPage({viewport:{width:1440,height:1050}});const errors=[];page.on('pageerror',e=>errors.push(e.message));await page.goto(url+'?view='+view);await page.locator('#current-title').waitFor();await page.evaluate(()=>document.fonts.ready);await page.waitForTimeout(220);
+ await page.screenshot({path:path.join(output,view+'-desktop.png'),fullPage:true});
+ expect(await page.evaluate(()=>Study.open(Study.task('scheme')).length)===2,'baseline count');
+ await page.locator('#scope').selectOption('ic');await page.locator('#query').fill('方案');
+ await page.locator('[data-act="follow"][data-parent="scheme"][data-id="direction"]').click();await page.locator('[data-act="follow"][data-parent="direction"][data-id="mentor"]').click();expect((await page.locator('#surface').innerText()).includes('等待校内负责人的确认'),'manual reason');
+ const focused=await page.evaluate(()=>document.activeElement.id==='current-title');expect(focused,'detail focus');await page.locator('[data-act="return"]').first().focus();await page.keyboard.press('Enter');expect(await page.evaluate(()=>Study.state.origin==='scheme'&&Study.state.path.join()==='scheme'&&Study.state.scope==='ic'&&Study.state.query==='方案'),'return context');
+ await page.locator('#scope').selectOption('all');await page.locator('#query').fill('');await page.locator('#done').check();expect(await page.locator('#surface .cause').count()===2,'hide complete');await page.locator('#done').uncheck();
+ const situations=[];for(const scenario of ['clear','manual','missing','cycle','dense']){
+  await page.locator('#scenario').selectOption(scenario);const info=await page.evaluate(()=>({id:Study.state.origin,count:Study.deps(Study.task(Study.state.origin)).length,open:Study.open(Study.task(Study.state.origin)).length,status:Study.task(Study.state.origin).status}));
+  if(scenario==='clear')expect(info.open===0&&info.status==='待开始','satisfied != done');
+  if(scenario==='manual')expect(info.count===0&&(await page.locator('#surface').innerText()).includes('人工标记'),'manual no deps');
+  if(scenario==='missing')expect(info.count===4&&info.open===3&&await page.locator('.cause button:disabled').count()===1,'missing counted');
+  if(scenario==='dense')expect(info.count===14&&await page.locator('.cause').count()===14,'dense omitted');
+  if(scenario==='cycle'){await page.locator('[data-act="follow"][data-id="b"]').click();await page.locator('[data-act="follow"][data-id="c"]').click();await page.locator('[data-act="follow"][data-id="a"]').click();expect(await page.evaluate(()=>Study.state.path.join()==='a,b,c'&&!!Study.state.warning),'cycle stop');}
+  situations.push({scenario,...info});
+ }
+ await page.locator('#scenario').selectOption('baseline');await page.locator('#query').fill('不存在的对象');expect(await page.evaluate(()=>Study.visible().length===0&&Study.deps(Study.task('scheme')).length===3),'empty loses dependency');await page.locator('#query').fill('');
+ const targets=await page.locator('.cause button').evaluateAll(nodes=>nodes.map(n=>n.getBoundingClientRect().height));expect(targets.every(h=>h>=44),'primary target size');
+ const sizes=[];for(const width of [375,768,1024,1440]){await page.setViewportSize({width,height:900});for(const theme of ['light','dark']){await page.evaluate(t=>document.documentElement.dataset.theme=t,theme);expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),view+' overflow '+width);sizes.push({width,theme,overflow:false});}}
+ await page.screenshot({path:path.join(output,view+'-dark.png'),fullPage:true});await page.evaluate(()=>document.documentElement.dataset.theme='light');await page.setViewportSize({width:390,height:844});await page.emulateMedia({reducedMotion:'reduce'});await page.screenshot({path:path.join(output,view+'-mobile.png'),fullPage:true});expect(await page.locator('.work-focus,.report-body').first().evaluate(n=>getComputedStyle(n).animationName)==='none','reduced motion');
+ await page.setViewportSize({width:1440,height:1050});const before=await page.locator('#surface').innerText();await page.locator('#texture').uncheck();expect(await page.locator('#surface').innerText()===before,'texture changed info');await page.screenshot({path:path.join(output,view+'-no-texture.png'),fullPage:true});
+ const holdoutAvailable=await page.locator('#scenario option[value="holdout"]').count()>0;let holdout=null;
+ if(holdoutAvailable){await page.locator('#scenario').selectOption('holdout');expect(await page.evaluate(()=>Study.state.origin==='release/check'&&Study.open(Study.task('release/check')).length===2),'held-out root');await page.locator('[data-act="follow"][data-id="rights"]').click();await page.locator('[data-act="follow"][data-id="font"]').click();expect(await page.evaluate(()=>Study.state.path.join()==='release/check,rights,font'),'heldout path');expect(await page.locator('#surface script').count()===0,'escaped content');await page.locator('[data-act="return"]').first().click();holdout={root:'release/check',unmet:2,shared_prerequisite:'font',path_and_return:true,escaped_content:true};}
+ expect(errors.length===0,errors.join(';'));results.push({view,baseline_flow:true,return_context:true,keyboard_return:true,content_heading_focus:focused,situations,empty_keeps_dependencies:true,primary_targets_at_least_44:targets.every(h=>h>=44),sizes,reduced_motion:true,texture_removes_no_content:true,holdout,page_errors:errors});await page.close();
+ }
+ // The offline entry is also a supported deliverable.
+ const offline=await browser.newPage();const offlineErrors=[];offline.on('pageerror',e=>offlineErrors.push(e.message));await offline.goto(pathToFileURL(path.resolve('applications/project-console/layer-study/index.html')).href);await offline.locator('#current-title').waitFor();await offline.locator('[data-view="H"]').click();expect(await offline.evaluate(()=>Study.state.view==='H'),'offline switch');expect(!offlineErrors.length,'offline errors');await offline.close();
+ const files=['applications/project-console/layer-study/index.html','applications/project-console/layer-study/app.js','applications/project-console/layer-study/style.css','standards/interface-capability/tokens.css'];const hashes=Object.fromEntries(files.map(p=>[p,crypto.createHash('sha256').update(fs.readFileSync(p)).digest('hex')]));
+ fs.writeFileSync(path.join(output,'verification.json'),JSON.stringify({date:'2026-11-11',method:'isolated Edge; synthetic situations; no human UX or aesthetic score',results,offline:true,implementation_hashes:hashes},null,2));console.log('PASS G/H: navigation, 6 situations each, 16 viewport-theme combinations, offline and texture control');
+}finally{await browser.close();}

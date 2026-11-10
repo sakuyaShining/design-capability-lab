@@ -1,0 +1,12 @@
+{
+  "date": "2026-11-11",
+  "purpose": "Freeze implementation before adding a separate held-out data scenario. Not blind or independent human validation.",
+  "implementation_hashes": {
+    "applications/project-console/layer-study/index.html": "e2a89b1fdb0616c0c40a70129aa7c7263efc4633f540566590efd5d2030f2958",
+    "applications/project-console/layer-study/app.js": "f81f198865f5c777261e2cdcd42c32346a7fb1127073c0a0f45cc29d0feca8c0",
+    "applications/project-console/layer-study/style.css": "488dfdfc9aeb8b8fd06e89291439c32816984084bb5f334d02b975dfb794686a",
+    "standards/interface-capability/tokens.css": "f41c3919b98f0bb2001c5640dfd3f255602675422e73793138c07b0eac7b3d84"
+  },
+  "extra_cases_before": "ad43b015eddcd7e9535c59c0f1af8135c3ba5b6491c1a8c04ed7bb0d2c468feb",
+  "policy": "After freeze, change only additional scenario data and verification/report artifacts; if implementation changes, invalidate this comparison and record a new freeze."
+}

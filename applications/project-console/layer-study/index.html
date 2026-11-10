@@ -1,0 +1,12 @@
+<!doctype html>
+<html lang="zh-CN" data-profile="G" data-theme="light" data-texture="on">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>任务依赖 · 层次与表达实验</title>
+<link rel="stylesheet" href="../../../standards/interface-capability/tokens.css"><link rel="stylesheet" href="style.css">
+<body>
+<a class="skip" href="#content">跳到工作内容</a>
+<header class="experiment"><a href="../README.md">DCL / 本地设计实验</a><nav aria-label="表达方案"><button data-view="G" aria-pressed="true">G 工作台</button><button data-view="H" aria-pressed="false">H 研判页</button></nav><label>样例<select id="scenario"><option value="baseline">多项前置</option><option value="clear">前置全部满足</option><option value="manual">人工阻塞</option><option value="missing">缺失引用</option><option value="cycle">循环关系</option><option value="dense">多分支与长标题</option></select></label><button id="theme">切换深浅</button><label class="toggle"><input type="checkbox" id="texture" checked>背景纹理</label></header>
+<div class="shell"><aside class="navigation"><a class="wordmark" href="../README.md"><span class="mark" aria-hidden="true">↗</span><span>项目<br><b>总控台</b></span></a><div class="navlinks"><span>工作</span><span>项目</span><strong aria-current="page">任务依赖 <b>↗</b></strong><span>资料</span><span>记录</span></div><div class="nav-foot"><span class="live-dot"></span>本地合成数据<p>查看与排查<br>不会修改任务状态。</p><a href="../prototypes/index.html">查看 A—F 基线 →</a></div></aside>
+<main id="content" tabindex="-1"><div class="section-label"><span>工作 / 任务依赖</span><span id="profile-label">工作台</span></div><div class="filters"><label>项目范围<select id="scope"><option value="all">全部项目</option><option value="ic">集创赛</option><option value="soc">SoC / 系统</option></select></label><label class="search">查找对象<input id="query" type="search" placeholder="名称或编号"></label><label class="toggle"><input id="done" type="checkbox">隐藏已满足前置</label></div><section id="surface" aria-label="任务依赖工作区"></section><p id="announce" class="sr" role="status" aria-live="polite"></p><footer>当前任务需要前置完成。执行状态、人工阻塞和依赖满足情况分别记录。<br>数据为设计实验样例，预期产出不代表已有文件。</footer></main></div>
+<script src="../prototypes/data.js"></script><script src="extra-cases.js"></script><script src="app.js"></script>
+</body></html>
