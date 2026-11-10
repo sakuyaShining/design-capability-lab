@@ -1,0 +1,295 @@
+{
+  "date": "2026-11-11",
+  "rule_count": 9,
+  "selected_token_contrasts": [
+    {
+      "profile": "G",
+      "theme": "light",
+      "pair": "ink/panel",
+      "ratio": 14.13
+    },
+    {
+      "profile": "G",
+      "theme": "light",
+      "pair": "muted/panel",
+      "ratio": 5.84
+    },
+    {
+      "profile": "G",
+      "theme": "light",
+      "pair": "ink/ground",
+      "ratio": 11.98
+    },
+    {
+      "profile": "G",
+      "theme": "light",
+      "pair": "muted/inset",
+      "ratio": 5.27
+    },
+    {
+      "profile": "G",
+      "theme": "light",
+      "pair": "accentInk/accent",
+      "ratio": 10.15
+    },
+    {
+      "profile": "G",
+      "theme": "light",
+      "pair": "actionInk/action",
+      "ratio": 7.45
+    },
+    {
+      "profile": "G",
+      "theme": "light",
+      "pair": "attention/attentionSoft",
+      "ratio": 6.47
+    },
+    {
+      "profile": "G",
+      "theme": "light",
+      "pair": "done/doneSoft",
+      "ratio": 6.64
+    },
+    {
+      "profile": "G",
+      "theme": "dark",
+      "pair": "ink/panel",
+      "ratio": 11.03
+    },
+    {
+      "profile": "G",
+      "theme": "dark",
+      "pair": "muted/panel",
+      "ratio": 7.38
+    },
+    {
+      "profile": "G",
+      "theme": "dark",
+      "pair": "ink/ground",
+      "ratio": 14.31
+    },
+    {
+      "profile": "G",
+      "theme": "dark",
+      "pair": "muted/inset",
+      "ratio": 8.35
+    },
+    {
+      "profile": "G",
+      "theme": "dark",
+      "pair": "accentInk/accent",
+      "ratio": 10.15
+    },
+    {
+      "profile": "G",
+      "theme": "dark",
+      "pair": "actionInk/action",
+      "ratio": 7.7
+    },
+    {
+      "profile": "G",
+      "theme": "dark",
+      "pair": "attention/attentionSoft",
+      "ratio": 6.9
+    },
+    {
+      "profile": "G",
+      "theme": "dark",
+      "pair": "done/doneSoft",
+      "ratio": 7.42
+    },
+    {
+      "profile": "H",
+      "theme": "light",
+      "pair": "ink/panel",
+      "ratio": 13.43
+    },
+    {
+      "profile": "H",
+      "theme": "light",
+      "pair": "muted/panel",
+      "ratio": 6.1
+    },
+    {
+      "profile": "H",
+      "theme": "light",
+      "pair": "ink/ground",
+      "ratio": 11.2
+    },
+    {
+      "profile": "H",
+      "theme": "light",
+      "pair": "muted/inset",
+      "ratio": 5.41
+    },
+    {
+      "profile": "H",
+      "theme": "light",
+      "pair": "accentInk/accent",
+      "ratio": 7.43
+    },
+    {
+      "profile": "H",
+      "theme": "light",
+      "pair": "actionInk/action",
+      "ratio": 8.44
+    },
+    {
+      "profile": "H",
+      "theme": "light",
+      "pair": "attention/attentionSoft",
+      "ratio": 6.0
+    },
+    {
+      "profile": "H",
+      "theme": "light",
+      "pair": "done/doneSoft",
+      "ratio": 6.23
+    },
+    {
+      "profile": "H",
+      "theme": "dark",
+      "pair": "ink/panel",
+      "ratio": 10.8
+    },
+    {
+      "profile": "H",
+      "theme": "dark",
+      "pair": "muted/panel",
+      "ratio": 7.1
+    },
+    {
+      "profile": "H",
+      "theme": "dark",
+      "pair": "ink/ground",
+      "ratio": 12.77
+    },
+    {
+      "profile": "H",
+      "theme": "dark",
+      "pair": "muted/inset",
+      "ratio": 7.74
+    },
+    {
+      "profile": "H",
+      "theme": "dark",
+      "pair": "accentInk/accent",
+      "ratio": 7.43
+    },
+    {
+      "profile": "H",
+      "theme": "dark",
+      "pair": "actionInk/action",
+      "ratio": 7.67
+    },
+    {
+      "profile": "H",
+      "theme": "dark",
+      "pair": "attention/attentionSoft",
+      "ratio": 6.73
+    },
+    {
+      "profile": "H",
+      "theme": "dark",
+      "pair": "done/doneSoft",
+      "ratio": 6.58
+    },
+    {
+      "profile": "I",
+      "theme": "light",
+      "pair": "ink/panel",
+      "ratio": 14.18
+    },
+    {
+      "profile": "I",
+      "theme": "light",
+      "pair": "muted/panel",
+      "ratio": 6.51
+    },
+    {
+      "profile": "I",
+      "theme": "light",
+      "pair": "ink/ground",
+      "ratio": 12.46
+    },
+    {
+      "profile": "I",
+      "theme": "light",
+      "pair": "muted/inset",
+      "ratio": 5.56
+    },
+    {
+      "profile": "I",
+      "theme": "light",
+      "pair": "accentInk/accent",
+      "ratio": 8.8
+    },
+    {
+      "profile": "I",
+      "theme": "light",
+      "pair": "actionInk/action",
+      "ratio": 8.67
+    },
+    {
+      "profile": "I",
+      "theme": "light",
+      "pair": "attention/attentionSoft",
+      "ratio": 7.51
+    },
+    {
+      "profile": "I",
+      "theme": "light",
+      "pair": "done/doneSoft",
+      "ratio": 6.62
+    },
+    {
+      "profile": "I",
+      "theme": "dark",
+      "pair": "ink/panel",
+      "ratio": 12.52
+    },
+    {
+      "profile": "I",
+      "theme": "dark",
+      "pair": "muted/panel",
+      "ratio": 7.89
+    },
+    {
+      "profile": "I",
+      "theme": "dark",
+      "pair": "ink/ground",
+      "ratio": 14.79
+    },
+    {
+      "profile": "I",
+      "theme": "dark",
+      "pair": "muted/inset",
+      "ratio": 6.91
+    },
+    {
+      "profile": "I",
+      "theme": "dark",
+      "pair": "accentInk/accent",
+      "ratio": 8.8
+    },
+    {
+      "profile": "I",
+      "theme": "dark",
+      "pair": "actionInk/action",
+      "ratio": 8.61
+    },
+    {
+      "profile": "I",
+      "theme": "dark",
+      "pair": "attention/attentionSoft",
+      "ratio": 9.53
+    },
+    {
+      "profile": "I",
+      "theme": "dark",
+      "pair": "done/doneSoft",
+      "ratio": 7.4
+    }
+  ],
+  "scope": "selected solid pairs only, not whole-page accessibility certification"
+}

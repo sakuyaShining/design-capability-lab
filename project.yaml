@@ -1,7 +1,7 @@
 project:
   id: DCL-001
   name: Design Capability Lab
-  version: 0.4
+  version: 0.5
   type: applied_design_research
   status: reusable_asset_and_visual_review
 
@@ -51,7 +51,7 @@ research:
     prototype_entry: applications/project-console/prototypes/index.html
     structural_variants: 6
     structural_rounds: 3
-    visual_experiments: 2
+    visual_experiments: 3
     visual_entry: applications/project-console/layer-study/index.html
     evaluation: applications/project-console/evaluation-results.md
     validation: agent_checks_with_synthetic_data
@@ -62,11 +62,13 @@ research:
     workflow_families: [GitHub, Blender, GOV_UK]
     visual_guidance_entry: cases/surface-hierarchy-comparison/case.md
     visual_guidance_families: [Carbon, Atlassian, Material]
+    focused_workspace_entry: cases/focused-workspaces/case.md
+    focused_workspace_families: [Ableton_Live, Grafana_Explore, Lightroom_Classic]
     normative_reference: W3C_WCAG22
     status: documentary_comparison_not_independent_usability_validation
   reusable_assets:
     entry: standards/interface-capability/README.md
-    version: 0.1
+    version: 0.2
     rule_cards: 9
     visual_status: candidate
     review: docs/review-02.md
@@ -94,7 +96,7 @@ deliverables:
 constraints:
   scope: problem_driven_cross_product_comparison
   initial_endfield_cases: 10
-  additional_workflow_comparisons: 3
+  additional_workflow_comparisons: 6
   visual_guidance_comparisons: 3
   max_transfer_tasks: 1
 
@@ -114,7 +116,7 @@ acceptance_criteria:
 
 next_action:
   id: DCL-001-T02
-  title: Review reusable rule applicability and layered visual experiments
+  title: Review I task inspection and visual hierarchy in use
   status: awaiting_design_review
 research_gap:
   id: DCL-001-T01

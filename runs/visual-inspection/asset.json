@@ -1,0 +1,9 @@
+{
+  "date": "2026-11-11",
+  "asset": "applications/project-console/layer-study/assets/electronics-workbench.png",
+  "method": "Built-in ImageGen, copied without modification",
+  "prompt": "Wide landscape 3:2 realistic editorial photograph intended as a muted decorative background crop for an industrial electronics project workbench app. Tight closeup of an unbranded green printed circuit board with one dark square integrated circuit, fine metal traces, tiny pale soldered components, one black precision fixture holding the board. Subject concentrated in the center-right, looking down from a shallow angle, emerald and cool petrol green low-key light with a subtle warm copper rim, soft darkness left and across edges, quiet restrained industrial art direction, tactile fine grain, physically plausible. Keep the main chip and component details within middle half vertically for a wide panoramic crop. No people, no words or legible text, no letters, no labels or UI, no logos, no hazard or military aesthetic.",
+  "sha256": "99dd1c8eed36559cdc04358df0d9e3d2ba0386c3aa10765b6b569644e96c7930",
+  "bytes": 1935718,
+  "use": "Decorative photograph for the electronics fixtures in I. Work and status data remain text and controls."
+}
