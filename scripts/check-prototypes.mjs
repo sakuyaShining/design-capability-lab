@@ -10,8 +10,9 @@ try{for(const mode of modes){
  const initial=await page.evaluate(()=>({variant:Lab.state.variant,focus:Lab.state.focus,unresolved:Lab.open(Lab.task('scheme')).map(t=>t.id)}));
  if(initial.variant!==mode||initial.unresolved.join(',')!=='direction,reuse')throw Error(`${mode} wrong direct predecessors`);
  await page.locator('#scope').selectOption('ic');await page.locator('#search').fill('方案');
- await page.locator('[data-act="focus"][data-id="direction"]').first().click();
- await page.locator('[data-act="focus"][data-id="mentor"]').first().click();
+ const focusArea=mode==='F'?page.locator('.matrix-focus'):page.locator('#surface');
+ await focusArea.locator('[data-act="focus"][data-id="direction"]').first().click();
+ await focusArea.locator('[data-act="focus"][data-id="mentor"]').first().click();
  if(!await page.locator('#surface').innerText().then(s=>s.includes('等待校内负责人的确认')))throw Error(`${mode} manual reason missing`);
  await page.locator('[data-act="origin"]').first().click();
  const returned=await page.evaluate(()=>({focus:Lab.state.focus,scope:document.querySelector('#scope').value,query:document.querySelector('#search').value}));

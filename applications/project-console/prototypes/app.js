@@ -12,7 +12,25 @@ window.Lab=(()=>{
  const button=(id,extra='')=>{const t=task(id);return `<button class="task-button ${state.focus===id?'selected':''} ${extra}" data-act="focus" data-id="${esc(id)}" ${t.missing?'disabled':''}><span class="code">${esc(t.code)} / ${project(t.project)}</span><strong>${esc(t.title)}</strong>${badge(t)}${t.project!==task(state.origin).project?'<span class="cross">跨项目</span>':''}</button>`;};
  const dependencies=t=>{const all=deps(t),shown=all.filter(d=>!state.hideDone||d.status!=='已完成');return `<div class="section-title"><h3>需要哪些前置</h3><span>${shown.length} / 共 ${all.length} 项</span></div>${all.length?shown.map(d=>button(d.id)).join(''):'<p class="quiet">没有前置依赖。</p>'}${all.length&&!shown.length?'<p class="quiet">前置已全部完成；当前筛选将其隐藏。</p>':''}`;};
  const details=(t,includeDeps=true)=>`<article class="detail"><div class="meta">${esc(t.code)} / ${project(t.project)} ${badge(t)}</div><h2>${esc(t.title)}</h2><div class="statusline"><span>执行状态：${esc(t.status)}</span><span>未完成前置：<b>${open(t).length}</b> / ${deps(t).length}</span></div>${t.reason?`<div class="reason"><b>人工标记的阻塞原因</b><p>${esc(t.reason)}</p></div>`:''}${t.missing?`<p class="reason">${esc(t.output)}</p>`:`<p class="output"><small>预期产出</small>${esc(t.output)}</p>`}${includeDeps?dependencies(t):''}</article>`;
- function focus(id){const t=task(id);if(t.missing)return;if(!state.history.length&&state.focus===state.origin)state.originScroll=scrollY;const earlier=state.history.indexOf(id);if(earlier>=0)state.history=state.history.slice(0,earlier);else if(id!==state.focus)state.history.push(state.focus);state.focus=id;state.step=0;render();const headings=document.querySelectorAll('#surface .detail h2,#surface .drill-column h2,#surface .dossier-main>h2,#surface .question h2');const heading=headings[headings.length-1];if(heading){heading.tabIndex=-1;heading.focus({preventScroll:true});heading.scrollIntoView({block:'nearest'});}document.getElementById('announce').textContent=`正在查看${t.title}；原任务保持为${task(state.origin).title}`;}
+ function route(from,to,seen=new Set()){
+  if(from===to)return[from];if(seen.has(from))return null;seen.add(from);
+  for(const next of task(from).deps){if(task(next).missing)continue;const tail=route(next,to,new Set(seen));if(tail)return[from,...tail];}return null;
+ }
+ function focus(id,from){
+  const t=task(id);if(t.missing)return;
+  if(!state.history.length&&state.focus===state.origin)state.originScroll=scrollY;
+  const current=[...state.history,state.focus];let next;
+  if(from&&task(from).deps.includes(id)){
+   const index=current.indexOf(from);const prefix=index>=0?current.slice(0,index+1):route(state.origin,from);
+   if(prefix)next=[...prefix,id];else{state.origin=from;state.originScroll=0;next=[from,id];}
+  }else if(current.includes(id))next=current.slice(0,current.indexOf(id)+1);
+  else{const tail=route(state.focus,id);next=tail?[...current,...tail.slice(1)]:route(state.origin,id);}
+  if(!next){origin(id);document.getElementById('announce').textContent=`已切换原任务为${t.title}`;return;}
+  state.history=next.slice(0,-1);state.focus=id;state.step=0;render();
+  const headings=document.querySelectorAll('#surface .detail h2,#surface .drill-column h2,#surface .dossier-main>h2,#surface .question h2');const heading=headings[headings.length-1];
+  if(heading){heading.tabIndex=-1;heading.focus({preventScroll:true});heading.scrollIntoView({block:'nearest'});}
+  document.getElementById('announce').textContent=`正在查看${t.title}；原任务保持为${task(state.origin).title}`;
+ }
  function origin(id){if(id&&id!==state.origin)state.originScroll=0;state.origin=id||state.origin;state.focus=state.origin;state.history=[];state.step=0;render();scrollTo(0,state.originScroll);const h=document.querySelector('#surface h2');if(h){h.tabIndex=-1;h.focus({preventScroll:true});}}
  function render(){
   if(!modes[state.variant])state.variant=Object.keys(modes)[0];
@@ -28,10 +46,10 @@ window.Lab=(()=>{
  }
  function start(){
   document.addEventListener('click',e=>{const b=e.target.closest('[data-act]');if(!b||b.disabled)return;const a=b.dataset.act,id=b.dataset.id;
-   if(a==='focus')focus(id);if(a==='origin')origin(id);if(a==='back'){state.focus=state.history.pop()||state.origin;render();}if(a==='variant'){state.variant=id;state.focus=state.origin;state.history=[];state.step=0;history.replaceState(null,'',`?v=${id}`);render();}if(a==='step'){state.step=Number(id);render();}if(a==='all'){state.hideDone=false;document.getElementById('hideDone').checked=false;render();}
+   if(a==='focus')focus(id,b.dataset.from);if(a==='origin')origin(id);if(a==='back'){state.focus=state.history.pop()||state.origin;render();}if(a==='variant'){state.variant=id;state.focus=state.origin;state.history=[];state.step=0;history.replaceState(null,'',`?v=${id}`);render();}if(a==='step'){state.step=Number(id);render();}if(a==='all'){state.hideDone=false;document.getElementById('hideDone').checked=false;render();}
   });
   for(const [id,key] of [['scope','scope'],['search','query'],['hideDone','hideDone'],['broken','broken']])document.getElementById(id).addEventListener(id==='search'?'input':'change',e=>{state[key]=e.target.type==='checkbox'?e.target.checked:e.target.value;render();});
   document.getElementById('theme').onclick=()=>document.documentElement.classList.toggle('dark');render();
  }
- return{modes,state,esc,tasks,task,deps,open,visible,project,badge,button,dependencies,details,focus,origin,render,start};
+ return{route,modes,state,esc,tasks,task,deps,open,visible,project,badge,button,dependencies,details,focus,origin,render,start};
 })();
