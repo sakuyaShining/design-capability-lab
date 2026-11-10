@@ -1,0 +1,148 @@
+{
+  "schema_version": 1,
+  "case_id": "DCL-X01-X03",
+  "status": {
+    "documentary_comparison": "completed",
+    "original_workflows": "not_independently_executed"
+  },
+  "sources": [
+    {
+      "id": "X01-S01",
+      "url": "https://docs.github.com/en/issues/tracking-your-work-with-issues/using-issues/creating-issue-dependencies",
+      "title": "Creating issue dependencies",
+      "kind": "official_workflow_documentation",
+      "locator": "Marking / Removing a blocking relationship",
+      "retrieved_on": "2026-11-11",
+      "limits": "Published guidance/demo, not current account or human usability validation"
+    },
+    {
+      "id": "X01-S02",
+      "url": "https://github.blog/changelog/2025-08-21-dependencies-on-issues/",
+      "title": "Dependencies on issues",
+      "kind": "official_announcement_and_demo",
+      "locator": "Getting started; mark_blocked_by.mp4",
+      "retrieved_on": "2026-11-11",
+      "limits": "Published guidance/demo, not current account or human usability validation"
+    },
+    {
+      "id": "X02-S01",
+      "url": "https://docs.blender.org/manual/en/4.5/interface/controls/nodes/frame.html",
+      "title": "Frame Node, Blender 4.5 LTS",
+      "kind": "official_manual",
+      "locator": "Usage; Label Size; Add/Remove from Frame",
+      "retrieved_on": "2026-11-11",
+      "limits": "Published guidance/demo, not current account or human usability validation"
+    },
+    {
+      "id": "X02-S02",
+      "url": "https://docs.blender.org/manual/en/4.5/interface/controls/nodes/groups.html",
+      "title": "Node Groups, Blender 4.5 LTS",
+      "kind": "official_manual",
+      "locator": "Reusable/composable; recursion; Group Input/Output",
+      "retrieved_on": "2026-11-11",
+      "limits": "Published guidance/demo, not current account or human usability validation"
+    },
+    {
+      "id": "X03-S01",
+      "url": "https://design-system.service.gov.uk/patterns/check-answers/",
+      "title": "Check answers",
+      "kind": "official_service_pattern",
+      "locator": "Make page easy to understand; Let users go back and change answers",
+      "retrieved_on": "2026-11-11",
+      "limits": "Published guidance/demo, not current account or human usability validation"
+    }
+  ],
+  "assets": [
+    {
+      "file": "evidence/blender-frame.png",
+      "source_id": "X02-S01",
+      "bytes": 82518,
+      "sha256": "045daaaa05f4a8cd4c9840e749ca8b6dddeec168ebf536c2a658abfb1a07fc2d",
+      "original_url": "https://docs.blender.org/manual/en/4.5/_images/interface_controls_nodes_frame_example.png",
+      "remote_bytes_match": true,
+      "transformation": "none"
+    },
+    {
+      "file": "evidence/blender-group-expanded.png",
+      "source_id": "X02-S02",
+      "bytes": 89834,
+      "sha256": "6514569abdaadd072b38bfbd402d2ede1aad91e8f60378680af7c3156facb55c",
+      "remote_bytes_match": false,
+      "transformation": "none",
+      "candidate_url": "https://docs.blender.org/manual/en/4.5/_images/interface_controls_nodes_groups_example.png",
+      "role": "unverified_attribution_diagnostic",
+      "admitted_as_evidence": false,
+      "limits": "Filename attribution from interrupted collection did not match re-downloaded candidate URL. Preserved, not used to support claims."
+    },
+    {
+      "file": "evidence/blender-group.png",
+      "source_id": "X02-S02",
+      "bytes": 25028,
+      "sha256": "f7ea9df8555485bc66a5830f24a25156ed3af338de45aa40f34cacc11b6e2a29",
+      "remote_bytes_match": false,
+      "transformation": "none",
+      "candidate_url": "https://docs.blender.org/manual/en/4.5/_images/interface_controls_nodes_groups_interface-group_sockets_panel.png",
+      "role": "unverified_attribution_diagnostic",
+      "admitted_as_evidence": false,
+      "limits": "Filename attribution from interrupted collection did not match re-downloaded candidate URL. Preserved, not used to support claims."
+    },
+    {
+      "file": "evidence/github-frames/t0-000.png",
+      "source_id": "X01-S02",
+      "bytes": 820937,
+      "sha256": "07c8771f8b5459bd6d062feec3702ed88ce6eaa89f0cf9c354f07b42557d9da8",
+      "derived_from": "evidence/github-mark-blocked-by.mp4",
+      "method": "HTML5 sampling; capture.json records encoded timestamps; no input latency claim"
+    },
+    {
+      "file": "evidence/github-frames/t1-840.png",
+      "source_id": "X01-S02",
+      "bytes": 746529,
+      "sha256": "023b7f90abcc88b334447e8829bb231a763dffffbffe137454cd9b23ca6bcecc",
+      "derived_from": "evidence/github-mark-blocked-by.mp4",
+      "method": "HTML5 sampling; capture.json records encoded timestamps; no input latency claim"
+    },
+    {
+      "file": "evidence/github-frames/t3-680.png",
+      "source_id": "X01-S02",
+      "bytes": 861702,
+      "sha256": "857f7656642d88922626c08f574645f336bd80a54da6d4e87d968f6eda33fd35",
+      "derived_from": "evidence/github-mark-blocked-by.mp4",
+      "method": "HTML5 sampling; capture.json records encoded timestamps; no input latency claim"
+    },
+    {
+      "file": "evidence/github-frames/t5-520.png",
+      "source_id": "X01-S02",
+      "bytes": 1127491,
+      "sha256": "4b027cca1b6f4399ff84a0e3ae9ed585996bc6538e0734065c1eecab4285a3cf",
+      "derived_from": "evidence/github-mark-blocked-by.mp4",
+      "method": "HTML5 sampling; capture.json records encoded timestamps; no input latency claim"
+    },
+    {
+      "file": "evidence/github-frames/t7-360.png",
+      "source_id": "X01-S02",
+      "bytes": 852194,
+      "sha256": "a520fb91acf53af79fab638090eef6cd52d4069f4fa09bfd12374dc96687ae8a",
+      "derived_from": "evidence/github-mark-blocked-by.mp4",
+      "method": "HTML5 sampling; capture.json records encoded timestamps; no input latency claim"
+    },
+    {
+      "file": "evidence/github-mark-blocked-by.mp4",
+      "source_id": "X01-S02",
+      "bytes": 39087148,
+      "sha256": "92ec215aeb1c638e6de63a36a8e0253026a350987458cb69b91985a181a9dd01",
+      "original_url": "https://github.blog/wp-content/uploads/2025/08/mark_blocked_by.mp4",
+      "remote_bytes_match": true,
+      "transformation": "none"
+    },
+    {
+      "file": "evidence/govuk-check-answers.png",
+      "source_id": "X03-S01",
+      "bytes": 148950,
+      "sha256": "110ab28286bb2c3d51673921ba6ab853ea44131cdb7dfc55af38adabeba2e4e6",
+      "role": "provisional_capture",
+      "method": "Interrupted collection did not persist capture procedure; retained for diagnosis, excluded as sole basis for claims"
+    }
+  ],
+  "access_limits": "Web fetch Blender returned402; ordinary public HTTP with standard browser User-Agent succeeded, no login or auth used."
+}

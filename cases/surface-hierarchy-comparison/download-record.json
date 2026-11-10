@@ -1,0 +1,26 @@
+[
+  {
+    "file": "evidence/carbon-layering.png",
+    "url": "https://cdn.carbondesignsystem.com/cxp-prod-payload-cms/color-layering-model.png",
+    "source_id": "V01-S01",
+    "bytes": 11325,
+    "sha256": "18a2b028710bdf972f2dca2c45928fd9632c7c025751567f20126c0345ec5635",
+    "transformation": "none; official explanatory image, not captured client"
+  },
+  {
+    "file": "evidence/material-surface.png",
+    "url": "https://developer.android.com/static/develop/ui/compose/images/m3-surface.png",
+    "source_id": "V01-S03",
+    "bytes": 96329,
+    "sha256": "a1a487abbbb6798c57ac2bf1f745409bbd4ca70e54465626e33f580a700f1776",
+    "transformation": "none; official explanatory image, not captured client"
+  },
+  {
+    "file": "evidence/atlassian-surfaces.png",
+    "url": "https://atlassian.design/assets/3d75e15f9c4f/ba63077f3f381883aa74ce402740240e/applying-elevations-light.png",
+    "source_id": "V01-S02",
+    "bytes": 37749,
+    "sha256": "6913b351dd7bcd645698231791eecf56671bbe1c248e212933e58dc614722c2f",
+    "transformation": "none; official explanatory image, not captured client"
+  }
+]

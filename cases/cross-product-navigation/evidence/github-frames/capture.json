@@ -1,0 +1,14 @@
+{
+  "input": "cases/cross-product-navigation/evidence/github-mark-blocked-by.mp4",
+  "duration": 9.2,
+  "width": 3232,
+  "height": 2160,
+  "sampled_seconds": [
+    0,
+    1.8399999999999999,
+    3.6799999999999997,
+    5.52,
+    7.359999999999999
+  ],
+  "method": "decoded HTML5 video samples; no original input timestamps; timing belongs to published clip"
+}
