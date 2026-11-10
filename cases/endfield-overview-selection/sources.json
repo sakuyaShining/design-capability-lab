@@ -1,0 +1,203 @@
+{
+  "schema_version": 1,
+  "case_id": "DCL-C10",
+  "collected_on": "2026-11-11",
+  "status": "partial",
+  "exact_build": null,
+  "platform": "PC keyboard cues visible; capture device not independently confirmed",
+  "sources": [
+    {
+      "id": "C10-S01",
+      "url": "https://gamewith.net/akendfield/72372",
+      "title": "AIC Factory Beginner Guide",
+      "publisher": "GameWith Strategy Team",
+      "published_at": null,
+      "role": "guide-author-screenshots-and-embedded-video"
+    },
+    {
+      "id": "C10-S02",
+      "url": "https://endfield.gryphline.com/zh-tw/news/5200",
+      "title": "向渊行版本更新说明",
+      "publisher": "终末地官方",
+      "published_at": "2026-07-16",
+      "role": "official-change-statement; not direct interaction observation"
+    },
+    {
+      "id": "C10-S03",
+      "url": "https://endfield.gryphline.com/zh-tw/news/2662",
+      "title": "新潮起开发组通讯",
+      "publisher": "终末地官方",
+      "published_at": "2026-03-02",
+      "role": "official-change-statement; not direct interaction observation"
+    },
+    {
+      "id": "C10-S04",
+      "url": "https://endfield.gryphline.com/ja-jp/news/7017",
+      "title": "向淵行 開発通信",
+      "publisher": "Endfield official",
+      "published_at": "2026-07-11",
+      "role": "official-development-preview-image-and-statement; preview disclaimer visible"
+    }
+  ],
+  "assets": [
+    {
+      "id": "C10-E01",
+      "source_id": "C10-S01",
+      "file": "evidence/top-view.png",
+      "original_url": "https://img.gamewith.net/img/e54c5bd231d99cca5a407d9ead3459ee.png",
+      "bytes": 67227,
+      "sha256": "57441842d2cd6fa9de96c00f45a7792609cb4c96d48862de91f22a7a2b2f5da6",
+      "transformation": "none",
+      "annotation_author": "source author, where visible",
+      "inspection": "visually-inspected",
+      "width": 710,
+      "height": 372
+    },
+    {
+      "id": "C10-E02",
+      "source_id": "C10-S01",
+      "file": "evidence/stash-mode.png",
+      "original_url": "https://img.gamewith.net/img/e930fbbbb9838f349f01cb66f584b498.png",
+      "bytes": 558743,
+      "sha256": "4181e9643dcb55571af1401b646a04e10ca69007e20f182c0437ac75e6984f75",
+      "transformation": "none",
+      "annotation_author": "source author, where visible",
+      "inspection": "visually-inspected",
+      "width": 710,
+      "height": 411
+    },
+    {
+      "id": "C10-E03",
+      "source_id": "C10-S01",
+      "file": "evidence/connected-remain.png",
+      "original_url": "https://img.gamewith.net/img/d5834bbc64cce8a71aaf4aad7a2bb6ee.png",
+      "bytes": 138617,
+      "sha256": "b50e04d5eae0d69e3fe0db4f7faa58ed51d4716835873a60420fbe950e83e7c5",
+      "transformation": "none",
+      "annotation_author": "source author, where visible",
+      "inspection": "visually-inspected",
+      "width": 710,
+      "height": 384
+    },
+    {
+      "id": "C10-E04",
+      "source_id": "C10-S01",
+      "file": "evidence/facility-select.mp4",
+      "original_url": "https://img.gamewith.net/common_movies/311e759481bfbb1e167369efdfa04028.mp4",
+      "bytes": 4875803,
+      "sha256": "216fce2e383e86a6757962ecda6893193c0c8d573973ed82efe22245d9f4aaef",
+      "transformation": "none",
+      "annotation_author": "source author, where visible",
+      "inspection": "five decoded samples visually inspected; not original input timing"
+    },
+    {
+      "id": "C10-E05",
+      "source_id": "C10-S04",
+      "file": "evidence/official-overlap-selection.png",
+      "original_url": "https://web-static.hg-cdn.com/upload/image/20260710/a567f4a904d4c0aaeb15c563c4fa0d11.png",
+      "bytes": 10896356,
+      "sha256": "98d48251b563be356c2a4fbb96fac2c55aca51ccdfff272960cab802bd68cbcc",
+      "transformation": "none",
+      "inspection": "visually inspected official static development preview; not real-time sequence",
+      "width": 3840,
+      "height": 2160
+    }
+  ],
+  "access_attempts": [
+    {
+      "url": "https://endfield.games/zh-Hans/tutorials/factory/",
+      "result": "urllib HTTPS returned SSL UNEXPECTED_EOF_WHILE_READING on two public fetch attempts; no content obtained, no login or bypass"
+    }
+  ],
+  "limits": [
+    "No real-game operation or human usability testing conducted.",
+    "No verified source-input timestamps or measured original animation parameters.",
+    "Different articles or versions are not stitched into one observed run.",
+    "Third-party assets retained for local research; product reuse permission not established."
+  ],
+  "frame_extraction": {
+    "record": "evidence/frames/capture.json",
+    "status": "first extraction invalid; corrected extraction inspected",
+    "unique_hashes": 1,
+    "limits": "Original frames/ files are identical extraction failure evidence. Corrected frames-v2 shows different published clip states. Official static preview separately shows overlap candidate menu; exact source input timestamps, candidate selection outcome, and exit restoration remain unknown.",
+    "corrected_record": "evidence/frames-v2/capture.json",
+    "corrected_unique_hashes": 5
+  },
+  "derived_assets": [
+    {
+      "file": "evidence/frames/t0-000.png",
+      "derived_from": "C10-E04",
+      "bytes": 2879393,
+      "sha256": "306213812d351f5c1e8621378c19875360080c1eaf4b8dfdf26a22cfd6d2b741",
+      "role": "frame extraction diagnostic; not independent source"
+    },
+    {
+      "file": "evidence/frames/t0-587.png",
+      "derived_from": "C10-E04",
+      "bytes": 2879393,
+      "sha256": "306213812d351f5c1e8621378c19875360080c1eaf4b8dfdf26a22cfd6d2b741",
+      "role": "frame extraction diagnostic; not independent source"
+    },
+    {
+      "file": "evidence/frames/t1-173.png",
+      "derived_from": "C10-E04",
+      "bytes": 2879393,
+      "sha256": "306213812d351f5c1e8621378c19875360080c1eaf4b8dfdf26a22cfd6d2b741",
+      "role": "frame extraction diagnostic; not independent source"
+    },
+    {
+      "file": "evidence/frames/t1-760.png",
+      "derived_from": "C10-E04",
+      "bytes": 2879393,
+      "sha256": "306213812d351f5c1e8621378c19875360080c1eaf4b8dfdf26a22cfd6d2b741",
+      "role": "frame extraction diagnostic; not independent source"
+    },
+    {
+      "file": "evidence/frames/t2-347.png",
+      "derived_from": "C10-E04",
+      "bytes": 2879393,
+      "sha256": "306213812d351f5c1e8621378c19875360080c1eaf4b8dfdf26a22cfd6d2b741",
+      "role": "frame extraction diagnostic; not independent source"
+    },
+    {
+      "id": "C10-F01",
+      "file": "evidence/frames-v2/t0-000.png",
+      "derived_from": "C10-E04",
+      "bytes": 2879393,
+      "sha256": "306213812d351f5c1e8621378c19875360080c1eaf4b8dfdf26a22cfd6d2b741",
+      "role": "corrected decoded sample; visually inspected; not independent source"
+    },
+    {
+      "id": "C10-F02",
+      "file": "evidence/frames-v2/t0-587.png",
+      "derived_from": "C10-E04",
+      "bytes": 2851860,
+      "sha256": "99c32ebbe0dbcacdb55e996d4d76f7e44c6dede605fa45f5c5b1c83e72922991",
+      "role": "corrected decoded sample; visually inspected; not independent source"
+    },
+    {
+      "id": "C10-F03",
+      "file": "evidence/frames-v2/t1-173.png",
+      "derived_from": "C10-E04",
+      "bytes": 3414126,
+      "sha256": "2fa132169c4f3d784a5f8221f0d9bdaa6ed119328c93277db76295f57f287d0c",
+      "role": "corrected decoded sample; visually inspected; not independent source"
+    },
+    {
+      "id": "C10-F04",
+      "file": "evidence/frames-v2/t1-760.png",
+      "derived_from": "C10-E04",
+      "bytes": 1990662,
+      "sha256": "94a0c8068269a7e8bc32c3685ca14a37cc821124ec09fa936d6b1474679e35ca",
+      "role": "corrected decoded sample; visually inspected; not independent source"
+    },
+    {
+      "id": "C10-F05",
+      "file": "evidence/frames-v2/t2-347.png",
+      "derived_from": "C10-E04",
+      "bytes": 2077896,
+      "sha256": "88649f8bb9ba60e31d524dc53985127ec5469c2c2969ba37127bf49f55ce33ca",
+      "role": "corrected decoded sample; visually inspected; not independent source"
+    }
+  ]
+}

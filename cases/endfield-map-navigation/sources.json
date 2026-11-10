@@ -1,0 +1,166 @@
+{
+  "schema_version": 1,
+  "case_id": "DCL-C01",
+  "collected_on": "2026-11-10",
+  "status": "partial-static-evidence",
+  "sources": [
+    {
+      "id": "DCL-S01",
+      "title": "《明日方舟：終末地》「全面測試」開發組通訊//02",
+      "publisher": "《明日方舟：終末地》遊戲團隊 / GRYPHLINE",
+      "url": "https://endfield.gryphline.com/zh-tw/news/1340",
+      "published_at_as_displayed": "2025/11/01 12:00",
+      "publication_timezone": null,
+      "section": "5. 新增其他系統與功能 → 分層地圖與標記",
+      "source_role": "official-development-announcement-and-preview-image",
+      "version_context": "全面測試 / pre-release preview",
+      "exact_build": null,
+      "platform": null,
+      "input_device": null,
+      "language": "zh-tw article; image labels not reliably readable",
+      "access": "article-read-and-linked-image-downloaded",
+      "limits": [
+        "Historical preview, not verified against the current released game.",
+        "Static image only; no observed interaction sequence or motion timing.",
+        "The image includes a demonstration-only disclaimer."
+      ]
+    },
+    {
+      "id": "DCL-S02",
+      "title": "《明日方舟：終末地》「新潮起，故淵離」開發組通訊",
+      "publisher": "《明日方舟：終末地》遊戲團隊 / GRYPHLINE",
+      "url": "https://endfield.gryphline.com/zh-tw/news/2662",
+      "published_at_as_displayed": "2026/03/02 18:00",
+      "publication_timezone": null,
+      "section": "集成工業系統優化 → 滑索使用體驗優化",
+      "source_role": "official-version-change-announcement-and-preview-image",
+      "version_context": "新潮起，故淵離 / announced optimization preview",
+      "exact_build": null,
+      "platform": null,
+      "input_device": null,
+      "visible_input_cues": "mouse icons and mouse-selection instructions",
+      "access": "article-read-and-linked-image-downloaded",
+      "limits": [
+        "Not a continuous interaction recording.",
+        "Different date and scene from DCL-S01; cannot form before/after frames of one run.",
+        "Current released-client behavior not independently verified.",
+        "Search snippet displayed a different hour; timestamp follows the opened page; timezone unknown."
+      ]
+    },
+    {
+      "id": "DCL-S03",
+      "title": "Interactive Map | Arknights: Endfield",
+      "publisher": "GameWith",
+      "author": "Arknights: Endfield Strategy Team",
+      "url": "https://gamewith.net/akendfield/72608",
+      "published_at_as_displayed": "Last Updated March 30, 2026 11:07 PM",
+      "publication_timezone": null,
+      "section": "How to Open and Use Map: Top-Left Minimap; TP Points; Custom Markers",
+      "source_role": "author-instructions-and-screenshots",
+      "exact_build": null,
+      "platform": null,
+      "access": "article-read-and-linked-images-visually-inspected",
+      "limits": [
+        "The page also contains a web interactive map, which was not tested.",
+        "Pink boxes and numbered instructions are source-author annotations.",
+        "The Hub and Valley Pass screenshots are different places, not consecutive frames.",
+        "Input ordering and closing/return behavior are not directly observed."
+      ]
+    }
+  ],
+  "assets": [
+    {
+      "id": "DCL-E01",
+      "source_id": "DCL-S01",
+      "file": "evidence/official-layered-map-20251101.jpg",
+      "original_url": "https://web-static.hg-cdn.com/upload/image/20251031/d26ca50c1948b997518f56cc0f3ecdaa.jpg",
+      "media_type": "image/jpeg",
+      "width": 1920,
+      "height": 1080,
+      "bytes": 1057262,
+      "sha256": "95759dbb1041364b8223d3143135505fbdfe5e9bee9d765f611ce427b6f22368",
+      "transformation": "none",
+      "inspection": "visually-inspected-original-image",
+      "rights": "Third-party official material retained for local research; product reuse permission not established."
+    },
+    {
+      "id": "DCL-E02",
+      "source_id": "DCL-S02",
+      "file": "evidence/official-map-zipline-20260302.png",
+      "original_url": "https://web-static.hg-cdn.com/upload/image/20260302/62dfc105d1018434b855d83dcb29e256.png",
+      "media_type": "image/png",
+      "width": 3840,
+      "height": 2160,
+      "bytes": 11380921,
+      "sha256": "bcad2ed6b7a039bc1b13fc2ed95794218f70540cb643815b3f31ed17c8f91569",
+      "animation_control_chunk_present": false,
+      "transformation": "none",
+      "inspection": "visually-inspected-original-image",
+      "rights": "Third-party official material retained for local research; product reuse permission not established."
+    },
+    {
+      "id": "DCL-E03",
+      "source_id": "DCL-S03",
+      "file": "evidence/gamewith-map-entry.png",
+      "original_url": "https://img.gamewith.net/img/46ae6de9c6ab04e5de458679122f95f0.png",
+      "media_type": "image/png",
+      "width": 710,
+      "height": 384,
+      "bytes": 137287,
+      "sha256": "6c58c24adcb9f0d745789c543a211a55f823759edf2a78d4e44855c2a5e99476",
+      "transformation": "none",
+      "source_annotations_present": true,
+      "inspection": "visually-inspected-source-image",
+      "rights": "Third-party game imagery and source-author annotations retained for local research; product reuse permission not established."
+    },
+    {
+      "id": "DCL-E04",
+      "source_id": "DCL-S03",
+      "file": "evidence/gamewith-map-target.png",
+      "original_url": "https://img.gamewith.net/img/a608014bffe94378cdb974ab97b26948.png",
+      "media_type": "image/png",
+      "width": 710,
+      "height": 381,
+      "bytes": 55038,
+      "sha256": "4660d368e73c44d35965a54d4950a3665521e18ce36e0fb5d374cc229b9c9e4f",
+      "transformation": "none",
+      "source_annotations_present": false,
+      "inspection": "visually-inspected-source-image",
+      "rights": "Third-party game imagery and source-author annotations retained for local research; product reuse permission not established."
+    },
+    {
+      "id": "DCL-E05",
+      "source_id": "DCL-S03",
+      "file": "evidence/gamewith-map-marker.png",
+      "original_url": "https://img.gamewith.net/img/e501e9ae1bed1f534b8e77bd79dc7af9.png",
+      "media_type": "image/png",
+      "width": 710,
+      "height": 384,
+      "bytes": 56221,
+      "sha256": "412cb49c2aeddacd18c81c25c5e37c1d8a06bd9990593c26cdb9153adad9231b",
+      "transformation": "none",
+      "source_annotations_present": true,
+      "inspection": "visually-inspected-source-image",
+      "rights": "Third-party game imagery and source-author annotations retained for local research; product reuse permission not established."
+    }
+  ],
+  "access_attempts": [
+    {
+      "url": "https://endfield.hypergryph.com/news/7235",
+      "result": "web-fetch-timeout",
+      "admitted_as_evidence": false
+    },
+    {
+      "url": "https://endfield.hypergryph.com/news/7225",
+      "result": "web-fetch-timeout",
+      "admitted_as_evidence": false
+    }
+  ],
+  "updated_on": "2026-11-11",
+  "review_status": {
+    "documentary_review": "completed",
+    "original_workflow": "partial",
+    "interaction_validation": "not_performed"
+  },
+  "actual_coverage": "Two historical official previews plus author map-entry/selected-object/marker-placement illustrations; input sequence and return to action remain unobserved."
+}

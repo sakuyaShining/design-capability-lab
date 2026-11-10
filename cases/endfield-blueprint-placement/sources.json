@@ -1,0 +1,161 @@
+{
+  "schema_version": 1,
+  "case_id": "DCL-C09",
+  "collected_on": "2026-11-11",
+  "status": "partial",
+  "exact_build": null,
+  "platform": "PC keyboard cues visible; capture device not independently confirmed",
+  "sources": [
+    {
+      "id": "C09-S01",
+      "url": "https://gamewith.net/akendfield/72615",
+      "title": "Blueprint Code List / How to Use Blueprints",
+      "publisher": "GameWith Strategy Team",
+      "published_at": null,
+      "role": "ordered-guide-author-screenshots-instructions-and-embedded-operation-video"
+    },
+    {
+      "id": "C09-S02",
+      "url": "https://dotesports.com/arknights-endfield/news/arknights-endfield-blueprints",
+      "title": "How to get and use blueprints",
+      "publisher": "Edward Strazd / Dot Esports",
+      "published_at": "2026-01-23",
+      "role": "guide-author-procedure; image download blocked HTTP451"
+    },
+    {
+      "id": "C09-S03",
+      "url": "https://gamesfuze.com/guides/create-save-1-blueprint-in-arknights-endfield/",
+      "title": "Create & Save 1 Blueprint",
+      "publisher": "Andrés / GamesFuze",
+      "published_at": "2026-01-27",
+      "role": "guide-author-procedure"
+    }
+  ],
+  "assets": [
+    {
+      "id": "C09-E01",
+      "source_id": "C09-S01",
+      "file": "evidence/blueprint-selected.png",
+      "original_url": "https://img.gamewith.net/img/0005c91b6665d68bb5cb2844a8c309d5.png",
+      "bytes": 64150,
+      "sha256": "5f737bad0af760830dfe7439317883b417e0f3c212d0073f5b0e54ab5486dc58",
+      "transformation": "none",
+      "annotation_author": "source author, where visible",
+      "inspection": "visually-inspected",
+      "width": 710,
+      "height": 386
+    },
+    {
+      "id": "C09-E02",
+      "source_id": "C09-S01",
+      "file": "evidence/blueprint-placement.png",
+      "original_url": "https://img.gamewith.net/img/35c89ac90d3b882792e06f4ff64860aa.png",
+      "bytes": 106693,
+      "sha256": "0d5de5923535809aa34edbdbb3732151ae49760f6403e0388de8e65cc9d0b7e1",
+      "transformation": "none",
+      "annotation_author": "source author, where visible",
+      "inspection": "visually-inspected",
+      "width": 710,
+      "height": 386
+    },
+    {
+      "id": "C09-E03",
+      "source_id": "C09-S01",
+      "file": "evidence/blueprint-open.mp4",
+      "original_url": "https://img.gamewith.net/common_movies/5396200186189956d397ac979f2837ee.mp4",
+      "bytes": 4792023,
+      "sha256": "be0eac93e1e693a4737f4bd209307a4e2a2da46e73bdd6ad49da88cc1bc661eb",
+      "transformation": "none",
+      "inspection": "eight decoded samples visually inspected, including post-placement result; published clip timing only",
+      "width": 1920,
+      "height": 1080
+    }
+  ],
+  "access_attempts": [
+    {
+      "folder": "endfield-blueprint-placement",
+      "file": "blueprint-incomplete.jpg",
+      "error": "HTTP Error 451: Unavailable For Legal Reasons"
+    }
+  ],
+  "limits": [
+    "No real-game operation or human usability testing conducted.",
+    "No verified source-input timestamps or measured original animation parameters.",
+    "Different articles or versions are not stitched into one observed run.",
+    "Third-party assets retained for local research; product reuse permission not established."
+  ],
+  "frame_extraction": {
+    "records": [
+      "evidence/open-frames/capture.json",
+      "evidence/result-frames/capture.json"
+    ],
+    "duration": 10.349,
+    "method": "scripts/capture-video.mjs; HTML5 decoded samples via isolated headless Edge; no Computer Use; published clip timing only"
+  },
+  "derived_assets": [
+    {
+      "id": "C09-F01",
+      "file": "evidence/open-frames/t0-000.png",
+      "derived_from": "C09-E03",
+      "bytes": 2232029,
+      "sha256": "8eb4da132f6474acf17be403b53542e2c8a482247d3b85187f849819bc0d6fde",
+      "role": "decoded sample; visually inspected; not independent source"
+    },
+    {
+      "id": "C09-F02",
+      "file": "evidence/open-frames/t2-070.png",
+      "derived_from": "C09-E03",
+      "bytes": 490862,
+      "sha256": "cb3cd5ea6712bcdc7c1e3014418808d0bd6ee4129688c9af45ee9ac54214d470",
+      "role": "decoded sample; visually inspected; not independent source"
+    },
+    {
+      "id": "C09-F03",
+      "file": "evidence/open-frames/t4-140.png",
+      "derived_from": "C09-E03",
+      "bytes": 654277,
+      "sha256": "55e8777c2b24d90c16aafde851599010553a03097d40e8cf5b9f8c4fadcfe919",
+      "role": "decoded sample; visually inspected; not independent source"
+    },
+    {
+      "id": "C09-F04",
+      "file": "evidence/open-frames/t6-209.png",
+      "derived_from": "C09-E03",
+      "bytes": 1231546,
+      "sha256": "6dba104eae662d34307eaa0f9000c5971f9cdfb310138eadd81a1348a42f16bf",
+      "role": "decoded sample; visually inspected; not independent source"
+    },
+    {
+      "id": "C09-F05",
+      "file": "evidence/open-frames/t8-279.png",
+      "derived_from": "C09-E03",
+      "bytes": 2027696,
+      "sha256": "34c4091fc77a4787d1c6949f678ae2bc823c6b4984747cb7c9ba83c82465093c",
+      "role": "decoded sample; visually inspected; not independent source"
+    },
+    {
+      "id": "C09-F06",
+      "file": "evidence/result-frames/t10-300.png",
+      "derived_from": "C09-E03",
+      "bytes": 1999235,
+      "sha256": "1458f09c8e1b35d35fbff78e1fbae1b14810c20b07b88fc1b2e1e843b28f761c",
+      "role": "decoded sample; visually inspected; not independent source"
+    },
+    {
+      "id": "C09-F07",
+      "file": "evidence/result-frames/t9-000.png",
+      "derived_from": "C09-E03",
+      "bytes": 2156905,
+      "sha256": "dfd15b22852b66b78dad44822c5330f8a970fcc4bbf7a7ebf5271c35acfd9ba2",
+      "role": "decoded sample; visually inspected; not independent source"
+    },
+    {
+      "id": "C09-F08",
+      "file": "evidence/result-frames/t9-700.png",
+      "derived_from": "C09-E03",
+      "bytes": 1917375,
+      "sha256": "ddeb68db71d2c62618e6769072b264b29b8b71fa9b4ff399603e6d22bf84d789",
+      "role": "decoded sample; visually inspected; not independent source"
+    }
+  ]
+}

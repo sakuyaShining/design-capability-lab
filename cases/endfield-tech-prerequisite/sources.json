@@ -1,0 +1,101 @@
+{
+  "schema_version": 1,
+  "case_id": "DCL-C06",
+  "collected_on": "2026-11-11",
+  "status": "partial",
+  "analysis_status": "written",
+  "sources": [
+    {
+      "id": "C06-S01",
+      "url": "https://endfield.gryphline.com/ja-jp/news/7017",
+      "title": "向淵行 開発通信",
+      "publisher": "GRYPHLINE / Endfield team",
+      "published_at_as_displayed": "2026/07/11 10:30",
+      "role": "official-functional-statement",
+      "section": "工業計画の表示を改善"
+    },
+    {
+      "id": "C06-S02",
+      "url": "https://appmedia.jp/Arknights_Endfield/79451402",
+      "title": "工業発展計画の優先度と進め方",
+      "publisher": "AppMedia editors",
+      "published_at_as_displayed": "2026/08/11 02:29 (page update, not screenshot capture)",
+      "role": "author-published-guide-and-gameplay-screenshots",
+      "exact_build": null,
+      "platform": null
+    }
+  ],
+  "assets": [
+    {
+      "id": "C06-E01",
+      "file": "evidence/tech-node-appmedia.webp",
+      "bytes": 24124,
+      "sha256": "0f14ec01fa012a8e92bfc1f53742fd019b3b0c0cd5cf838c835bf8a0056c832e",
+      "width": 800,
+      "height": 450,
+      "source_id": "C06-S02",
+      "original_url": "https://appmedia.jp/wp-content/uploads/2025/10/Screenshot-2026-01-02-15-07-21.webp",
+      "transformation": "none"
+    },
+    {
+      "id": "C06-E02",
+      "file": "evidence/tech-stage-appmedia.webp",
+      "bytes": 11462,
+      "sha256": "c7b8a1b34d6e97d05399d4ec70097a12f42a89d925da73e60d3747601b985092",
+      "width": 800,
+      "height": 450,
+      "source_id": "C06-S02",
+      "original_url": "https://appmedia.jp/wp-content/uploads/2025/10/Screenshot-2026-01-02-15-09-18.webp",
+      "transformation": "none"
+    }
+  ],
+  "unverified": [
+    "locked-node task-jump screen",
+    "continuous navigation to prerequisite",
+    "unaccepted-task branch",
+    "return-position behavior"
+  ],
+  "rights": "Third-party media retained for local research; not product assets or proof of reuse rights.",
+  "limits": [
+    "No human usability test.",
+    "Do not concatenate separate sources or versions into one observed run."
+  ],
+  "supplemental_search_on": "2026-11-11",
+  "supplemental_search": [
+    {
+      "route": "https://endfield.gryphline.com/ja-jp/news/7017",
+      "method": "public raw HTTP HTML media-src inspection",
+      "result": "HTML read; three unique GIF URLs found, associated with pipeline flow and other feature contexts; no prerequisite-task-jump media adjacent to the relevant paragraph",
+      "evidence_upgrade": false
+    },
+    {
+      "route": "https://endfield.gryphline.com/zh-tw/news/4494",
+      "method": "public raw HTTP HTML media-src inspection",
+      "result": "HTML read; two unique GIF URLs found, in combat timer / duration contexts; no material-shortage selection-crate media adjacent to the relevant paragraph",
+      "evidence_upgrade": false
+    },
+    {
+      "route": "https://endfield.games/en/tutorials/system/",
+      "method": "public raw HTTP urllib",
+      "result": "SSL UNEXPECTED_EOF_WHILE_READING; TLS validation not bypassed",
+      "evidence_upgrade": false
+    },
+    {
+      "route": "https://endfield.games/zh-Hans/tutorials/factory/",
+      "method": "public raw HTTP urllib and native Invoke-WebRequest",
+      "result": "SSL connection failure; TLS validation not bypassed",
+      "evidence_upgrade": false
+    },
+    {
+      "route": "https://gamewith.net/akendfield/72708",
+      "method": "public source HTML search for mp4/webm/video",
+      "result": "Native HTTP initial fetch yielded no video URLs; later urllib retry TLS failed. Existing author screenshots remain the admitted evidence.",
+      "evidence_upgrade": false
+    },
+    {
+      "route": "public indexed search for material-shortage selection crate / industrial prerequisite task jump",
+      "result": "Official text statements, mirrors and broad guides surfaced; no exact continuous short clip admitted",
+      "evidence_upgrade": false
+    }
+  ]
+}

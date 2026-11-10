@@ -1,0 +1,14 @@
+{
+  "input": "cases/endfield-blueprint-placement/evidence/blueprint-open.mp4",
+  "duration": 10.349,
+  "width": 1920,
+  "height": 1080,
+  "sampled_seconds": [
+    0,
+    2.0698000000000003,
+    4.139600000000001,
+    6.2094,
+    8.279200000000001
+  ],
+  "method": "decoded HTML5 video samples; no original input timestamps; timing belongs to published clip"
+}

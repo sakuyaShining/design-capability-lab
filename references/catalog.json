@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "project_id": "DCL-001",
+  "checked_on": "2026-11-10",
+  "user_supplied_sources": [
+    {
+      "id": "REF-IGNO-HOME",
+      "url": "https://www.ignoredone.space/",
+      "role": "third-party-creator-discovery",
+      "source_thread_id": "01a1ba28-b54a-7de3-9c86-915700918269",
+      "source_turn_id": "01a1c5a9-bbd7-70a1-a35f-3d91fc8c8901",
+      "provided_by": "user",
+      "existing_registration": "../../project-console/.sites-checkout/review/reference-library.md",
+      "existing_study": "../../project-console/.sites-checkout/review/ignoredone-study.md",
+      "current_access": "homepage-fetch-timeout; selected-child-pages-read"
+    },
+    {
+      "id": "REF-IGNO-LEARN",
+      "url": "https://www.ignoredone.space/index.php/learningproject/",
+      "role": "third-party-learning-project-catalog",
+      "source_thread_id": "01a1ba28-b54a-7de3-9c86-915700918269",
+      "source_turn_id": "01a1c5a9-bbd7-70a1-a35f-3d91fc8c8901",
+      "provided_by": "user",
+      "existing_registration": "../../project-console/.sites-checkout/review/reference-library.md",
+      "existing_study": "../../project-console/.sites-checkout/review/ignoredone-study.md",
+      "current_access": "page-read; no package opened or executed"
+    }
+  ],
+  "feedback_locators": [
+    {
+      "id": "DCL-FB01",
+      "source_thread_id": "6af1c5cf-085c-83ec-a710-addf1235806d",
+      "source_thread_title": "设计明日方舟风格UI",
+      "source_turn_id": "bbb210c2-907e-4d01-833e-ab0145eaf985",
+      "speaker": "user",
+      "original": "应该是第一个吧 只是交互 布局 信息等需要更精心的设计"
+    },
+    {
+      "id": "DCL-FB02",
+      "source_thread_id": "6af1c5cf-085c-83ec-a710-addf1235806d",
+      "source_thread_title": "设计明日方舟风格UI",
+      "source_turn_id": "bbb217e5-08aa-4dbb-b1f1-b4c11a24d868",
+      "speaker": "user",
+      "original": "美术 视觉引导应该怎么和交互协调？你的第二版虽然信息展现的比较详细 但是缺少了点美术与视觉引导"
+    }
+  ],
+  "limits": [
+    "This is an index to existing unique originals, not a migration or a second editable copy.",
+    "Creator explanations and tools are not evidence of the original game's interaction behavior.",
+    "The current cycle plans ten Endfield workflow studies including C01, one style instance and one transfer task; scope version 0.2."
+  ]
+}

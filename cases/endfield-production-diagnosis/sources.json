@@ -1,0 +1,87 @@
+{
+  "schema_version": 1,
+  "case_id": "DCL-C08",
+  "collected_on": "2026-11-11",
+  "status": "partial",
+  "exact_build": null,
+  "platform": "PC keyboard cues visible; capture device not independently confirmed",
+  "sources": [
+    {
+      "id": "C08-S01",
+      "url": "https://endfield.gryphline.com/zh-tw/news/1340",
+      "title": "全面测试开发组通讯//02",
+      "publisher": "终末地官方",
+      "published_at": "2025-11-01",
+      "role": "official-preview-statement-and-still"
+    },
+    {
+      "id": "C08-S02",
+      "url": "https://gamewith.net/akendfield/72376",
+      "title": "How to Fix AIC Facility Issues",
+      "publisher": "GameWith Strategy Team",
+      "published_at": "2026-01-25",
+      "role": "guide-author-screenshots-and-instructions"
+    }
+  ],
+  "assets": [
+    {
+      "id": "C08-E01",
+      "source_id": "C08-S01",
+      "file": "evidence/smart-recipe.jpg",
+      "original_url": "https://web-static.hg-cdn.com/upload/image/20251101/b89d142c6c01bd2f17c8cce5d063d26a.jpg",
+      "bytes": 1788089,
+      "sha256": "b2712e33b454bb73b6c7a6fb902be7f6c1f0fc34d604955f02dbb556923a8abf",
+      "transformation": "none",
+      "annotation_author": "source author, where visible",
+      "inspection": "visually-inspected",
+      "width": 1920,
+      "height": 1191
+    },
+    {
+      "id": "C08-E02",
+      "source_id": "C08-S02",
+      "file": "evidence/power-error.png",
+      "original_url": "https://img.gamewith.net/img/39f3ce99a6b515d39c34a5c0e7ce033c.png",
+      "bytes": 187400,
+      "sha256": "d314a99de7c62c9b320100a61a65b524d77b344ec975902d74d2baa1107eae98",
+      "transformation": "none",
+      "annotation_author": "source author, where visible",
+      "inspection": "visually-inspected",
+      "width": 710,
+      "height": 387
+    },
+    {
+      "id": "C08-E03",
+      "source_id": "C08-S02",
+      "file": "evidence/idle-state.png",
+      "original_url": "https://img.gamewith.net/img/965dcb10cebb94c685701cf0e8a9f591.png",
+      "bytes": 128443,
+      "sha256": "b675a390643514b5276567f7f5cd3c18ff02ea5b042cf7605e56f3e0ac7e7d7e",
+      "transformation": "none",
+      "annotation_author": "source author, where visible",
+      "inspection": "visually-inspected",
+      "width": 710,
+      "height": 388
+    },
+    {
+      "id": "C08-E04",
+      "source_id": "C08-S02",
+      "file": "evidence/power-details.png",
+      "original_url": "https://img.gamewith.net/img/cd9e4f30732485573d0d3a30280dabe3.png",
+      "bytes": 69335,
+      "sha256": "9662d653c562e8d48995d6ea3cdab3160a9fe3b325e9d87d2276e5001f09ce8f",
+      "transformation": "none",
+      "annotation_author": "source author, where visible",
+      "inspection": "visually-inspected",
+      "width": 710,
+      "height": 387
+    }
+  ],
+  "access_attempts": [],
+  "limits": [
+    "No real-game operation or human usability testing conducted.",
+    "No verified source-input timestamps or measured original animation parameters.",
+    "Different articles or versions are not stitched into one observed run.",
+    "Third-party assets retained for local research; product reuse permission not established."
+  ]
+}

@@ -1,0 +1,28 @@
+[
+  {
+    "folder": "endfield-blueprint-placement",
+    "file": "blueprint-selected.png",
+    "url": "https://img.gamewith.net/img/0005c91b6665d68bb5cb2844a8c309d5.png",
+    "bytes": 64150,
+    "sha256": "5f737bad0af760830dfe7439317883b417e0f3c212d0073f5b0e54ab5486dc58"
+  },
+  {
+    "folder": "endfield-blueprint-placement",
+    "file": "blueprint-placement.png",
+    "url": "https://img.gamewith.net/img/35c89ac90d3b882792e06f4ff64860aa.png",
+    "bytes": 106693,
+    "sha256": "0d5de5923535809aa34edbdbb3732151ae49760f6403e0388de8e65cc9d0b7e1"
+  },
+  {
+    "folder": "endfield-blueprint-placement",
+    "file": "blueprint-incomplete.jpg",
+    "error": "HTTP Error 451: Unavailable For Legal Reasons"
+  },
+  {
+    "folder": "endfield-blueprint-placement",
+    "file": "blueprint-open.mp4",
+    "url": "https://img.gamewith.net/common_movies/5396200186189956d397ac979f2837ee.mp4",
+    "bytes": 4792023,
+    "sha256": "be0eac93e1e693a4737f4bd209307a4e2a2da46e73bdd6ad49da88cc1bc661eb"
+  }
+]

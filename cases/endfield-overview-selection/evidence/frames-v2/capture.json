@@ -1,0 +1,14 @@
+{
+  "input": "D:/Dev/projects/design-capability-lab/cases/endfield-overview-selection/evidence/facility-select.mp4",
+  "duration": 2.933333,
+  "width": 2560,
+  "height": 1440,
+  "sampled_seconds": [
+    0,
+    0.5866666,
+    1.1733332,
+    1.7599998000000001,
+    2.3466664
+  ],
+  "method": "decoded HTML5 video samples; no original input timestamps; timing belongs to published clip"
+}

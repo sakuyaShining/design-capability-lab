@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "case_id": "DCL-C02",
+  "checked_on": "2026-11-11",
+  "status": {
+    "documentary_review": "completed",
+    "original_workflow": "partial",
+    "interaction_validation": "not_performed"
+  },
+  "actual_scope": "Task list, category and tracking-entry hierarchy; destination/return not observed",
+  "build": null,
+  "platform": null,
+  "sources": [
+    {
+      "id": "C02-S01",
+      "url": "https://shibu-lab.com/en/5464/",
+      "title": "How to complete daily missions in 5 minutes",
+      "publisher": "Shibu-lab",
+      "displayed_date": "2026-03-03",
+      "role": "author-written-instructions-and-annotated-screenshot",
+      "locator": "Where do you receive your contractual assignments from?"
+    }
+  ],
+  "assets": [
+    {
+      "id": "C02-E01",
+      "source_id": "C02-S01",
+      "file": "evidence/task-list.jpg",
+      "original_url": "https://shibu-lab.com/wp-content/uploads/2026/03/ArknightsEndfield-daily-mission-2-1024x576.jpg",
+      "bytes": 34698,
+      "sha256": "21beef5a8140c85b58cb3c9ceeaeb0c6a69fab96762416845797102054a11594",
+      "width": 1024,
+      "height": 576,
+      "transformation_by_agent": "none",
+      "source_annotations_present": true,
+      "inspection": "visually-inspected",
+      "rights": "Third-party game imagery and source-author annotations, local research only; no product reuse permission established."
+    }
+  ],
+  "limits": [
+    "Ordered guide illustrations are not a continuous input recording.",
+    "Exact client build and capture date are unknown.",
+    "Source-author red/pink annotations are preserved and not Agent or player attention markings.",
+    "No original motion timings or user-test outcomes claimed."
+  ]
+}

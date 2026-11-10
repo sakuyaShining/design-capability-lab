@@ -1,0 +1,84 @@
+{
+  "schema_version": 1,
+  "case_id": "DCL-C04",
+  "checked_on": "2026-11-11",
+  "status": {
+    "documentary_review": "completed",
+    "original_workflow": "partial",
+    "interaction_validation": "not_performed"
+  },
+  "actual_scope": "Ordered author guide to weapon detail and material/upgrade preview; original two-weapon comparison/return incomplete",
+  "build": null,
+  "platform": null,
+  "sources": [
+    {
+      "id": "C04-S01",
+      "url": "https://gamewith.net/akendfield/72716",
+      "title": "Weapon Enhancement Guide",
+      "publisher": "GameWith",
+      "author": "Arknights: Endfield Strategy Team",
+      "displayed_date": "February 25, 2026 9:59 PM; timezone unknown",
+      "role": "ordered-author-instructions-and-annotated-screenshots",
+      "locator": "How to Enhance Weapons: Open Character Screen -> Select an Enhancement Option -> Use Materials"
+    },
+    {
+      "id": "C04-S02",
+      "url": "https://www.powerpyx.com/arknights-endfield-rally-and-unite-walkthrough/",
+      "title": "Rally and Unite Walkthrough",
+      "publisher": "PowerPyx",
+      "displayed_date": "2026-01-21",
+      "role": "author-written-gameplay-walkthrough",
+      "locator": "Equipping & Leveling Weapons"
+    }
+  ],
+  "assets": [
+    {
+      "id": "C04-E01",
+      "source_id": "C04-S01",
+      "file": "evidence/menu.png",
+      "original_url": "https://img.gamewith.net/img/5884ea7c0f2b05b4b24506df2f2db0ff.png",
+      "bytes": 94106,
+      "sha256": "42201829e0c68e2f8431ada4d0b2c972c174fb01c6fc22da4190e90374efaa2f",
+      "width": 710,
+      "height": 384,
+      "transformation_by_agent": "none",
+      "source_annotations_present": true,
+      "inspection": "visually-inspected",
+      "rights": "Third-party game imagery and source-author annotations, local research only; no product reuse permission established."
+    },
+    {
+      "id": "C04-E02",
+      "source_id": "C04-S01",
+      "file": "evidence/weapon-details.png",
+      "original_url": "https://img.gamewith.net/img/59cff1dd0c99dd934de14967f3a564e9.png",
+      "bytes": 333424,
+      "sha256": "93f8f1661e981f5550bfaabfc1a114ba6e1bc55ac67e42c733b489810a8fafc2",
+      "width": 710,
+      "height": 384,
+      "transformation_by_agent": "none",
+      "source_annotations_present": true,
+      "inspection": "visually-inspected",
+      "rights": "Third-party game imagery and source-author annotations, local research only; no product reuse permission established."
+    },
+    {
+      "id": "C04-E03",
+      "source_id": "C04-S01",
+      "file": "evidence/weapon-materials.png",
+      "original_url": "https://img.gamewith.net/img/cce73f1d7cd76e9cf0a8cc55c653f365.png",
+      "bytes": 38048,
+      "sha256": "d93323379a96641a05fcd883b8d0fad07792c45fcd9e1f9ea4da53ac56a7d129",
+      "width": 710,
+      "height": 386,
+      "transformation_by_agent": "none",
+      "source_annotations_present": true,
+      "inspection": "visually-inspected",
+      "rights": "Third-party game imagery and source-author annotations, local research only; no product reuse permission established."
+    }
+  ],
+  "limits": [
+    "Ordered guide illustrations are not a continuous input recording.",
+    "Exact client build and capture date are unknown.",
+    "Source-author red/pink annotations are preserved and not Agent or player attention markings.",
+    "No original motion timings or user-test outcomes claimed."
+  ]
+}

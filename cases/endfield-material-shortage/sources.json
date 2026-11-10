@@ -1,0 +1,109 @@
+{
+  "schema_version": 1,
+  "case_id": "DCL-C07",
+  "collected_on": "2026-11-11",
+  "status": "partial",
+  "analysis_status": "written",
+  "sources": [
+    {
+      "id": "C07-S01",
+      "url": "https://endfield.gryphline.com/zh-tw/news/4494",
+      "title": "春曉時 開發組通訊",
+      "publisher": "GRYPHLINE / Endfield team",
+      "published_at_as_displayed": "2026/04/13 11:00",
+      "role": "official-functional-statement",
+      "section": "互動與易用性優化"
+    },
+    {
+      "id": "C07-S02",
+      "url": "https://gamewith.net/akendfield/72708",
+      "title": "How to Upgrade Combat Skills and Required Materials",
+      "publisher": "GameWith",
+      "published_at_as_displayed": "February 5, 2026 2:01 AM (page update)",
+      "role": "author-published-annotated-gameplay-guide"
+    },
+    {
+      "id": "C07-S03",
+      "url": "https://gamewith.net/akendfield/72426",
+      "title": "Daily Tasks and Server Reset Time",
+      "publisher": "GameWith",
+      "role": "author-published-annotated-gameplay-guide",
+      "section": "Check Respawn Status from the Map"
+    }
+  ],
+  "assets": [
+    {
+      "id": "C07-E01",
+      "file": "evidence/resource-location-gamewith.png",
+      "bytes": 71094,
+      "sha256": "4825f2aaafd98c931a8f52bf87fa2f21287d93d60a932888b6c6c24aa1c00197",
+      "width": 710,
+      "height": 387,
+      "source_id": "C07-S03",
+      "original_url": "https://img.gamewith.net/img/49d1147815bfaac218a9843ea3039737.png",
+      "transformation": "none",
+      "annotation_attribution": "original guide author, not game UI or DCL"
+    },
+    {
+      "id": "C07-E02",
+      "file": "evidence/skill-upgrade-gamewith.png",
+      "bytes": 98979,
+      "sha256": "c5c9eeec8cd19c52b59ca92695e87ee76ffd9c3fc79bc0d3d3af369054866a49",
+      "width": 710,
+      "height": 401,
+      "source_id": "C07-S02",
+      "original_url": "https://img.gamewith.net/img/c1a45d299a4bbce9b54ca189dd6006f8.png",
+      "transformation": "none",
+      "annotation_attribution": "original guide author, not game UI or DCL"
+    }
+  ],
+  "unverified": [
+    "material-shortage state",
+    "material-details to selection-crate sequence",
+    "preselection correction",
+    "return and refreshed deficit"
+  ],
+  "rights": "Third-party media retained for local research; not product assets or proof of reuse rights.",
+  "limits": [
+    "No human usability test.",
+    "Do not concatenate separate sources or versions into one observed run."
+  ],
+  "supplemental_search_on": "2026-11-11",
+  "supplemental_search": [
+    {
+      "route": "https://endfield.gryphline.com/ja-jp/news/7017",
+      "method": "public raw HTTP HTML media-src inspection",
+      "result": "HTML read; three unique GIF URLs found, associated with pipeline flow and other feature contexts; no prerequisite-task-jump media adjacent to the relevant paragraph",
+      "evidence_upgrade": false
+    },
+    {
+      "route": "https://endfield.gryphline.com/zh-tw/news/4494",
+      "method": "public raw HTTP HTML media-src inspection",
+      "result": "HTML read; two unique GIF URLs found, in combat timer / duration contexts; no material-shortage selection-crate media adjacent to the relevant paragraph",
+      "evidence_upgrade": false
+    },
+    {
+      "route": "https://endfield.games/en/tutorials/system/",
+      "method": "public raw HTTP urllib",
+      "result": "SSL UNEXPECTED_EOF_WHILE_READING; TLS validation not bypassed",
+      "evidence_upgrade": false
+    },
+    {
+      "route": "https://endfield.games/zh-Hans/tutorials/factory/",
+      "method": "public raw HTTP urllib and native Invoke-WebRequest",
+      "result": "SSL connection failure; TLS validation not bypassed",
+      "evidence_upgrade": false
+    },
+    {
+      "route": "https://gamewith.net/akendfield/72708",
+      "method": "public source HTML search for mp4/webm/video",
+      "result": "Native HTTP initial fetch yielded no video URLs; later urllib retry TLS failed. Existing author screenshots remain the admitted evidence.",
+      "evidence_upgrade": false
+    },
+    {
+      "route": "public indexed search for material-shortage selection crate / industrial prerequisite task jump",
+      "result": "Official text statements, mirrors and broad guides surfaced; no exact continuous short clip admitted",
+      "evidence_upgrade": false
+    }
+  ]
+}

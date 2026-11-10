@@ -1,0 +1,30 @@
+[
+  {
+    "folder": "endfield-production-diagnosis",
+    "file": "smart-recipe.jpg",
+    "url": "https://web-static.hg-cdn.com/upload/image/20251101/b89d142c6c01bd2f17c8cce5d063d26a.jpg",
+    "bytes": 1788089,
+    "sha256": "b2712e33b454bb73b6c7a6fb902be7f6c1f0fc34d604955f02dbb556923a8abf"
+  },
+  {
+    "folder": "endfield-production-diagnosis",
+    "file": "power-error.png",
+    "url": "https://img.gamewith.net/img/39f3ce99a6b515d39c34a5c0e7ce033c.png",
+    "bytes": 187400,
+    "sha256": "d314a99de7c62c9b320100a61a65b524d77b344ec975902d74d2baa1107eae98"
+  },
+  {
+    "folder": "endfield-production-diagnosis",
+    "file": "idle-state.png",
+    "url": "https://img.gamewith.net/img/965dcb10cebb94c685701cf0e8a9f591.png",
+    "bytes": 128443,
+    "sha256": "b675a390643514b5276567f7f5cd3c18ff02ea5b042cf7605e56f3e0ac7e7d7e"
+  },
+  {
+    "folder": "endfield-production-diagnosis",
+    "file": "power-details.png",
+    "url": "https://img.gamewith.net/img/cd9e4f30732485573d0d3a30280dabe3.png",
+    "bytes": 69335,
+    "sha256": "9662d653c562e8d48995d6ea3cdab3160a9fe3b325e9d87d2276e5001f09ce8f"
+  }
+]

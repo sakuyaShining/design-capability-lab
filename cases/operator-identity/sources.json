@@ -1,0 +1,77 @@
+{
+  "schema_version": 1,
+  "case_id": "DCL-C03",
+  "checked_on": "2026-11-11",
+  "status": {
+    "documentary_review": "completed",
+    "original_workflow": "partial",
+    "interaction_validation": "not_performed"
+  },
+  "actual_scope": "Operator identity, overview and attribute explanation; profile/return not observed",
+  "build": null,
+  "platform": null,
+  "sources": [
+    {
+      "id": "C03-S01",
+      "url": "https://intoindiegames.com/walkthroughs/tips-tricks/how-to-play-arknights-endfield/",
+      "title": "How to Play Arknights: Endfield?",
+      "publisher": "Into Indie Games",
+      "author": "Mahmud Munazil Rahman",
+      "displayed_date": "2026-01-21",
+      "role": "author-written-guide-and-annotated-screenshots",
+      "locator": "Understanding Operators; Primary & Secondary Stats"
+    },
+    {
+      "id": "C03-S02",
+      "url": "https://www.reddit.com/r/ArknightsEndfield/comments/1qo5h40/how_to_view_characters/",
+      "author": "u/JustUseDex",
+      "displayed_date": "relative date only; exact unknown",
+      "role": "player-self-report-not-reproduced",
+      "locator": "post body asking to view the entire cast"
+    },
+    {
+      "id": "C03-S03",
+      "url": "https://www.reddit.com/r/Endfield/comments/1qnl4zy/how_do_we_access_the_operator_gallery_or_can_we/",
+      "author": "u/ZeroOneSixV2-0 and commenters",
+      "displayed_date": "relative dates only; exact unknown",
+      "role": "player-self-report-and-comment-navigation-advice-not-reproduced",
+      "locator": "owned vs unowned gallery question and replies"
+    }
+  ],
+  "assets": [
+    {
+      "id": "C03-E01",
+      "source_id": "C03-S01",
+      "file": "evidence/operator-overview.jpg",
+      "original_url": "https://intoindiegames.com/wp-content/uploads/Arknights_-Endfield-0-23-screenshot-1.jpg",
+      "bytes": 607539,
+      "sha256": "0bd11d418387e6ffdae170f2d4827a124de2ea14bb1704ec531abdb482d8f0bd",
+      "width": 2547,
+      "height": 1367,
+      "transformation_by_agent": "none",
+      "source_annotations_present": true,
+      "inspection": "visually-inspected",
+      "rights": "Third-party game imagery and source-author annotations, local research only; no product reuse permission established."
+    },
+    {
+      "id": "C03-E02",
+      "source_id": "C03-S01",
+      "file": "evidence/operator-attributes.jpg",
+      "original_url": "https://intoindiegames.com/wp-content/uploads/Arknights_-Endfield-2-20-screenshot-1.jpg",
+      "bytes": 598527,
+      "sha256": "57077169ab7d09048f0761003dbece5a21183717aee6495b9fea7c78904cab95",
+      "width": 2547,
+      "height": 1367,
+      "transformation_by_agent": "none",
+      "source_annotations_present": true,
+      "inspection": "visually-inspected",
+      "rights": "Third-party game imagery and source-author annotations, local research only; no product reuse permission established."
+    }
+  ],
+  "limits": [
+    "Ordered guide illustrations are not a continuous input recording.",
+    "Exact client build and capture date are unknown.",
+    "Source-author red/pink annotations are preserved and not Agent or player attention markings.",
+    "No original motion timings or user-test outcomes claimed."
+  ]
+}
