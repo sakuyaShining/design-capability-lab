@@ -1,0 +1,50 @@
+{
+  "date": "2026-11-11",
+  "method": "isolated headless Edge; synthetic data; Agent checks, not human usability study",
+  "results": [
+    {
+      "variant": "C",
+      "initial": {
+        "variant": "C",
+        "focus": "scheme",
+        "unresolved": [
+          "direction",
+          "reuse"
+        ]
+      },
+      "returned": {
+        "focus": "scheme",
+        "scope": "ic",
+        "query": "方案"
+      },
+      "manual_blocker_reason": true,
+      "missing_reference_exposed": true,
+      "mobile_horizontal_overflow": false,
+      "reduced_motion_animation": "none",
+      "page_errors": [],
+      "hide_done_text": true
+    },
+    {
+      "variant": "D",
+      "initial": {
+        "variant": "D",
+        "focus": "scheme",
+        "unresolved": [
+          "direction",
+          "reuse"
+        ]
+      },
+      "returned": {
+        "focus": "scheme",
+        "scope": "ic",
+        "query": "方案"
+      },
+      "manual_blocker_reason": true,
+      "missing_reference_exposed": true,
+      "mobile_horizontal_overflow": false,
+      "reduced_motion_animation": "none",
+      "page_errors": [],
+      "hide_done_text": true
+    }
+  ]
+}

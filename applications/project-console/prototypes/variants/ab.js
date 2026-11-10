@@ -1,0 +1,11 @@
+(()=>{const L=Lab;
+ L.modes.A={name:'分栏',purpose:'扫描任务，再在原处查看前置与详情。',render:()=>`<div class="split"><section class="worklist"><div class="section-title"><h2>任务清单</h2><span>${L.visible().length} 项</span></div>${L.visible().length?L.visible().map(t=>L.button(t.id).replace('data-act="focus"','data-act="origin"')).join(''):'<p class="quiet">此范围内没有匹配任务，查看路径仍保留。</p>'}</section>${L.details(L.task(L.state.focus))}</div>`};
+ L.modes.B={name:'关系图',purpose:'以空间关系观察分支与共享前置，沿节点追踪。',render:()=>{
+  const root=L.task(L.state.focus),direct=L.deps(root),shown=direct.filter(t=>!L.state.hideDone||t.status!=='已完成'),leaf=[...new Set(shown.flatMap(t=>t.deps))].map(L.task);
+  const pos=new Map([[root.id,[15,50]]]);shown.forEach((t,i)=>pos.set(t.id,[50,(i+1)*100/(shown.length+1)]));leaf.forEach((t,i)=>{if(!pos.has(t.id))pos.set(t.id,[85,(i+1)*100/(leaf.length+1)]);});
+  const edge=(a,b)=>{if(!pos.has(a)||!pos.has(b))return '';const p=pos.get(a),q=pos.get(b);return `<path d="M${p[0]*10+100} ${p[1]*5} C${(p[0]+q[0])*5} ${p[1]*5} ${(p[0]+q[0])*5} ${q[1]*5} ${q[0]*10-100} ${q[1]*5}" marker-end="url(#arrow)"/>`;};
+  const lines=shown.map(t=>edge(root.id,t.id)).join('')+shown.flatMap(t=>t.deps.map(id=>edge(t.id,id))).join('');
+  return `<div class="graph-head"><div><h2>沿前置关系定位</h2><p>当前任务 → 需要的前置。共同的前置只显示一次。</p></div><label>切换原任务<select data-origin-select>${L.visible().length?L.visible().map(t=>`<option value="${t.id}" ${t.id===L.state.origin?'selected':''}>${t.code} ${L.esc(t.title)}</option>`).join(''):'<option disabled>无匹配任务，当前路径保留</option>'}</select></label></div><div class="graph" role="group" aria-label="当前任务与两级前置关系"><svg viewBox="0 0 1000 500" preserveAspectRatio="none" aria-hidden="true"><defs><marker id="arrow" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path d="M0 0L7 3.5L0 7"/></marker></defs>${lines}</svg>${[...pos].map(([id,[x,y]])=>`<div class="graph-node" style="left:${x}%;top:${y}%">${L.button(id)}</div>`).join('')}</div><div class="graph-detail">${L.details(root,false)}<p class="quiet">直接前置显示 ${shown.length} / ${direct.length}。${direct.length?'选择节点查看下一层。':'此对象没有前置，人工阻塞原因仍需单独查看。'}</p></div>`;
+ }};
+ document.addEventListener('change',e=>{if(e.target.matches('[data-origin-select]'))L.origin(e.target.value);});
+})();

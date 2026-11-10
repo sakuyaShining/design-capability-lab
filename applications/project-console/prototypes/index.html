@@ -1,0 +1,14 @@
+<!doctype html>
+<html lang="zh-CN" data-ef-variant="site">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>任务依赖 · 局部设计实验</title>
+<link rel="stylesheet" href="style.css">
+<body><a class="skip" href="#workspace">跳到任务内容</a>
+<header class="labbar"><a href="./">DCL <span>设计实验</span></a><nav id="versions" aria-label="小样版本"></nav><button id="theme" type="button">切换深浅</button><span class="demo">合成数据 / 本地原型</span></header>
+<div class="app-shell"><aside class="sidebar"><div class="brand">PROJECT<br><strong>工作总控台</strong></div><div class="nav-item">工作</div><div class="nav-item">项目</div><div class="nav-item chosen">任务依赖</div><div class="nav-item">资料与记录</div><div class="side-foot"><span>本次实验</span><p id="variant-purpose"></p><small>其他分区仅表示整体规划中的位置。</small></div></aside>
+<main id="workspace" tabindex="-1"><div class="pagehead"><div><p class="eyebrow">// TASK DEPENDENCIES</p><h1>让下一步，<br>有据可循。</h1></div><div id="origin-summary"></div></div>
+<section class="filters" aria-label="范围筛选"><label>项目范围<select id="scope"><option value="all">全部项目</option><option value="ic">集创赛</option><option value="soc">SoC / 系统</option></select></label><label class="search">查找任务<input id="search" type="search" placeholder="标题或编号" autocomplete="off"></label><label class="check"><input id="hideDone" type="checkbox">隐藏已完成前置</label><details class="edge"><summary>异常样例</summary><label><input id="broken" type="checkbox">原任务含缺失引用</label></details></section>
+<div class="context"><nav id="trail" aria-label="查看路径"></nav><div><button data-act="back" id="back">上一步</button><button data-act="origin">回到原任务</button></div></div>
+<section id="surface" aria-label="依赖研究内容"></section><p id="announce" class="sr-only" role="status" aria-live="polite"></p>
+<footer class="appfoot">依赖方向：当前任务需要前置任务完成。查看前置不会改变任务状态。</footer></main></div>
+<script src="data.js"></script><script src="app.js"></script><script src="variants/ab.js"></script><script src="variants/cd.js"></script><script src="variants/ef.js"></script><script>Lab.start()</script></body></html>

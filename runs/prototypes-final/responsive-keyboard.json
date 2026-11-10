@@ -1,0 +1,336 @@
+{
+  "date": "2026-11-11",
+  "method": "isolated Edge; targeted keyboard checks, not screen-reader or human usability testing",
+  "results": [
+    {
+      "variant": "A",
+      "sizes": [
+        {
+          "width": 375,
+          "dark": false,
+          "page_overflow": false
+        },
+        {
+          "width": 375,
+          "dark": true,
+          "page_overflow": false
+        },
+        {
+          "width": 768,
+          "dark": false,
+          "page_overflow": false
+        },
+        {
+          "width": 768,
+          "dark": true,
+          "page_overflow": false
+        },
+        {
+          "width": 1024,
+          "dark": false,
+          "page_overflow": false
+        },
+        {
+          "width": 1024,
+          "dark": true,
+          "page_overflow": false
+        },
+        {
+          "width": 1440,
+          "dark": false,
+          "page_overflow": false
+        },
+        {
+          "width": 1440,
+          "dark": true,
+          "page_overflow": false
+        }
+      ],
+      "keyboard_theme": true,
+      "detail_focus_heading": true,
+      "back": true,
+      "keyboard_return": true,
+      "empty_query_keeps_dependency": true,
+      "origin_scroll": {
+        "saved": 300,
+        "restored": 300
+      },
+      "no_local_storage": true
+    },
+    {
+      "variant": "B",
+      "sizes": [
+        {
+          "width": 375,
+          "dark": false,
+          "page_overflow": false
+        },
+        {
+          "width": 375,
+          "dark": true,
+          "page_overflow": false
+        },
+        {
+          "width": 768,
+          "dark": false,
+          "page_overflow": false
+        },
+        {
+          "width": 768,
+          "dark": true,
+          "page_overflow": false
+        },
+        {
+          "width": 1024,
+          "dark": false,
+          "page_overflow": false
+        },
+        {
+          "width": 1024,
+          "dark": true,
+          "page_overflow": false
+        },
+        {
+          "width": 1440,
+          "dark": false,
+          "page_overflow": false
+        },
+        {
+          "width": 1440,
+          "dark": true,
+          "page_overflow": false
+        }
+      ],
+      "keyboard_theme": true,
+      "detail_focus_heading": true,
+      "back": true,
+      "keyboard_return": true,
+      "empty_query_keeps_dependency": true,
+      "origin_scroll": {
+        "saved": 300,
+        "restored": 300
+      },
+      "no_local_storage": true
+    },
+    {
+      "variant": "C",
+      "sizes": [
+        {
+          "width": 375,
+          "dark": false,
+          "page_overflow": false
+        },
+        {
+          "width": 375,
+          "dark": true,
+          "page_overflow": false
+        },
+        {
+          "width": 768,
+          "dark": false,
+          "page_overflow": false
+        },
+        {
+          "width": 768,
+          "dark": true,
+          "page_overflow": false
+        },
+        {
+          "width": 1024,
+          "dark": false,
+          "page_overflow": false
+        },
+        {
+          "width": 1024,
+          "dark": true,
+          "page_overflow": false
+        },
+        {
+          "width": 1440,
+          "dark": false,
+          "page_overflow": false
+        },
+        {
+          "width": 1440,
+          "dark": true,
+          "page_overflow": false
+        }
+      ],
+      "keyboard_theme": true,
+      "detail_focus_heading": true,
+      "back": true,
+      "keyboard_return": true,
+      "empty_query_keeps_dependency": true,
+      "origin_scroll": {
+        "saved": 300,
+        "restored": 300
+      },
+      "no_local_storage": true
+    },
+    {
+      "variant": "D",
+      "sizes": [
+        {
+          "width": 375,
+          "dark": false,
+          "page_overflow": false
+        },
+        {
+          "width": 375,
+          "dark": true,
+          "page_overflow": false
+        },
+        {
+          "width": 768,
+          "dark": false,
+          "page_overflow": false
+        },
+        {
+          "width": 768,
+          "dark": true,
+          "page_overflow": false
+        },
+        {
+          "width": 1024,
+          "dark": false,
+          "page_overflow": false
+        },
+        {
+          "width": 1024,
+          "dark": true,
+          "page_overflow": false
+        },
+        {
+          "width": 1440,
+          "dark": false,
+          "page_overflow": false
+        },
+        {
+          "width": 1440,
+          "dark": true,
+          "page_overflow": false
+        }
+      ],
+      "keyboard_theme": true,
+      "detail_focus_heading": true,
+      "back": true,
+      "keyboard_return": true,
+      "empty_query_keeps_dependency": true,
+      "origin_scroll": {
+        "saved": 300,
+        "restored": 300
+      },
+      "no_local_storage": true
+    },
+    {
+      "variant": "E",
+      "sizes": [
+        {
+          "width": 375,
+          "dark": false,
+          "page_overflow": false
+        },
+        {
+          "width": 375,
+          "dark": true,
+          "page_overflow": false
+        },
+        {
+          "width": 768,
+          "dark": false,
+          "page_overflow": false
+        },
+        {
+          "width": 768,
+          "dark": true,
+          "page_overflow": false
+        },
+        {
+          "width": 1024,
+          "dark": false,
+          "page_overflow": false
+        },
+        {
+          "width": 1024,
+          "dark": true,
+          "page_overflow": false
+        },
+        {
+          "width": 1440,
+          "dark": false,
+          "page_overflow": false
+        },
+        {
+          "width": 1440,
+          "dark": true,
+          "page_overflow": false
+        }
+      ],
+      "keyboard_theme": true,
+      "detail_focus_heading": true,
+      "back": true,
+      "keyboard_return": true,
+      "empty_query_keeps_dependency": true,
+      "origin_scroll": {
+        "saved": 300,
+        "restored": 300
+      },
+      "no_local_storage": true
+    },
+    {
+      "variant": "F",
+      "sizes": [
+        {
+          "width": 375,
+          "dark": false,
+          "page_overflow": false
+        },
+        {
+          "width": 375,
+          "dark": true,
+          "page_overflow": false
+        },
+        {
+          "width": 768,
+          "dark": false,
+          "page_overflow": false
+        },
+        {
+          "width": 768,
+          "dark": true,
+          "page_overflow": false
+        },
+        {
+          "width": 1024,
+          "dark": false,
+          "page_overflow": false
+        },
+        {
+          "width": 1024,
+          "dark": true,
+          "page_overflow": false
+        },
+        {
+          "width": 1440,
+          "dark": false,
+          "page_overflow": false
+        },
+        {
+          "width": 1440,
+          "dark": true,
+          "page_overflow": false
+        }
+      ],
+      "keyboard_theme": true,
+      "detail_focus_heading": true,
+      "back": true,
+      "keyboard_return": true,
+      "empty_query_keeps_dependency": true,
+      "origin_scroll": {
+        "saved": 300,
+        "restored": 300
+      },
+      "no_local_storage": true
+    }
+  ]
+}

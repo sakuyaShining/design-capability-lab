@@ -1,0 +1,30 @@
+import fs from 'node:fs';import path from 'node:path';import {pathToFileURL} from 'node:url';
+const {chromium}=await import(pathToFileURL('C:/Users/Sakuya/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright/index.mjs'));
+const [output,...modes]=process.argv.slice(2);if(!output||!modes.length)throw Error('output-directory and variants required');fs.mkdirSync(output,{recursive:true});
+const browser=await chromium.launch({headless:true,executablePath:'C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe'});
+const results=[];
+try{for(const mode of modes){
+ const page=await browser.newPage({viewport:{width:1440,height:1050}});const errors=[];page.on('pageerror',e=>errors.push(e.message));
+ await page.goto(`http://127.0.0.1:5197/?v=${mode}`);await page.locator('#surface h2').first().waitFor();await page.evaluate(()=>document.fonts.ready);await page.waitForTimeout(220);
+ await page.screenshot({path:path.join(output,`${mode}-desktop.png`),fullPage:true});
+ const initial=await page.evaluate(()=>({variant:Lab.state.variant,focus:Lab.state.focus,unresolved:Lab.open(Lab.task('scheme')).map(t=>t.id)}));
+ if(initial.variant!==mode||initial.unresolved.join(',')!=='direction,reuse')throw Error(`${mode} wrong direct predecessors`);
+ await page.locator('#scope').selectOption('ic');await page.locator('#search').fill('方案');
+ await page.locator('[data-act="focus"][data-id="direction"]').first().click();
+ await page.locator('[data-act="focus"][data-id="mentor"]').first().click();
+ if(!await page.locator('#surface').innerText().then(s=>s.includes('等待校内负责人的确认')))throw Error(`${mode} manual reason missing`);
+ await page.locator('[data-act="origin"]').first().click();
+ const returned=await page.evaluate(()=>({focus:Lab.state.focus,scope:document.querySelector('#scope').value,query:document.querySelector('#search').value}));
+ if(returned.focus!=='scheme'||returned.scope!=='ic'||returned.query!=='方案')throw Error(`${mode} return loses context`);
+ await page.locator('#hideDone').check();const visible=await page.locator('#surface').innerText();
+ await page.locator('details.edge summary').click();await page.locator('#broken').check();
+ if(!(await page.locator('#surface').innerText()).includes('缺失'))throw Error(`${mode} missing-ref not exposed`);
+ await page.locator('#broken').uncheck();await page.locator('#hideDone').uncheck();await page.locator('#search').fill('');await page.locator('#scope').selectOption('all');
+ await page.locator('#theme').click();await page.waitForTimeout(220);await page.screenshot({path:path.join(output,`${mode}-dark.png`),fullPage:true});await page.locator('#theme').click();
+ await page.setViewportSize({width:390,height:844});await page.emulateMedia({reducedMotion:'reduce'});await page.screenshot({path:path.join(output,`${mode}-mobile.png`),fullPage:true});
+ const overflow=await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth);
+ if(overflow)throw Error(`${mode} horizontal overflow`);
+ const motion=await page.locator('#surface').evaluate(el=>getComputedStyle(el).animationName);
+ results.push({variant:mode,initial,returned,manual_blocker_reason:true,missing_reference_exposed:true,mobile_horizontal_overflow:overflow,reduced_motion_animation:motion,page_errors:errors,hide_done_text:visible.includes('共')});
+ if(errors.length)throw Error(`${mode} page errors`);await page.close();
+}fs.writeFileSync(path.join(output,'verification.json'),JSON.stringify({date:'2026-11-11',method:'isolated headless Edge; synthetic data; Agent checks, not human usability study',results},null,2));console.log(JSON.stringify(results));}finally{await browser.close();}
