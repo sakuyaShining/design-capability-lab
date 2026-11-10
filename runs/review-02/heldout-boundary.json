@@ -1,0 +1,14 @@
+{
+  "date": "2026-11-11",
+  "observation": {
+    "origin": "release/check",
+    "current_project": "publishing",
+    "scope_values": [
+      "all",
+      "ic",
+      "soc"
+    ],
+    "has_dedicated_new_project_option": false
+  },
+  "limit": "Navigation adapts, project filter remains demo-specific. Not a full generalization pass."
+}

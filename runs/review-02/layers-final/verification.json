@@ -1,0 +1,312 @@
+{
+  "date": "2026-11-11",
+  "method": "isolated Edge; synthetic situations; no human UX or aesthetic score",
+  "results": [
+    {
+      "view": "G",
+      "baseline_flow": true,
+      "return_context": true,
+      "keyboard_return": true,
+      "content_heading_focus": true,
+      "situations": [
+        {
+          "scenario": "clear",
+          "id": "scheme",
+          "count": 3,
+          "open": 0,
+          "status": "待开始",
+          "sizes": [
+            {
+              "width": 375,
+              "overflow": false
+            },
+            {
+              "width": 1440,
+              "overflow": false
+            }
+          ]
+        },
+        {
+          "scenario": "manual",
+          "id": "mentor",
+          "count": 0,
+          "open": 0,
+          "status": "阻塞中",
+          "sizes": [
+            {
+              "width": 375,
+              "overflow": false
+            },
+            {
+              "width": 1440,
+              "overflow": false
+            }
+          ]
+        },
+        {
+          "scenario": "missing",
+          "id": "scheme",
+          "count": 4,
+          "open": 3,
+          "status": "待开始",
+          "sizes": [
+            {
+              "width": 375,
+              "overflow": false
+            },
+            {
+              "width": 1440,
+              "overflow": false
+            }
+          ]
+        },
+        {
+          "scenario": "cycle",
+          "id": "a",
+          "count": 1,
+          "open": 1,
+          "status": "待开始",
+          "sizes": [
+            {
+              "width": 375,
+              "overflow": false
+            },
+            {
+              "width": 1440,
+              "overflow": false
+            }
+          ]
+        },
+        {
+          "scenario": "dense",
+          "id": "launch",
+          "count": 14,
+          "open": 10,
+          "status": "待开始",
+          "sizes": [
+            {
+              "width": 375,
+              "overflow": false
+            },
+            {
+              "width": 1440,
+              "overflow": false
+            }
+          ]
+        }
+      ],
+      "empty_keeps_dependencies": true,
+      "primary_targets_at_least_44": true,
+      "sizes": [
+        {
+          "width": 375,
+          "theme": "light",
+          "overflow": false
+        },
+        {
+          "width": 375,
+          "theme": "dark",
+          "overflow": false
+        },
+        {
+          "width": 768,
+          "theme": "light",
+          "overflow": false
+        },
+        {
+          "width": 768,
+          "theme": "dark",
+          "overflow": false
+        },
+        {
+          "width": 1024,
+          "theme": "light",
+          "overflow": false
+        },
+        {
+          "width": 1024,
+          "theme": "dark",
+          "overflow": false
+        },
+        {
+          "width": 1440,
+          "theme": "light",
+          "overflow": false
+        },
+        {
+          "width": 1440,
+          "theme": "dark",
+          "overflow": false
+        }
+      ],
+      "reduced_motion": true,
+      "texture_removes_no_content": true,
+      "holdout": {
+        "root": "release/check",
+        "unmet": 2,
+        "shared_prerequisite": "font",
+        "path_and_return": true,
+        "escaped_content": true
+      },
+      "page_errors": []
+    },
+    {
+      "view": "H",
+      "baseline_flow": true,
+      "return_context": true,
+      "keyboard_return": true,
+      "content_heading_focus": true,
+      "situations": [
+        {
+          "scenario": "clear",
+          "id": "scheme",
+          "count": 3,
+          "open": 0,
+          "status": "待开始",
+          "sizes": [
+            {
+              "width": 375,
+              "overflow": false
+            },
+            {
+              "width": 1440,
+              "overflow": false
+            }
+          ]
+        },
+        {
+          "scenario": "manual",
+          "id": "mentor",
+          "count": 0,
+          "open": 0,
+          "status": "阻塞中",
+          "sizes": [
+            {
+              "width": 375,
+              "overflow": false
+            },
+            {
+              "width": 1440,
+              "overflow": false
+            }
+          ]
+        },
+        {
+          "scenario": "missing",
+          "id": "scheme",
+          "count": 4,
+          "open": 3,
+          "status": "待开始",
+          "sizes": [
+            {
+              "width": 375,
+              "overflow": false
+            },
+            {
+              "width": 1440,
+              "overflow": false
+            }
+          ]
+        },
+        {
+          "scenario": "cycle",
+          "id": "a",
+          "count": 1,
+          "open": 1,
+          "status": "待开始",
+          "sizes": [
+            {
+              "width": 375,
+              "overflow": false
+            },
+            {
+              "width": 1440,
+              "overflow": false
+            }
+          ]
+        },
+        {
+          "scenario": "dense",
+          "id": "launch",
+          "count": 14,
+          "open": 10,
+          "status": "待开始",
+          "sizes": [
+            {
+              "width": 375,
+              "overflow": false
+            },
+            {
+              "width": 1440,
+              "overflow": false
+            }
+          ]
+        }
+      ],
+      "empty_keeps_dependencies": true,
+      "primary_targets_at_least_44": true,
+      "sizes": [
+        {
+          "width": 375,
+          "theme": "light",
+          "overflow": false
+        },
+        {
+          "width": 375,
+          "theme": "dark",
+          "overflow": false
+        },
+        {
+          "width": 768,
+          "theme": "light",
+          "overflow": false
+        },
+        {
+          "width": 768,
+          "theme": "dark",
+          "overflow": false
+        },
+        {
+          "width": 1024,
+          "theme": "light",
+          "overflow": false
+        },
+        {
+          "width": 1024,
+          "theme": "dark",
+          "overflow": false
+        },
+        {
+          "width": 1440,
+          "theme": "light",
+          "overflow": false
+        },
+        {
+          "width": 1440,
+          "theme": "dark",
+          "overflow": false
+        }
+      ],
+      "reduced_motion": true,
+      "texture_removes_no_content": true,
+      "holdout": {
+        "root": "release/check",
+        "unmet": 2,
+        "shared_prerequisite": "font",
+        "path_and_return": true,
+        "escaped_content": true
+      },
+      "page_errors": []
+    }
+  ],
+  "offline": true,
+  "implementation_hashes": {
+    "applications/project-console/layer-study/index.html": "e2a89b1fdb0616c0c40a70129aa7c7263efc4633f540566590efd5d2030f2958",
+    "applications/project-console/layer-study/app.js": "f81f198865f5c777261e2cdcd42c32346a7fb1127073c0a0f45cc29d0feca8c0",
+    "applications/project-console/layer-study/style.css": "488dfdfc9aeb8b8fd06e89291439c32816984084bb5f334d02b975dfb794686a",
+    "standards/interface-capability/tokens.css": "f41c3919b98f0bb2001c5640dfd3f255602675422e73793138c07b0eac7b3d84"
+  },
+  "unchanged_since_freeze": true,
+  "freeze_commit": "9345d42",
+  "heldout_fixture_sha256": "5801f44fce25d2976b6436c8123caeb664f1bb55858c77db7a8dfebad08b538b"
+}
