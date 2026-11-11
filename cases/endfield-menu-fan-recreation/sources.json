@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "case_id": "DCL-RF01",
+  "status": "fan_recreation_documentary_and_source_review",
+  "upstream_revision": "8d3f3ae592c9573da888599fb4e1b9804f0e2e36",
+  "provided_by": "user",
+  "sources": [
+    {
+      "id": "RF01-S01",
+      "url": "https://github.com/ccdr4gon/endfield_menu/blob/8d3f3ae592c9573da888599fb4e1b9804f0e2e36/README.md",
+      "title": "作者说明、控制方式及许可",
+      "locator": "项目介绍、Features、Controls、License",
+      "retrieved_on": "2026-11-11",
+      "kind": "fan_author_documentation",
+      "limits": "作者说明与实现来自同一来源。游戏录屏未独立核验。"
+    },
+    {
+      "id": "RF01-S02",
+      "url": "https://github.com/ccdr4gon/endfield_menu/blob/8d3f3ae592c9573da888599fb4e1b9804f0e2e36/docs/preview.jpg",
+      "title": "作者预览图",
+      "locator": "README 内嵌预览，链接返回 HTTP 200 image/jpeg",
+      "retrieved_on": "2026-11-11",
+      "kind": "fan_preview_link",
+      "limits": "作者提供的静态预览。链接核查，未做画面或运行验收。"
+    },
+    {
+      "id": "RF01-S03",
+      "url": "https://github.com/ccdr4gon/endfield_menu/blob/8d3f3ae592c9573da888599fb4e1b9804f0e2e36/components/shared-scene.js",
+      "title": "场景深度层",
+      "locator": "L22–26，LAYERS",
+      "retrieved_on": "2026-11-11",
+      "kind": "fan_source_code",
+      "limits": "复刻的空间组织，缺少使用者表现数据。"
+    },
+    {
+      "id": "RF01-S04",
+      "url": "https://github.com/ccdr4gon/endfield_menu/blob/8d3f3ae592c9573da888599fb4e1b9804f0e2e36/index.html",
+      "title": "舞台与关闭提示",
+      "locator": "L129–145，主舞台与关闭提示",
+      "retrieved_on": "2026-11-11",
+      "kind": "fan_source_code",
+      "limits": "源码阅读，未实测窄屏。"
+    },
+    {
+      "id": "RF01-S05",
+      "url": "https://github.com/ccdr4gon/endfield_menu/blob/8d3f3ae592c9573da888599fb4e1b9804f0e2e36/components/app.js",
+      "title": "舞台适配与开合交互",
+      "locator": "L7–10、L30–40、L42–110，时序、事件与开合",
+      "retrieved_on": "2026-11-11",
+      "kind": "fan_source_code",
+      "limits": "复刻运行逻辑和常量，未实测时序、焦点恢复或游戏内流程。"
+    }
+  ],
+  "assets": []
+}

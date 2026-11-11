@@ -1,8 +1,16 @@
 {
   "schema_version": 1,
   "project_id": "DCL-001",
-  "checked_on": "2026-11-10",
+  "checked_on": "2026-11-11",
   "user_supplied_sources": [
+    {
+      "id": "REF-ENDFIELD-MENU",
+      "url": "https://github.com/ccdr4gon/endfield_menu",
+      "role": "third-party-fan-recreation",
+      "provided_by": "user",
+      "existing_study": "../cases/endfield-menu-fan-recreation/case.md",
+      "current_access": "author documentation and pinned source reviewed; runtime untested"
+    },
     {
       "id": "REF-IGNO-HOME",
       "url": "https://www.ignoredone.space/",

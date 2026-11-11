@@ -20,6 +20,7 @@ DCL-001 · v0.6 · 应用设计研究 · 更新 2026-11-11
 | [工作对象与详情案例](cases/focused-workspaces/case.md) · [I 检查](runs/visual-inspection/verification.json) | Ableton Live 12、Grafana Explore、Lightroom Classic 三组对照，含四张官方界面图与迁移判据。检查覆盖手机首屏、下钻、全部满足和异常情境 |
 | [G/H 视觉复盘](applications/project-console/layer-study/evaluation.md#gh-视觉复盘) | 用户再次指出偏素。记录首屏焦点、条目层次与下钻状态的复测，以及后续小样判据 |
 | [新旧视觉对照](runs/review-02/comparison.png) · [最终实验检查](runs/review-02/layers-final/verification.json) · [本轮文件核查](runs/review-02/final-audit.json) | 合成数据、16组屏宽／主题、冻结实现哈希、媒体与引用核查；没有真人审美评分 |
+| [Endfield Menu 玩家复刻](cases/endfield-menu-fan-recreation/case.md) | DCL-RF01，用户提供的第三方实现参考。固定上游版本，已初审菜单分层、开合与减少动效路径，待运行验证。 |
 | [十例研究综合与索引](docs/research-synthesis.md) | C01—C10 报告、每例证据缺口、七条带条件与反例的候选原则及迁移关系 |
 | [总控台整体规划原件](../project-console/.sites-checkout/planning/overall-plan.md) | 工作／项目／资料／记录的信息架构、对象关系、六个流程、可回滚操作规划；属于产品项目，待审阅 |
 | [打开六种交互小样](applications/project-console/prototypes/index.html) | A 分栏、B 关系图、C 逐层栏、D 阻塞档案、E 排查队列、F 依赖矩阵；浏览器直接打开后顶部切换 |
