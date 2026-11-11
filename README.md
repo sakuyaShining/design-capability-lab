@@ -19,7 +19,7 @@ DCL-001 · v0.7 · 应用设计研究 · 更新 2026-11-11
 | 入口 | 用途与状态 |
 | --- | --- |
 | [调用入口](.agents/skills/dcl-design/SKILL.md) · [验收与首次迁移任务](evaluations/acceptance.md) | 0.1.0 预览版，可携带的设计参考、状态契约检查、浏览器证据与人工评审约定。 |
-| [打开任务状态实验](applications/project-console/state-study/index.html) · [总控台状态方案](applications/project-console/state-study/state-model.md) | 直接用浏览器打开，按样例试用查看、开始、登记阻塞、解除、完成、重开和撤销。修改只保存在页面内存。 |
+| [打开任务状态实验](applications/project-console/state-study/index.html) · [总控台状态方案](applications/project-console/state-study/state-model.md) | v0.2 候选规则含转移表、统一提交、冲突和撤销判据，待审阅。直接打开 v0.1 小样试用本地状态，修改只存在页面内存。 |
 | [状态转移 UI 规范](standards/interface-capability/state-transitions.md) · [流程验证](runs/state-study/verification.json) | 三份 Skill 的方法用于任务守卫、视觉引导和交互检查。固定布局与语义色，九类情境及五档屏宽已检查。 |
 | [规范资产0.2](standards/interface-capability/README.md) | 9 条规则卡。R02 补充首屏、等权条目、已满足记录和下钻焦点的检查方法 |
 | [UI 与交互 Skill 候选](references/ui-design-skills.md) | 交互设计、视觉引导及实现评审的上游候选，含 I 小样的筛选恢复试用 |
