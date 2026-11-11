@@ -11,6 +11,7 @@ DCL-001 · v0.5 · 应用设计研究 · 更新 2026-11-11
 | 入口 | 用途与状态 |
 | --- | --- |
 | [规范资产0.2](standards/interface-capability/README.md) | 9 条规则卡。R02 补充首屏、等权条目、已满足记录和下钻焦点的检查方法 |
+| [UI 与交互 Skill 候选](references/ui-design-skills.md) | 交互设计、视觉引导及实现评审的上游候选，含 I 小样的筛选恢复试用 |
 | [第二轮复盘](docs/review-02.md) · [用户反馈原话](applications/project-console/human-feedback.md) | 8项发现，含跨分支伪造依赖路径的修正；保留有效工作，暂停无充分证据的优选 |
 | [跨产品机制对照](cases/cross-product-navigation/case.md) · [视觉层次对照](cases/surface-hierarchy-comparison/case.md) | GitHub、Blender、GOV.UK三类流程；Carbon、Atlassian、Material三体系及W3C要求；支持与冲突分别记录 |
 | [打开 G/H/I 实验](applications/project-console/layer-study/index.html) · [I 设计评价](applications/project-console/layer-study/evaluation.md#i-任务排查改进稿) | 浏览器直接打开，默认 I，可切换 G/H、情境、深浅和插图 |
