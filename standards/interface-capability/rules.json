@@ -1,0 +1,241 @@
+{
+  "schema_version": 2,
+  "asset_version": "0.2",
+  "updated_on": "2026-11-11",
+  "scope": "task context, navigation and visual hierarchy; not a universal design system",
+  "rules": [
+    {
+      "id": "DCL-R01",
+      "kind": "visual_hypothesis",
+      "problem": "用表面表达内容职责",
+      "applies_when": "同时有全局导航、工作内容和当前对象",
+      "avoid_when": "单页短清单无需嵌套面",
+      "decision": "先标背景/承载面/焦点/临时覆盖，再选明暗、留白或投影",
+      "invariants": "当前对象可辨；层次不能暗示不存在的可拖动/遮挡关系",
+      "freedom": "容器数、颜色、圆角、材质、投影可按任务选择",
+      "anti_pattern": "每行都抬升，或所有区都同色同密度",
+      "validation": "在深浅主题和小屏辨认原对象、当前对象与主动作；去纹理后复查",
+      "limitations": "多套体系指导提供选择，未证明本产品最优表面模型",
+      "version": "0.1",
+      "status": "candidate",
+      "public_sources": [
+        {
+          "title": "Carbon Color",
+          "url": "https://www.carbondesignsystem.com/building-blocks/foundations/color/overview"
+        },
+        {
+          "title": "Atlassian Elevation",
+          "url": "https://atlassian.design/foundations/elevation/"
+        },
+        {
+          "title": "Material3 in Compose",
+          "url": "https://developer.android.com/develop/ui/compose/designsystems/material3"
+        }
+      ],
+      "evidence_summary": "Release copy links to available public sources. See research/overview.md."
+    },
+    {
+      "id": "DCL-R02",
+      "kind": "visual_hypothesis",
+      "problem": "用文字与空间形成节奏",
+      "applies_when": "内容有目标、解释、对象和元数据",
+      "avoid_when": "极少字段时不强凑标题层级",
+      "decision": "以当前任务及其未满足前置作为首屏焦点。等权条目对齐，已满足项用紧凑记录回看。下钻时更新当前标题和计数，原任务留在路径中。",
+      "invariants": "长标题不截去关键区别；元信息仍可读",
+      "freedom": "字族、字号、行距、密度和图文比例由内容决定",
+      "anti_pattern": "所有文本一个尺度，或用巨大口号挤占任务",
+      "validation": "同一数据比较默认手机首屏、全部满足、人工阻塞和下钻。记录首个可用动作的位置，核对计数和视觉权重是否随当前对象变化。",
+      "limitations": "文字比例是原创待审阅选择，不抄固定字号表",
+      "version": "0.2",
+      "status": "candidate",
+      "public_sources": [
+        {
+          "title": "Material3 in Compose",
+          "url": "https://developer.android.com/develop/ui/compose/designsystems/material3"
+        },
+        {
+          "title": "Session View — Ableton Reference Manual Version 12",
+          "url": "https://www.ableton.com/en/manual/session-view/"
+        },
+        {
+          "title": "Logs in Explore — Grafana documentation",
+          "url": "https://grafana.com/docs/grafana/latest/visualizations/explore/logs-integration/"
+        },
+        {
+          "title": "Masking tool — Lightroom Classic",
+          "url": "https://helpx.adobe.com/lightroom-classic/desktop/process-and-develop-photos/masking.html"
+        }
+      ],
+      "evidence_summary": "Release copy links to available public sources. See research/overview.md."
+    },
+    {
+      "id": "DCL-R03",
+      "kind": "behavioral_requirement",
+      "problem": "每条依赖边必须真实",
+      "applies_when": "用路径/箭头表达谁需要谁",
+      "avoid_when": "纯访问历史不能标成因果链",
+      "decision": "每对相邻对象必须存在数据边；跨分支截回共同来源，独立查看明确换起点",
+      "invariants": "选择/项目分组/查看历史不产生依赖；循环不无限展开",
+      "freedom": "图、表、清单或档案均可",
+      "anti_pattern": "把点击顺序直接加在需要路径后面",
+      "validation": "回归B二级节点、C前栏分支、F任意行格与列标题；逐边校验",
+      "limitations": "项目语义约定；不能由某产品截图推断所有后端规则",
+      "version": "0.1",
+      "status": "project_convention",
+      "public_sources": [
+        {
+          "title": "Creating issue dependencies",
+          "url": "https://docs.github.com/en/issues/tracking-your-work-with-issues/using-issues/creating-issue-dependencies"
+        },
+        {
+          "title": "Frame Node, Blender 4.5 LTS",
+          "url": "https://docs.blender.org/manual/en/4.5/interface/controls/nodes/frame.html"
+        }
+      ],
+      "evidence_summary": "Release copy links to available public sources. See research/overview.md."
+    },
+    {
+      "id": "DCL-R04",
+      "kind": "behavioral_requirement",
+      "problem": "返回与筛选保留语境",
+      "applies_when": "查看前置会离开原对象",
+      "avoid_when": "显式开始新任务时可重置但要告知",
+      "decision": "分别保存原对象/当前对象；筛选视野不改关系事实",
+      "invariants": "返回保留范围/查询；过滤不伪装成解决，缺失引用明确",
+      "freedom": "原位详情、分层进入或独立页均可",
+      "anti_pattern": "过滤后把跨项目前置算成不存在",
+      "validation": "范围内无结果仍显示当前路径；返回核对对象与条件",
+      "limitations": "来自模式指导和项目需求；非原游戏返回行为实测",
+      "version": "0.1",
+      "status": "project_convention",
+      "public_sources": [
+        {
+          "title": "Creating issue dependencies",
+          "url": "https://docs.github.com/en/issues/tracking-your-work-with-issues/using-issues/creating-issue-dependencies"
+        },
+        {
+          "title": "Check answers",
+          "url": "https://design-system.service.gov.uk/patterns/check-answers/"
+        }
+      ],
+      "evidence_summary": "Release copy links to available public sources. See research/overview.md."
+    },
+    {
+      "id": "DCL-R05",
+      "kind": "behavioral_requirement",
+      "problem": "状态色与焦点分开",
+      "applies_when": "同屏存在执行状态、依赖满足和选中",
+      "avoid_when": "无需状态的阅读页不添加假状态",
+      "decision": "文字/图形说明状态，焦点独立；计数分别说明直接前置和人工阻塞",
+      "invariants": "不能只靠颜色；完成一个前置不等于任务完成",
+      "freedom": "可多种有语义的颜色，不锁定酸黄",
+      "anti_pattern": "一个黄块同时暗示选中、警告、待办与成功",
+      "validation": "灰度读状态、全部满足但任务待开始、人工阻塞且无前置",
+      "limitations": "色值为风格配置；来源现象不能升级为普适颜色语义",
+      "version": "0.1",
+      "status": "project_convention",
+      "public_sources": [
+        {
+          "title": "How to complete daily missions in 5 minutes",
+          "url": "https://shibu-lab.com/en/5464/"
+        },
+        {
+          "title": "新潮起，故淵離 開發組通訊",
+          "url": "https://endfield.gryphline.com/zh-tw/news/2662"
+        }
+      ],
+      "evidence_summary": "Release copy links to available public sources. See research/overview.md."
+    },
+    {
+      "id": "DCL-R06",
+      "kind": "behavioral_requirement",
+      "problem": "预览、提交、退出和撤销分别定义",
+      "applies_when": "原型或产品存在写入动作",
+      "avoid_when": "只读导航不需要虚假的保存按钮",
+      "decision": "展示变更对象和确认边界；真实写入核对revision并原子提交；撤销用有冲突检查的补偿",
+      "invariants": "取消草案不写数据；成功提交不自动代表退出或全部齐备",
+      "freedom": "确认形式、审计展示与可恢复期按任务决定",
+      "anti_pattern": "把关闭窗口当提交，或把Git回退称为数据库撤销",
+      "validation": "草案取消/提交冲突/后续修改后的撤销；无后端时标未实现",
+      "limitations": "本轮只有文件可回滚与导航，服务端事务待实施",
+      "version": "0.1",
+      "status": "project_convention",
+      "public_sources": [
+        {
+          "title": "Check answers",
+          "url": "https://design-system.service.gov.uk/patterns/check-answers/"
+        }
+      ],
+      "evidence_summary": "Release copy links to available public sources. See research/overview.md."
+    },
+    {
+      "id": "DCL-R07",
+      "kind": "visual_hypothesis",
+      "problem": "图形承载真实内容，材质有边界",
+      "applies_when": "需要解释关系、数量或工作语境",
+      "avoid_when": "图形不能帮助任务时可不用",
+      "decision": "关系图与比例从数据生成；纹理留在非正文背景，可关闭",
+      "invariants": "不编造技术编号、进度、坐标或文件预览；变化不掩盖正文",
+      "freedom": "允许品牌、插画、几何、材质，但逐项说明作用",
+      "anti_pattern": "用随机图线伪装依赖、用假封面冒称已有产物",
+      "validation": "关掉纹理后信息仍完整；检查图形数字与数据一致",
+      "limitations": "有艺术表达的余地；减少装饰不是审美验收",
+      "version": "0.1",
+      "status": "candidate",
+      "public_sources": [
+        {
+          "title": "Carbon Color",
+          "url": "https://www.carbondesignsystem.com/building-blocks/foundations/color/overview"
+        },
+        {
+          "title": "Material3 in Compose",
+          "url": "https://developer.android.com/develop/ui/compose/designsystems/material3"
+        }
+      ],
+      "evidence_summary": "Release copy links to available public sources. See research/overview.md."
+    },
+    {
+      "id": "DCL-R08",
+      "kind": "review_gate",
+      "problem": "用新情境与反例约束复用",
+      "applies_when": "从案例提炼规则或宣布优选方案",
+      "avoid_when": "探索草稿可先形成但不能标已验证",
+      "decision": "跨家族比较支持和冲突；移除单一来源理由重推；冻结实现后引入新数据情境",
+      "invariants": "同产品十例不算十个独立家族；换皮不计结构创新；测试数不计体验次数",
+      "freedom": "可保留相同结构做独立美术实验，明确比较轴",
+      "anti_pattern": "新增截图数量即宣称泛化、自动检查即宣布赢家",
+      "validation": "分支/共享/空/缺失/循环/长标题；记录失败与未支持规则",
+      "limitations": "合成情境不是独立真人外部验证；既有上下文不能真正盲化",
+      "version": "0.1",
+      "status": "project_convention",
+      "public_sources": [],
+      "evidence_summary": "Release copy links to available public sources. See research/overview.md."
+    },
+    {
+      "id": "DCL-R09",
+      "kind": "review_gate",
+      "problem": "检查可达性并持续复盘",
+      "applies_when": "规范进入实际小样或重要反馈到来",
+      "avoid_when": "无实质改动不制造空记录",
+      "decision": "分开记录自动正确性、Agent视觉判断、人类意见；失败后修正或降级规则",
+      "invariants": "焦点可见、减少动态效果；所测配色/目标尺寸注明范围；旧证据不覆盖",
+      "freedom": "主题与动效可变，语义与可访问性约束保持",
+      "anti_pattern": "把无溢出写成手机体验好，把Agent称为真人",
+      "validation": "普通字4.5:1/大字3:1选定配色；按钮44px项目目标；键盘与新反馈",
+      "limitations": "不宣称完整WCAG合规；没有真人证据时不能升级人类可用性状态",
+      "version": "0.1",
+      "status": "project_convention",
+      "public_sources": [
+        {
+          "title": "W3C Contrast minimum",
+          "url": "https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html"
+        },
+        {
+          "title": "W3C Target size minimum",
+          "url": "https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum.html"
+        }
+      ],
+      "evidence_summary": "Release copy links to available public sources. See research/overview.md."
+    }
+  ]
+}

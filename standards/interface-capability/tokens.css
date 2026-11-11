@@ -1,0 +1,103 @@
+/* Generated from tokens.json by scripts/build-spec-assets.py; edit the JSON source. */
+[data-profile="G"][data-theme="light"] {
+  --dcl-ground: #e8edf0;
+  --dcl-shell: #152c38;
+  --dcl-panel: #ffffff;
+  --dcl-inset: #f0f4f5;
+  --dcl-ink: #172e39;
+  --dcl-muted: #536873;
+  --dcl-accent: #d3ed64;
+  --dcl-accentInk: #263413;
+  --dcl-action: #185e63;
+  --dcl-actionInk: #ffffff;
+  --dcl-attention: #864017;
+  --dcl-attentionSoft: #faeadb;
+  --dcl-done: #255b50;
+  --dcl-doneSoft: #e5efea;
+  --dcl-line: #cbd6db;
+}
+[data-profile="G"][data-theme="dark"] {
+  --dcl-ground: #101f28;
+  --dcl-shell: #0b1820;
+  --dcl-panel: #1c3442;
+  --dcl-inset: #142b37;
+  --dcl-ink: #e6eef1;
+  --dcl-muted: #b6c6cd;
+  --dcl-accent: #d3ed64;
+  --dcl-accentInk: #263413;
+  --dcl-action: #9cd2ce;
+  --dcl-actionInk: #16363c;
+  --dcl-attention: #f1c69f;
+  --dcl-attentionSoft: #493a30;
+  --dcl-done: #b4d9c7;
+  --dcl-doneSoft: #233f3b;
+  --dcl-line: #4a606e;
+}
+[data-profile="H"][data-theme="light"] {
+  --dcl-ground: #eee8dc;
+  --dcl-shell: #433b33;
+  --dcl-panel: #fffdf6;
+  --dcl-inset: #f4efe3;
+  --dcl-ink: #312d28;
+  --dcl-muted: #686052;
+  --dcl-accent: #e8ba66;
+  --dcl-accentInk: #3a2d18;
+  --dcl-action: #733f33;
+  --dcl-actionInk: #ffffff;
+  --dcl-attention: #884326;
+  --dcl-attentionSoft: #f8e6d5;
+  --dcl-done: #345d4a;
+  --dcl-doneSoft: #e6eddd;
+  --dcl-line: #d2c8b5;
+}
+[data-profile="H"][data-theme="dark"] {
+  --dcl-ground: #28251f;
+  --dcl-shell: #171611;
+  --dcl-panel: #363127;
+  --dcl-inset: #2f2b23;
+  --dcl-ink: #f1eadd;
+  --dcl-muted: #cabfa9;
+  --dcl-accent: #e8ba66;
+  --dcl-accentInk: #3a2d18;
+  --dcl-action: #e6b79a;
+  --dcl-actionInk: #392920;
+  --dcl-attention: #f1c298;
+  --dcl-attentionSoft: #4b392a;
+  --dcl-done: #b8d3af;
+  --dcl-doneSoft: #31432d;
+  --dcl-line: #6c6050;
+}
+[data-profile="I"][data-theme="light"] {
+  --dcl-ground: #e8eee9;
+  --dcl-shell: #102820;
+  --dcl-panel: #f9fcf8;
+  --dcl-inset: #e2ece5;
+  --dcl-ink: #142d25;
+  --dcl-muted: #4c6058;
+  --dcl-accent: #e5c57b;
+  --dcl-accentInk: #142d25;
+  --dcl-action: #185544;
+  --dcl-actionInk: #ffffff;
+  --dcl-attention: #713912;
+  --dcl-attentionSoft: #f7e7cb;
+  --dcl-done: #245a46;
+  --dcl-doneSoft: #e0ede3;
+  --dcl-line: #b9cac0;
+}
+[data-profile="I"][data-theme="dark"] {
+  --dcl-ground: #12231e;
+  --dcl-shell: #091a15;
+  --dcl-panel: #1b3129;
+  --dcl-inset: #203b32;
+  --dcl-ink: #edf6ed;
+  --dcl-muted: #b5c8bf;
+  --dcl-accent: #e5c57b;
+  --dcl-accentInk: #142d25;
+  --dcl-action: #a6d4ba;
+  --dcl-actionInk: #143026;
+  --dcl-attention: #ffdda4;
+  --dcl-attentionSoft: #423120;
+  --dcl-done: #badfc7;
+  --dcl-doneSoft: #294338;
+  --dcl-line: #4c665c;
+}

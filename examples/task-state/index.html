@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#eef1f5">
+  <title>任务状态实验 · 项目总控台</title>
+  <link rel="stylesheet" href="style.css">
+  <script defer src="data.js"></script>
+  <script defer src="model.js"></script>
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <a class="skip" href="#workspace">跳到任务详情</a>
+  <header class="topbar">
+    <a class="brand" href="../../README.md">项目总控台 <span>任务状态实验</span></a>
+    <label class="sample">样例 <select id="scenario">
+      <option value="waiting">前置待满足</option>
+      <option value="ready">可开始</option>
+      <option value="blocked">执行中受阻</option>
+      <option value="completed">前置已完成</option>
+      <option value="downstream">已有完成的依赖方</option>
+      <option value="idea">暂定方向</option>
+      <option value="legacy">旧阻塞记录</option>
+      <option value="missing">缺失依赖</option>
+      <option value="cycle">循环依赖</option>
+    </select></label>
+  </header>
+  <div class="layout">
+    <aside class="rail" aria-label="样例任务">
+      <details id="task-rail" open>
+        <summary>样例任务</summary>
+        <nav id="task-list" aria-label="切换任务"></nav>
+      </details>
+      <p class="rail-note">本地样例 · 刷新重置</p>
+    </aside>
+    <main id="workspace" tabindex="-1">
+      <div class="feedback"><p id="notice" role="status"></p><button type="button" id="undo" hidden>撤销上次修改</button></div>
+      <div id="task-content"></div>
+      <details class="rules">
+        <summary>状态规则</summary>
+        <p>待开始、进行中和已完成由操作改变。前置满足情况随依赖计算。登记或解除人工阻塞会保留执行进度。</p>
+        <p>开始和完成需要前置满足并解除人工阻塞。完成时记录结果。重新打开任务回到待开始，其直接依赖方重新检查前置。有已完成的依赖方时，需要先处理依赖方。</p>
+        <a href="state-model.md">查看状态方案与边界</a>
+      </details>
+    </main>
+  </div>
+  <dialog id="change-dialog" aria-labelledby="dialog-title">
+    <form id="change-form" novalidate></form>
+  </dialog>
+</body>
+</html>

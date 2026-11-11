@@ -1,0 +1,122 @@
+{
+  "states": [
+    "closed",
+    "opening",
+    "open",
+    "closing"
+  ],
+  "initial": "closed",
+  "transitions": [
+    {
+      "from": "closed",
+      "event": "open",
+      "to": "opening"
+    },
+    {
+      "from": "opening",
+      "event": "settled",
+      "to": "open"
+    },
+    {
+      "from": "opening",
+      "event": "close",
+      "to": "closing"
+    },
+    {
+      "from": "open",
+      "event": "close",
+      "to": "closing"
+    },
+    {
+      "from": "closing",
+      "event": "open",
+      "to": "opening"
+    },
+    {
+      "from": "closing",
+      "event": "settled",
+      "to": "closed"
+    },
+    {
+      "from": "closing",
+      "event": "timeout",
+      "to": "closed"
+    },
+    {
+      "from": "closed",
+      "event": "open-reduced-motion",
+      "to": "open"
+    },
+    {
+      "from": "open",
+      "event": "close-reduced-motion",
+      "to": "closed"
+    }
+  ],
+  "scenarios": {
+    "interrupted-exit": [
+      {
+        "event": "open",
+        "state": "opening"
+      },
+      {
+        "event": "settled",
+        "state": "open"
+      },
+      {
+        "event": "close",
+        "state": "closing"
+      },
+      {
+        "event": "open",
+        "state": "opening"
+      },
+      {
+        "event": "settled",
+        "state": "open"
+      }
+    ],
+    "interrupted-entry": [
+      {
+        "event": "open",
+        "state": "opening"
+      },
+      {
+        "event": "close",
+        "state": "closing"
+      },
+      {
+        "event": "settled",
+        "state": "closed"
+      }
+    ],
+    "missing-animation-event": [
+      {
+        "event": "open",
+        "state": "opening"
+      },
+      {
+        "event": "settled",
+        "state": "open"
+      },
+      {
+        "event": "close",
+        "state": "closing"
+      },
+      {
+        "event": "timeout",
+        "state": "closed"
+      }
+    ],
+    "reduced-motion": [
+      {
+        "event": "open-reduced-motion",
+        "state": "open"
+      },
+      {
+        "event": "close-reduced-motion",
+        "state": "closed"
+      }
+    ]
+  }
+}

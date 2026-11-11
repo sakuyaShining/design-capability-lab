@@ -1,0 +1,126 @@
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import path from 'node:path';
+import { pathToFileURL } from 'node:url';
+
+const modulePath = process.env.DCL_PLAYWRIGHT_MODULE;
+const { chromium } = await import(modulePath ? pathToFileURL(modulePath).href : 'playwright');
+const executablePath = process.env.DCL_BROWSER_EXECUTABLE;
+const browser = await chromium.launch({ headless: true, executablePath });
+const output = process.argv[2] || 'runs/state-study';
+const url = pathToFileURL(path.resolve('examples/task-state/index.html')).href;
+fs.mkdirSync(output, { recursive: true });
+const report = { checks: [], imageRequests: [], pageErrors: [] };
+try {
+  const page = await browser.newPage({ viewport: { width: 1440, height: 900 }, reducedMotion: 'reduce' });
+  page.on('pageerror', error => report.pageErrors.push(error.message));
+  page.on('request', request => { if (request.resourceType() === 'image') report.imageRequests.push(request.url()); });
+  await page.goto(url);
+  await page.evaluate(() => document.fonts.ready);
+  const screenshot = name => page.screenshot({ path: path.join(output, name) });
+  const guide = () => page.locator('#next-heading').innerText();
+  const scenario = value => page.locator('#scenario').selectOption(value);
+  const change = action => page.locator(`[data-change="${action}"]`).click();
+  const confirm = () => page.locator('#change-form [type=submit]').click();
+  const dialog = page.locator('#change-dialog');
+  await screenshot('waiting-desktop.png');
+  assert.match(await guide(), /等待 2 项前置/);
+  await page.locator('[data-follow=layout]').focus();
+  await page.keyboard.press('Enter');
+  assert.equal(await page.evaluate(() => document.activeElement.id), 'current-task');
+  await page.locator('[data-follow=venue]').click();
+  assert.equal(await guide(), '人工阻塞');
+  assert.equal(await page.locator('.path [data-ancestor]').count(), 2);
+  await page.locator('[data-ancestor="0"]').click();
+  assert.match(await guide(), /等待 2 项前置/);
+  report.checks.push('Keyboard follow, focus and return along real edges');
+
+  await scenario('ready');
+  await change('start');
+  await page.keyboard.press('Escape');
+  await dialog.waitFor({ state: 'hidden' });
+  assert.equal(await guide(), '可以开始');
+  assert.equal(await page.evaluate(() => document.activeElement.dataset.change), 'start');
+  await change('start');
+  await confirm();
+  assert.equal(await guide(), '正在执行');
+  await change('block');
+  await confirm();
+  assert.match(await page.locator('#form-error').innerText(), /填写阻塞原因/);
+  await page.locator('[name=note]').fill('等负责人核对');
+  await confirm();
+  assert.equal(await guide(), '人工阻塞');
+  assert.equal(await page.locator('[aria-current=step]').innerText(), '进行中');
+  await change('release');
+  await confirm();
+  assert.equal(await guide(), '正在执行');
+  await change('finish');
+  await confirm();
+  assert.match(await page.locator('#form-error').innerText(), /实际结果/);
+  await page.locator('[name=note]').fill('完成演示稿并核对验收');
+  await confirm();
+  assert.equal(await guide(), '已记录完成');
+  await $('undo').click();
+  assert.equal(await guide(), '正在执行');
+  report.checks.push('Cancel, explicit start, block and release without phase loss, completion evidence, undo');
+
+  await scenario('blocked');
+  await screenshot('blocked-desktop.png');
+  await change('release');
+  assert.match(await page.locator('.change-summary').innerText(), /仍有 2 项前置待满足/);
+  await confirm();
+  assert.match(await guide(), /等待 2 项前置/);
+  assert.equal(await page.locator('[aria-current=step]').innerText(), '进行中');
+  assert.equal(await page.locator('[data-change=finish]').count(), 0);
+  await scenario('legacy');
+  await change('release');
+  await confirm();
+  assert.match(await page.locator('#form-error').innerText(), /请选择/);
+  await page.locator('[name=phase]').selectOption('todo');
+  await confirm();
+  assert.equal(await guide(), '可以开始');
+  report.checks.push('Release keeps dependency constraints and requires explicit legacy phase');
+
+  await scenario('completed');
+  await change('reopen');
+  assert.match(await page.locator('.change-summary').innerText(), /1 项未完成任务/);
+  await screenshot('reopen-preview.png');
+  await confirm();
+  await page.locator('[data-open=review]').click();
+  assert.match(await guide(), /等待 1 项前置/);
+  await scenario('downstream');
+  assert.equal(await guide(), '先检查已完成的依赖方');
+  assert.equal(await page.locator('[data-change=reopen]').count(), 0);
+  await scenario('idea');
+  assert.equal(await guide(), '暂定方向');
+  assert.equal(await page.locator('[data-change=start]').count(), 0);
+  await scenario('missing');
+  assert.equal(await guide(), '核对依赖记录');
+  assert.match(await page.locator('.dependency-list.pending').innerText(), /缺失记录/);
+  await scenario('cycle');
+  await page.locator('[data-follow=layout]').click();
+  assert.match(await page.locator('.dependency-list.pending').innerText(), /循环回边/);
+  report.checks.push('Reopen impact, completed downstream guard, tentative scope, missing record and cycle');
+
+  for (const width of [360, 390, 768, 1024, 1440]) {
+    await page.setViewportSize({ width, height: 844 });
+    await page.reload();
+    assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), `Width ${width}`);
+  }
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.reload();
+  const action = await page.locator('.guide .primary').boundingBox();
+  assert.ok(action.y + action.height <= 844);
+  await screenshot('waiting-mobile.png');
+  await scenario('blocked');
+  await change('release');
+  await screenshot('release-mobile.png');
+  report.checks.push('Five viewport widths and first action within 390×844');
+  assert.deepEqual(report.imageRequests, []);
+  assert.deepEqual(report.pageErrors, []);
+  fs.writeFileSync(path.join(output, 'verification.json'), JSON.stringify(report, null, 2) + '\n');
+  console.log(JSON.stringify(report));
+  function $(id) { return page.locator(`#${id}`); }
+} finally {
+  await browser.close();
+}
