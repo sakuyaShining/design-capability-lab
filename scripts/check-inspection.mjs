@@ -55,6 +55,24 @@ try {
   });
   results.navigation = 'Keyboard, focus, true dependency path, manual reason and return with filters passed';
 
+  await page.locator('#task-tools summary').click();
+  await page.locator('#done').check();
+  await page.locator('#query').fill('zz-no-task-zz');
+  assert.match(await page.locator('#inspection-filter-result').innerText(), /没有匹配任务/);
+  assert.equal(await page.locator('#inspection-picker').isDisabled(), true);
+  assert.equal(await page.locator('#inspection-picker').isVisible(), false);
+  await snapshot(page, 'I-no-matches-mobile.png');
+  await page.locator('#inspection-clear-filters').focus();
+  await page.keyboard.press('Enter');
+  assert.equal(await page.locator('#scope').inputValue(), 'all');
+  assert.equal(await page.locator('#query').inputValue(), '');
+  assert.equal(await page.locator('#inspection-picker').isEnabled(), true);
+  assert.equal(await page.locator('#inspection-clear-filters').isVisible(), false);
+  assert.equal(await page.locator('#done').isChecked(), true);
+  assert.deepEqual(await page.evaluate(() => Study.state.path), ['scheme']);
+  assert.equal(await page.evaluate(() => document.activeElement.id), 'query');
+  results.emptyFilterRecovery = 'Keyboard reset restored task matches and preserved current task and completed filter';
+
   await open(page, '?view=I');
   await page.locator('#task-tools summary').click();
   await page.locator('#done').check();

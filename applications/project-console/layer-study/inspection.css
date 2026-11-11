@@ -1,5 +1,6 @@
 #task-tools > summary,
-#inspection-picker-label {
+#inspection-picker-label,
+.inspection-filter-feedback {
   display: none;
 }
 
@@ -38,8 +39,11 @@
   border-radius: 6px;
 }
 [data-profile="I"] #task-tools .filters { margin: 10px 0; }
-[data-profile="I"] #inspection-picker-label { display: grid; gap: 4px; font-size: 12px; }
+[data-profile="I"] #inspection-picker-label:not([hidden]) { display: grid; gap: 4px; font-size: 12px; }
 #inspection-picker { width: 100%; min-width: 0; }
+[data-profile="I"] .inspection-filter-feedback { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; margin-top: 8px; }
+.inspection-filter-feedback p { color: var(--dcl-muted); font-size: 13px; }
+.inspection-filter-feedback button { color: var(--dcl-action); font-size: 13px; }
 
 .inspection-path {
   display: flex;

@@ -1,0 +1,74 @@
+{
+  "date": "2026-11-11",
+  "method": "Headless Edge, offline entry, synthetic fixtures",
+  "mobile": [
+    {
+      "view": "G",
+      "firstActionTop": 1077,
+      "firstActionBottom": 1121
+    },
+    {
+      "view": "H",
+      "firstActionTop": 1096,
+      "firstActionBottom": 1140
+    },
+    {
+      "view": "I",
+      "firstActionTop": 524,
+      "firstActionBottom": 568
+    }
+  ],
+  "viewports": [
+    {
+      "width": 360,
+      "theme": "light"
+    },
+    {
+      "width": 360,
+      "theme": "dark"
+    },
+    {
+      "width": 390,
+      "theme": "light"
+    },
+    {
+      "width": 390,
+      "theme": "dark"
+    },
+    {
+      "width": 768,
+      "theme": "light"
+    },
+    {
+      "width": 768,
+      "theme": "dark"
+    },
+    {
+      "width": 1024,
+      "theme": "light"
+    },
+    {
+      "width": 1024,
+      "theme": "dark"
+    },
+    {
+      "width": 1440,
+      "theme": "light"
+    },
+    {
+      "width": 1440,
+      "theme": "dark"
+    }
+  ],
+  "scenarios": {
+    "clear": "passed",
+    "manual": "passed",
+    "missing": "passed",
+    "cycle": "passed",
+    "dense": "passed",
+    "holdout": "passed"
+  },
+  "navigation": "Keyboard, focus, true dependency path, manual reason and return with filters passed",
+  "emptyFilterRecovery": "Keyboard reset restored task matches and preserved current task and completed filter",
+  "pageErrors": []
+}

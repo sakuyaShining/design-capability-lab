@@ -44,6 +44,12 @@ window.Study=(()=>{
   prompt.disabled = true;
   picker.replaceChildren(prompt, ...tasks.map(item => new Option(`${item.code} ${item.title}`, item.id)));
   picker.value = tasks.some(item => item.id === state.origin) ? state.origin : '';
+  picker.disabled = tasks.length === 0;
+  document.getElementById('inspection-picker-label').hidden = tasks.length === 0;
+  const result = document.getElementById('inspection-filter-result');
+  const message = tasks.length ? `${tasks.length} 项匹配任务` : '没有匹配任务。可清除筛选后重试。';
+  if (result.textContent !== message) result.textContent = message;
+  document.getElementById('inspection-clear-filters').hidden = tasks.length > 0;
  }
  function render(){
   document.documentElement.dataset.profile = state.view;
@@ -85,6 +91,15 @@ window.Study=(()=>{
  });
  document.getElementById('scenario').value=state.scenario;document.getElementById('scenario').onchange=e=>{state.scenario=e.target.value;loadScenario(scenarios[state.scenario]);};
  for(const [id,key,event] of [['scope','scope','change'],['query','query','input'],['done','hideDone','change']])document.getElementById(id).addEventListener(event,e=>{state[key]=e.target.type==='checkbox'?e.target.checked:e.target.value;render();});
+ document.getElementById('inspection-clear-filters').addEventListener('click', () => {
+  state.scope = 'all';
+  state.query = '';
+  document.getElementById('scope').value = state.scope;
+  const query = document.getElementById('query');
+  query.value = '';
+  render();
+  query.focus();
+ });
  document.getElementById('theme').onclick=()=>{const d=document.documentElement;d.dataset.theme=d.dataset.theme==='dark'?'light':'dark';};document.getElementById('texture').onchange=e=>document.documentElement.dataset.texture=e.target.checked?'on':'off';
  refreshProjectOptions();
  render();return{state,task,deps,open,visible,findPath,hasCycle,follow,origin,back,loadScenario,render,get current(){return current;}};
