@@ -1,0 +1,7 @@
+# Interaction and visual decisions
+
+- **Separate identity, status and action.** Give the current work object a stable title. Put the constraint or next action where users encounter it. Keep peer objects at equal visual weight unless their rank differs in the data.
+- **Preserve context across exploration.** A dependency path represents actual relationships. In other products choose an equivalent invariant, such as selected version, active filter or return position. Distinguish content hidden by a filter from work that has been resolved.
+- **Show consequences at the point of commitment.** For consequential changes, show the target and impact, preserve the draft on rejection, and restore focus after cancel. Design undo around what can actually be reversed. Keep application state consistent when motion is interrupted or reduced.
+- **Give visual layers functional roles.** Use type scale, spacing, surface contrast and placement together to distinguish work, context and controls. Review the first viewport and what moves after navigation. For dense content, check long labels, equal peers and small screens before adding depth effects. Derive color values from the target product and keep critical cues readable with color or motion reduced.
+- **Adapt a mechanism from a reference.** Record the task it solved, where it breaks, and what changed for the new product. Review the new result with different data or a counterexample before reusing the rule.

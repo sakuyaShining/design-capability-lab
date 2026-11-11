@@ -14,6 +14,10 @@
 
 建议的项目顺序是先明确用户要完成的工作和恢复路径，再设计视觉引导，最后查状态、键盘和反馈。视觉目标沿用用户的「克制但有层次」，当前任务、待处理项和下一步动作构成评审对象。优先用 NN/G 的可用性启发式判断反馈与恢复，再用 W3C 的交互模式校准控件行为。[NN/G 可用性启发式](https://www.nngroup.com/articles/ten-usability-heuristics/) · [NN/G 视觉层次](https://www.nngroup.com/articles/visual-hierarchy-ux-definition/) · [W3C APG 模式](https://www.w3.org/WAI/ARIA/apg/patterns/)
 
+## 能力包中的调用位置
+
+[dcl-design 的先例入口](../.agents/skills/dcl-design/references/precedents.md)按产品行为、视觉方向和实现评审选用外部方法。与用户在「设计明日方舟风格UI」中确认的方向一致，首版还加入可执行状态契约检查和独立评估。该会话 ID 为 `6af1c5cf-085c-83ec-a710-addf1235806d`，能力包使用所需信息随目录维护。
+
 ## 在 I 上的试用
 
 目标是从当前任务筛选并切换到另一项可排查的任务。参照 Product Design and UX 的任务状态模型，检查过滤结果为空后的说明与下一步。再参照 Vercel 指南检查文本反馈、键盘动作和动态提示。[状态模型参考](https://raw.githubusercontent.com/magnus919/agent-skills/main/product-design-and-ux/references/task-flows-and-state-models.md) · [Vercel 检查条目](https://raw.githubusercontent.com/vercel-labs/web-interface-guidelines/main/command.md)

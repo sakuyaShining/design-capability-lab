@@ -1,15 +1,24 @@
 project:
   id: DCL-001
   name: Design Capability Lab
-  version: 0.6
+  version: 0.7
   type: applied_design_research
-  status: reusable_asset_and_visual_review
+  status: capability_skill_preview
 
 objective:
   primary: >
-    Develop an Agent's UI and art-style design capabilities
-    by extracting transferable design principles from mature
-    products and applying them to novel interface problems.
+    Build a versionable, transferable and evaluable Agent capability
+    package for product understanding, behavior modeling, interaction
+    and visual design, frontend implementation and quality validation
+    on new software requirements without prior chat context.
+
+capability_package:
+  form: codex_skill
+  name: dcl-design
+  version: "0.1.0"
+  entry: .agents/skills/dcl-design/SKILL.md
+  acceptance: evaluations/acceptance.md
+  status: preview_pending_independent_transfer_and_human_review
 
 relationships:
   first_usage_scenario:
@@ -90,6 +99,8 @@ method:
   - evaluate_results
 
 deliverables:
+  - reusable_design_and_frontend_skill
+  - independent_transfer_and_regression_evaluation
   - case_study_report
   - candidate_design_principles
   - alternative_wireframes
@@ -101,7 +112,7 @@ constraints:
   initial_endfield_cases: 10
   additional_workflow_comparisons: 6
   visual_guidance_comparisons: 3
-  max_transfer_tasks: 1
+  first_application_transfer_tasks: 1
 
 non_goals:
   - universal_design_system
@@ -111,13 +122,18 @@ non_goals:
   - production_ready_ui
 
 acceptance_criteria:
-  - evidence_traceability
-  - principle_transferability
-  - interaction_usability
-  - visual_quality
-  - design_originality
+  - fresh_session_without_chat_history
+  - no_reteaching_of_design_fundamentals
+  - transfer_to_distinct_product_requirements
+  - runnable_interaction
+  - automated_and_human_quality_evaluation
+  - cross_project_reuse_and_versioned_improvement
 
 next_action:
+  id: DCL-001-T03
+  title: Run independent transfer with the packaged skill and review actual output
+  status: ready_for_trial
+application_review:
   id: DCL-001-T02
   title: Review task transition guards and visual guidance in use
   status: awaiting_design_review

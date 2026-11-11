@@ -1,15 +1,24 @@
 # Design Capability Lab
 
-DCL-001 · v0.6 · 应用设计研究 · 更新 2026-11-11
+DCL-001 · v0.7 · 应用设计研究 · 更新 2026-11-11
 
-为 Agent 提供 UI 与美术风格设计能力：从成熟产品研究机制与条件，在新问题中生成不同方案并比较。首个风格实例是鹰角／终末地，首个使用情景是独立的项目总控台。
+## Primary Objective
 
-**当前交付为任务状态实验与状态转移 UI 规范。** 样例用固定布局、语义配色和文本表达执行阶段、限制与主动作。当前已通过本地流程检查，状态策略与视觉效果待审阅。首轮终末地十例完整工作过程仍为 partial。
+建立一个可版本化、可迁移、可评估的 Agent 设计与前端生产能力包。它应当能够在缺少历史对话上下文的情况下，针对新的软件需求，独立完成从产品理解、行为建模、交互设计、视觉设计到前端实现与质量验证的完整工作。
+
+首个风格实例是鹰角／终末地，首个应用场景是独立的项目总控台。案例和实验用于提炼、修订可迁移的设计知识。
+
+**当前交付为 `dcl-design` Skill 0.1.0 预览版。** 它包含简短调用入口、按需参考、JSON 行为契约与可执行校验器。独立新会话、不同产品、可操作交互、自动与人工评估、跨项目复用及版本改进的证据要求见 [验收约定](evaluations/acceptance.md)。独立迁移和人工评审尚未完成。总控台状态实验仍待审阅，终末地首轮十例的完整工作过程仍为 partial。
+
+### 如何调用
+
+在以本仓库为工作目录的 Codex 会话中调用 `$dcl-design` 并提供产品需求。跨项目试用可把整个 `.agents/skills/dcl-design/` 目录按同样相对位置复制到目标仓库，随运行记录标明 Skill 版本和 DCL 提交。该目录内含运行所需参考文件。行为契约检查用 Python 3 标准库，浏览器检查使用目标项目工具。当前工作区若仍绑定 C 盘旧聊天目录，应从 D 盘仓库或目标仓库发起新会话。[Codex Skill 路径说明](https://learn.chatgpt.com/docs/build-skills#where-codex-loads-local-skills)
 
 ## 从哪里打开
 
 | 入口 | 用途与状态 |
 | --- | --- |
+| [调用入口](.agents/skills/dcl-design/SKILL.md) · [验收与首次迁移任务](evaluations/acceptance.md) | 0.1.0 预览版，可携带的设计参考、状态契约检查、浏览器证据与人工评审约定。 |
 | [打开任务状态实验](applications/project-console/state-study/index.html) · [总控台状态方案](applications/project-console/state-study/state-model.md) | 直接用浏览器打开，按样例试用查看、开始、登记阻塞、解除、完成、重开和撤销。修改只保存在页面内存。 |
 | [状态转移 UI 规范](standards/interface-capability/state-transitions.md) · [流程验证](runs/state-study/verification.json) | 三份 Skill 的方法用于任务守卫、视觉引导和交互检查。固定布局与语义色，九类情境及五档屏宽已检查。 |
 | [规范资产0.2](standards/interface-capability/README.md) | 9 条规则卡。R02 补充首屏、等权条目、已满足记录和下钻焦点的检查方法 |
@@ -31,12 +40,14 @@ DCL-001 · v0.6 · 应用设计研究 · 更新 2026-11-11
 | [最终主流程检查](runs/prototypes-final/verification.json) · [屏宽／主题／键盘检查](runs/prototypes-final/responsive-keyboard.json) | 六种主流程、48 组屏宽／主题组合及目标键盘操作；合成数据，无真人指标 |
 | [首轮文件核查](runs/final-audit.json) | 历史快照：51条媒体记录、46个唯一SHA256，不是51个独立观察；本轮核查从上方进入 |
 | [提交与回退记录](docs/change-record.md) | 本地 Git 分项范围、依赖及恢复方法；无远端备份 |
-| [project.yaml](project.yaml) | DCL 项目元数据，版本 0.6 |
+| [project.yaml](project.yaml) | DCL 项目元数据，版本 0.7 |
 
 ## 原件、源码、证据的组织
 
 固定根目录 **D:/Dev/projects/design-capability-lab/**。与总控台 D:/Dev/projects/project-console/ 同级，各自独立 Git；总控台实际 Git 根是 .sites-checkout/，其 design-library 分支不属于 DCL。
 
+- .agents/skills/dcl-design/：能力包唯一维护原件。目标项目中的试用副本按版本记录。
+- evaluations/：能力包验收、迁移任务及证据要求。
 - cases/<稳定案例名>/：各例 case.md、sources.json、evidence/。原始公开媒体与派生帧分开记录；作者图像批注不当作游戏 UI。案例目录不按聊天复制。
 - docs/：[十次研究原计划与当前进度](docs/ten-case-study-plan.md)、研究综合、提交记录、[原项目组织核查](docs/project-console-organization.md)。
 - applications/project-console/：实验约定、评价与原型源码。总控台产品规划唯一原件继续在产品仓库 planning/，本项目链接过去。
