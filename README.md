@@ -1,6 +1,6 @@
 # Design Capability Lab
 
-DCL-001 · v0.7 · 应用设计研究 · 更新 2026-11-11
+DCL-001 · v0.7 · 应用设计研究 · 更新 2026-11-12
 
 ## Primary Objective
 
@@ -13,6 +13,12 @@ DCL-001 · v0.7 · 应用设计研究 · 更新 2026-11-11
 ### 如何调用
 
 在以本仓库为工作目录的 Codex 会话中调用 `$dcl-design` 并提供产品需求。跨项目试用可把整个 `.agents/skills/dcl-design/` 目录按同样相对位置复制到目标仓库，随运行记录标明 Skill 版本和 DCL 提交。该目录内含运行所需参考文件。行为契约检查用 Python 3 标准库，浏览器检查使用目标项目工具。当前工作区若仍绑定 C 盘旧聊天目录，应从 D 盘仓库或目标仓库发起新会话。[Codex Skill 路径说明](https://learn.chatgpt.com/docs/build-skills#where-codex-loads-local-skills)
+
+## GitHub 发布预览
+
+2026-11-12 已推送 [私有 GitHub 仓库](https://github.com/sakuyaShining/design-capability-lab) 的 `main`。首发为 26 个文件的独立提交 [`e3f0bdd`](https://github.com/sakuyaShining/design-capability-lab/commit/e3f0bdd309f613c7e297da04671d27ee0e72a1c0)，来源为本地 `99aed12`。内容包括 Skill 0.1.0、发布版规范、验收、研究摘要与虚构社区展览任务的状态实验。
+
+[本地发布副本](dist/github-preview/README.md) 位于 `dist/github-preview/`，Git 历史独立。此仓库维护原件，发布副本按清单更新。首发校验了四个状态契约场景、九张规则卡、48 组指定色对和浏览器回归，远端文件清单与提交已核对。[本地浏览器记录](dist/github-preview/runs/state-study/verification.json) · [发布版验收约定](dist/github-preview/evaluations/acceptance.md)
 
 ## 从哪里打开
 
@@ -74,4 +80,4 @@ DCL-001 · v0.7 · 应用设计研究 · 更新 2026-11-11
 
 应用项目目录曾仍登记 C 盘旧位置，当前会话 cwd 也指向旧目录；侧栏绑定未在本轮修改。后续文件操作显式使用上述 D 盘根目录。
 
-接续先读本页与元数据，再读研究综合／逐批评价；交付和限制不只留在聊天。外部固定入口：[产出总览](D:/Dev/产出总览.md) · [开发工作台](D:/Dev/WORKBENCH.md)。本地 Git 不等于远端备份；未上传或部署。
+接续先读本页与元数据，再读研究综合／逐批评价；交付和限制不只留在聊天。外部固定入口：[产出总览](D:/Dev/产出总览.md) · [开发工作台](D:/Dev/WORKBENCH.md)。原件 Git 继续本地维护。GitHub 保存单独的发布预览，详见上方记录。
