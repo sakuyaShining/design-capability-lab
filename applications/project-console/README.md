@@ -2,7 +2,7 @@
 
 2026-11-11。总控台整体规划和 DCL 局部小样分开维护：
 
-当前打开实验时默认进入 I「任务排查」。在顶部切换 G/H，或用「多项前置」和「人工阻塞」比较同一界面的焦点变化。旧 A+D 仍为待比较的结构假设。[打开实验](layer-study/index.html) · [I 设计评价](layer-study/evaluation.md#i-任务排查改进稿) · [规范资产0.2](../../standards/interface-capability/README.md) · [用户反馈](human-feedback.md)
+当前请从任务状态实验进入。试用「执行中受阻」查看解除条件和阶段保留，再试「可开始」和「已有完成的依赖方」比较允许动作。G/H/I 仍可用于视觉对照。[任务状态实验](state-study/index.html) · [状态方案](state-study/state-model.md) · [状态转移 UI 规范](../../standards/interface-capability/state-transitions.md) · [G/H/I](layer-study/index.html)
 
 - [整体规划原件](../../../project-console/.sites-checkout/planning/overall-plan.md)：信息架构、对象与关系、贯通流程、视觉与动效原则、分阶段落地。
 - [十次原产品研究计划](../../docs/ten-case-study-plan.md)：C01—C10 的研究问题与完成要求。

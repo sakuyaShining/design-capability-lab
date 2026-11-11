@@ -1,0 +1,12 @@
+{
+  "date": "2026-11-11",
+  "checks": [
+    "Keyboard follow, focus and return along real edges",
+    "Cancel, explicit start, block and release without phase loss, completion evidence, undo",
+    "Release keeps dependency constraints and requires explicit legacy phase",
+    "Reopen impact, completed downstream guard, tentative scope, missing record and cycle",
+    "Five viewport widths and first action within 390×844"
+  ],
+  "imageRequests": [],
+  "pageErrors": []
+}

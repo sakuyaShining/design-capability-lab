@@ -31,6 +31,10 @@
 
 2026-11-11 · 三组工作界面案例与规范 R02 的证据独立提交。I 的界面、共享导航接入、动态项目范围和新增颜色配置属于实现提交。评价与核查记录从项目入口接续。回退时先处理依赖 I 的入口与评价，再处理实现与证据。G/H 的旧截图与冻结记录可用于对照原版。[I 检查](../runs/visual-inspection/verification.json) · [I 评价](../applications/project-console/layer-study/evaluation.md#i-任务排查改进稿)
 
+## v0.6 状态实验
+
+本轮状态模型、样例、复测证据与入口在 DCL 中交付。实验引用首轮合成任务数据和已保存的字体。回退该提交可恢复此前入口，产出总览和工作台属于外部导航，需要同步调整。[状态方案](../applications/project-console/state-study/state-model.md) · [验证](../runs/state-study/verification.json)
+
 ## 历史验证边界
 
 原型的导航／返回和只读条件已检查，文件来源哈希和入口检查见[最终核查](../runs/final-audit.json)。回退能力来自已建立的本地提交边界；本轮不实际撤销有效成果，也未验证真实产品写操作或数据库补偿事务。后续新增写行为须实现草案取消、revision 冲突、原子提交和有冲突检查的补偿撤销，再单独验收。

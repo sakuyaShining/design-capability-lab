@@ -1,15 +1,17 @@
 # Design Capability Lab
 
-DCL-001 · v0.5 · 应用设计研究 · 更新 2026-11-11
+DCL-001 · v0.6 · 应用设计研究 · 更新 2026-11-11
 
 为 Agent 提供 UI 与美术风格设计能力：从成熟产品研究机制与条件，在新问题中生成不同方案并比较。首个风格实例是鹰角／终末地，首个使用情景是独立的项目总控台。
 
-**当前交付为 I「任务排查」改进稿和三组新增案例对照。** 首屏突出当前任务、未满足的直接前置和可用动作。规范资产更新至 0.2，G/H 可在同一入口比较。首轮终末地十例完整工作过程仍为 partial，I 已完成合成样例检查，视觉效果待审阅。
+**当前交付为任务状态实验与状态转移 UI 规范。** 样例用固定布局、语义配色和文本表达执行阶段、限制与主动作。当前已通过本地流程检查，状态策略与视觉效果待审阅。首轮终末地十例完整工作过程仍为 partial。
 
 ## 从哪里打开
 
 | 入口 | 用途与状态 |
 | --- | --- |
+| [打开任务状态实验](applications/project-console/state-study/index.html) · [总控台状态方案](applications/project-console/state-study/state-model.md) | 直接用浏览器打开，按样例试用查看、开始、登记阻塞、解除、完成、重开和撤销。修改只保存在页面内存。 |
+| [状态转移 UI 规范](standards/interface-capability/state-transitions.md) · [流程验证](runs/state-study/verification.json) | 三份 Skill 的方法用于任务守卫、视觉引导和交互检查。固定布局与语义色，九类情境及五档屏宽已检查。 |
 | [规范资产0.2](standards/interface-capability/README.md) | 9 条规则卡。R02 补充首屏、等权条目、已满足记录和下钻焦点的检查方法 |
 | [UI 与交互 Skill 候选](references/ui-design-skills.md) | 交互设计、视觉引导及实现评审的上游候选，含 I 小样的筛选恢复试用 |
 | [第二轮复盘](docs/review-02.md) · [用户反馈原话](applications/project-console/human-feedback.md) | 8项发现，含跨分支伪造依赖路径的修正；保留有效工作，暂停无充分证据的优选 |
@@ -28,7 +30,7 @@ DCL-001 · v0.5 · 应用设计研究 · 更新 2026-11-11
 | [最终主流程检查](runs/prototypes-final/verification.json) · [屏宽／主题／键盘检查](runs/prototypes-final/responsive-keyboard.json) | 六种主流程、48 组屏宽／主题组合及目标键盘操作；合成数据，无真人指标 |
 | [首轮文件核查](runs/final-audit.json) | 历史快照：51条媒体记录、46个唯一SHA256，不是51个独立观察；本轮核查从上方进入 |
 | [提交与回退记录](docs/change-record.md) | 本地 Git 分项范围、依赖及恢复方法；无远端备份 |
-| [project.yaml](project.yaml) | DCL 项目元数据，版本 0.5 |
+| [project.yaml](project.yaml) | DCL 项目元数据，版本 0.6 |
 
 ## 原件、源码、证据的组织
 

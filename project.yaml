@@ -1,7 +1,7 @@
 project:
   id: DCL-001
   name: Design Capability Lab
-  version: 0.5
+  version: 0.6
   type: applied_design_research
   status: reusable_asset_and_visual_review
 
@@ -53,6 +53,9 @@ research:
     structural_rounds: 3
     visual_experiments: 3
     visual_entry: applications/project-console/layer-study/index.html
+    state_study_entry: applications/project-console/state-study/index.html
+    state_contract: applications/project-console/state-study/state-model.md
+    state_ui_guidance: standards/interface-capability/state-transitions.md
     evaluation: applications/project-console/evaluation-results.md
     validation: agent_checks_with_synthetic_data
     human_usability_validation: not_performed
@@ -116,7 +119,7 @@ acceptance_criteria:
 
 next_action:
   id: DCL-001-T02
-  title: Review I task inspection and visual hierarchy in use
+  title: Review task transition guards and visual guidance in use
   status: awaiting_design_review
 research_gap:
   id: DCL-001-T01
