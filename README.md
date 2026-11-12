@@ -36,7 +36,7 @@ DCL-001 · v0.7 · 应用设计研究 · 更新 2026-11-12
 | [G/H 视觉复盘](applications/project-console/layer-study/evaluation.md#gh-视觉复盘) | 用户再次指出偏素。记录首屏焦点、条目层次与下钻状态的复测，以及后续小样判据 |
 | [新旧视觉对照](runs/review-02/comparison.png) · [最终实验检查](runs/review-02/layers-final/verification.json) · [本轮文件核查](runs/review-02/final-audit.json) | 合成数据、16组屏宽／主题、冻结实现哈希、媒体与引用核查；没有真人审美评分 |
 | [Endfield Menu 玩家复刻](cases/endfield-menu-fan-recreation/case.md) | DCL-RF01，用户提供的第三方实现参考。固定上游版本，已初审菜单分层、开合与减少动效路径，待运行验证。 |
-| [十例研究综合与索引](docs/research-synthesis.md) | C01—C10 报告、每例证据缺口、七条带条件与反例的候选原则及迁移关系 |
+| [完整案例索引](cases/README.md) · [首轮研究综合](docs/research-synthesis.md) | 14 份 DCL 报告及来源清单、总控台早期研究与公开版入口。首轮综合记录 C01—C10 的证据缺口和候选原则。 |
 | [总控台整体规划原件](../project-console/.sites-checkout/planning/overall-plan.md) | 工作／项目／资料／记录的信息架构、对象关系、六个流程、可回滚操作规划；属于产品项目，待审阅 |
 | [打开六种交互小样](applications/project-console/prototypes/index.html) | A 分栏、B 关系图、C 逐层栏、D 阻塞档案、E 排查队列、F 依赖矩阵；浏览器直接打开后顶部切换 |
 | [小样使用与来源](applications/project-console/prototypes/README.md) | 离线使用、可选本机服务、合成数据、依赖和字体许可 |
@@ -54,7 +54,7 @@ DCL-001 · v0.7 · 应用设计研究 · 更新 2026-11-12
 
 - .agents/skills/dcl-design/：能力包唯一维护原件。目标项目中的试用副本按版本记录。
 - evaluations/：能力包验收、迁移任务及证据要求。
-- cases/<稳定案例名>/：各例 case.md、sources.json、evidence/。原始公开媒体与派生帧分开记录；作者图像批注不当作游戏 UI。案例目录不按聊天复制。
+- [cases/](cases/README.md)：从完整索引进入各例 case.md、sources.json 和可用证据。原始公开媒体与派生帧分开记录；作者图像批注不当作游戏 UI。案例目录不按聊天复制。
 - docs/：[十次研究原计划与当前进度](docs/ten-case-study-plan.md)、研究综合、提交记录、[原项目组织核查](docs/project-console-organization.md)。
 - applications/project-console/：实验约定、评价与原型源码。总控台产品规划唯一原件继续在产品仓库 planning/，本项目链接过去。
 - runs/：各批及最终浏览器截图／验证结果。源媒体在 cases/；截图与对照图属于生成证据，保留逐批记录。

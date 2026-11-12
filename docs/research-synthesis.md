@@ -4,6 +4,8 @@
 
 **v0.4接续：** 本页保留首轮十例和P01—P07的原证据边界。新增[跨产品流程对照](../cases/cross-product-navigation/case.md)、[层次体系对照](../cases/surface-hierarchy-comparison/case.md)、[第二轮审查](review-02.md)与[可复用规范0.1](../standards/interface-capability/README.md)。P01/P05映射R03，P02/P04映射R04，P03映射R05，P06扩展为R01/R02/R07，P07映射R06；R08/R09增加反过拟合和复盘门槛。映射是资产化，不是把候选原则升级为实验定律。首轮51条媒体记录只有46个唯一哈希，含失败诊断，不代表独立观察数量。
 
+[完整案例索引](../cases/README.md)另含工作界面对照、Endfield Menu 玩家复刻与总控台早期研究。
+
 ## 十份报告索引
 
 每例都有 case.md、sources.json 和 evidence/；四成分共用同一问题与证据边界。图片作者批注与游戏 UI 分开；历史公告、官方规则声明、作者教程及实际连续媒体分开登记。准确 build、平台未知时保留未知。

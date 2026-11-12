@@ -1,4 +1,5 @@
 """Verify local research assets and deliverable links; no network requests."""
+from datetime import date
 from pathlib import Path
 import hashlib
 import json
@@ -45,16 +46,33 @@ def walk_assets(value, parent):
             walk_assets(child, parent)
 
 
+case_root = ROOT / 'cases'
+case_index = (case_root / 'README.md').read_text(encoding='utf-8-sig')
+indexed_paths = set(re.findall(r'\[[^\]\n]+\]\(([^)\n]+)\)', case_index))
+case_ids = set()
 cases = []
-for manifest in sorted((ROOT / 'cases').glob('*/sources.json')):
+for folder in sorted(path for path in case_root.iterdir() if path.is_dir()):
+    manifest = folder / 'sources.json'
+    report_path = folder / 'case.md'
+    if not manifest.is_file() or not report_path.is_file():
+        errors.append(f'{folder.name}: case.md and sources.json are both required')
+        continue
+    for path in (manifest, report_path):
+        relative = path.relative_to(case_root).as_posix()
+        if relative not in indexed_paths:
+            errors.append(f'Missing case index entry: {relative}')
     data = json.loads(manifest.read_text(encoding='utf-8-sig'))
-    walk_assets(data, manifest.parent)
-    report = (manifest.parent / 'case.md').read_text(encoding='utf-8-sig')
+    case_id = data['case_id']
+    if case_id in case_ids:
+        errors.append(f'{folder.name}: duplicate case ID {case_id}')
+    case_ids.add(case_id)
+    walk_assets(data, folder)
+    report = report_path.read_text(encoding='utf-8-sig')
     components = ['Key Screens', 'Experience Notes', 'Motion Specification', 'Interaction Flow']
     missing = [part for part in components if part not in report]
     if missing:
-        errors.append(f'{manifest.parent.name}: missing {missing}')
-    cases.append({'case': data['case_id'], 'four_components': not missing})
+        errors.append(f'{folder.name}: missing {missing}')
+    cases.append({'case': case_id, 'four_components': not missing})
 
 media_suffixes = {'.png', '.jpg', '.jpeg', '.webp', '.gif', '.mp4'}
 unregistered = [str(p.relative_to(ROOT)) for p in (ROOT / 'cases').rglob('*')
@@ -92,7 +110,7 @@ font_matches = [str(p) for p in font_origin.glob('*.ttf')
 if not font_matches:
     errors.append('Prototype font does not match any existing product TTF')
 
-record = {'date': '2026-11-11', 'method': 'local SHA256/size, component headings, link targets, node syntax; no source truth or human UX claim',
+record = {'date': date.today().isoformat(), 'method': 'case index coverage, local SHA256/size, component headings, link targets, node syntax; no source truth or human UX claim',
           'cases': cases, 'media_records_checked': len(checks), 'unique_sha256_contents':len(unique_hashes),
           'diagnostic_or_provisional_records':sum(c['diagnostic_or_provisional'] for c in checks),
           'counting_limit':'Records and distinct hashes do not count independent observations, workflows or source families', 'assets': checks,

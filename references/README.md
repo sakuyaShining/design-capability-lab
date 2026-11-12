@@ -11,6 +11,8 @@
 
 两者属于同一站点，不作为两个独立作者或两份独立验证。推荐来自另一 Codex 会话的用户原始消息，定位标识见 [catalog.json](catalog.json)。
 
+查看[完整案例索引](../cases/README.md)，其中也有总控台早期研究的原件入口。
+
 ## Endfield Menu 玩家复刻
 
 用户提供的 [ccdr4gon/endfield_menu](https://github.com/ccdr4gon/endfield_menu) 已收录为 [DCL-RF01](../cases/endfield-menu-fan-recreation/case.md)。案例页记录固定版本、菜单的空间层次、开合交互和动效边界。研究依据为作者说明与源码，运行待验证。
