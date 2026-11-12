@@ -16,7 +16,7 @@ DCL-001 · v0.7 · 应用设计研究 · 更新 2026-11-12
 
 ## GitHub 发布预览
 
-2026-11-12 已推送 [私有 GitHub 仓库](https://github.com/sakuyaShining/design-capability-lab) 的 `main`。首发为 26 个文件的独立提交 [`e3f0bdd`](https://github.com/sakuyaShining/design-capability-lab/commit/e3f0bdd309f613c7e297da04671d27ee0e72a1c0)，来源为本地 `99aed12`。内容包括 Skill 0.1.0、发布版规范、验收、研究摘要与虚构社区展览任务的状态实验。
+2026-11-12 已推送 [GitHub 仓库](https://github.com/sakuyaShining/design-capability-lab) 的 `main`。仓库同日设为公开。首发为 26 个文件的独立提交 [`e3f0bdd`](https://github.com/sakuyaShining/design-capability-lab/commit/e3f0bdd309f613c7e297da04671d27ee0e72a1c0)，来源为本地 `99aed12`。内容包括 Skill 0.1.0、发布版规范、验收、研究摘要与虚构社区展览任务的状态实验。
 
 [本地发布副本](dist/github-preview/README.md) 位于 `dist/github-preview/`，Git 历史独立。此仓库维护原件，发布副本按清单更新。首发校验了四个状态契约场景、九张规则卡、48 组指定色对和浏览器回归，远端文件清单与提交已核对。[本地浏览器记录](dist/github-preview/runs/state-study/verification.json) · [发布版验收约定](dist/github-preview/evaluations/acceptance.md)
 
