@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "case_id": "DCL-RF02",
+  "status": "collaborative_private_product_documentary_and_source_review",
+  "upstream_revision": "c33794a2fc9ed318b30c2a885ea314b0acd28094",
+  "upstream_visibility": "private",
+  "provided_by": "user",
+  "sources": [
+    {
+      "id": "RF02-S01",
+      "url": "https://github.com/Jetaime-yang/grad-research-workbench-v2/blob/c33794a2fc9ed318b30c2a885ea314b0acd28094/README.md",
+      "title": "科研工作台项目说明",
+      "locator": "L61–75、L121–137，模块与风格说明",
+      "retrieved_on": "2026-11-12",
+      "kind": "collaborator_documentation",
+      "limits": "作者说明，未以运行验证所有功能或风格细节。",
+      "access": "repository_permission_required"
+    },
+    {
+      "id": "RF02-S02",
+      "url": "https://github.com/Jetaime-yang/grad-research-workbench-v2/blob/c33794a2fc9ed318b30c2a885ea314b0acd28094/renderer/js/daily-plan.js",
+      "title": "每日计划及计划转待办",
+      "locator": "L43–85、L111–121、L136–159、L338–348，完成同步、行内动作、转换和跳转",
+      "retrieved_on": "2026-11-12",
+      "kind": "collaborator_source_code",
+      "limits": "源码初审，异常、重复操作和精确定位待实测。",
+      "access": "repository_permission_required"
+    },
+    {
+      "id": "RF02-S03",
+      "url": "https://github.com/Jetaime-yang/grad-research-workbench-v2/blob/c33794a2fc9ed318b30c2a885ea314b0acd28094/renderer/css/theme.css",
+      "title": "导航层次、页面入场与减少动效",
+      "locator": "L291–335、L507–520、L1487–1501",
+      "retrieved_on": "2026-11-12",
+      "kind": "collaborator_source_code",
+      "limits": "CSS 声明，实际构图、对比度、过渡时序和中断行为待验证。",
+      "access": "repository_permission_required"
+    }
+  ],
+  "assets": []
+}

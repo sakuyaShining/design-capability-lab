@@ -36,7 +36,7 @@ DCL-001 · v0.7 · 应用设计研究 · 更新 2026-11-12
 | [G/H 视觉复盘](applications/project-console/layer-study/evaluation.md#gh-视觉复盘) | 用户再次指出偏素。记录首屏焦点、条目层次与下钻状态的复测，以及后续小样判据 |
 | [新旧视觉对照](runs/review-02/comparison.png) · [最终实验检查](runs/review-02/layers-final/verification.json) · [本轮文件核查](runs/review-02/final-audit.json) | 合成数据、16组屏宽／主题、冻结实现哈希、媒体与引用核查；没有真人审美评分 |
 | [Endfield Menu 玩家复刻](cases/endfield-menu-fan-recreation/case.md) | DCL-RF01，用户提供的第三方实现参考。固定上游版本，已初审菜单分层、开合与减少动效路径，待运行验证。 |
-| [完整案例索引](cases/README.md) · [首轮研究综合](docs/research-synthesis.md) | 14 份 DCL 报告及来源清单、总控台早期研究与公开版入口。首轮综合记录 C01—C10 的证据缺口和候选原则。 |
+| [完整案例索引](cases/README.md) · [首轮研究综合](docs/research-synthesis.md) | 15 份 DCL 报告及来源清单，含科研工作台协作案例。索引也链接到总控台早期研究和公开版。首轮综合记录 C01—C10 的证据缺口和候选原则。 |
 | [总控台整体规划原件](../project-console/.sites-checkout/planning/overall-plan.md) | 工作／项目／资料／记录的信息架构、对象关系、六个流程、可回滚操作规划；属于产品项目，待审阅 |
 | [打开六种交互小样](applications/project-console/prototypes/index.html) | A 分栏、B 关系图、C 逐层栏、D 阻塞档案、E 排查队列、F 依赖矩阵；浏览器直接打开后顶部切换 |
 | [小样使用与来源](applications/project-console/prototypes/README.md) | 离线使用、可选本机服务、合成数据、依赖和字体许可 |
