@@ -1,6 +1,7 @@
-"""Validate a DCL behavior contract and optionally compare observed UI states."""
+"""Validate a DCL behavior contract and compare observed states and facts."""
 import argparse
 import json
+import math
 from pathlib import Path
 
 
@@ -10,6 +11,12 @@ def read_json(path):
 
 def is_name(value):
     return isinstance(value, str) and bool(value.strip())
+
+
+def is_fact_value(value):
+    if isinstance(value, float):
+        return math.isfinite(value)
+    return value is None or isinstance(value, (str, bool, int))
 
 
 def expected_traces(contract):
@@ -67,7 +74,15 @@ def expected_traces(contract):
                 raise ValueError(f"{name}, step {index}: {event!r} unavailable from {current!r}.")
             if target != expected:
                 raise ValueError(f"{name}, step {index}: contract leads to {target!r}, expected {expected!r}.")
-            trace.append(target)
+            if "facts" in step:
+                facts = step["facts"]
+                if not isinstance(facts, dict) or not facts or not all(
+                    is_name(key) and is_fact_value(value) for key, value in facts.items()
+                ):
+                    raise ValueError(f"{name}, step {index}: facts need names and scalar JSON values.")
+                trace.append({"state": target, "facts": facts})
+            else:
+                trace.append(target)
             current = target
         traces[name] = trace
     return traces
@@ -76,15 +91,37 @@ def expected_traces(contract):
 def compare_traces(expected, observed):
     if not isinstance(observed, dict) or observed.keys() != expected.keys():
         raise ValueError("Observed traces must use exactly the contract's scenario names.")
-    for name, states in expected.items():
-        if observed[name] != states:
-            raise ValueError(f"{name}: expected {states!r}, observed {observed[name]!r}.")
+    for name, steps in expected.items():
+        actual_steps = observed[name]
+        if not isinstance(actual_steps, list) or len(actual_steps) != len(steps):
+            raise ValueError(f"{name}: expected {len(steps)} observed steps.")
+        for index, (step, actual) in enumerate(zip(steps, actual_steps), start=1):
+            compare_step(f"{name}, step {index}", step, actual)
+
+
+def compare_step(label, expected, actual):
+    expected_state = expected["state"] if isinstance(expected, dict) else expected
+    actual_state = actual.get("state") if isinstance(actual, dict) else actual
+    if actual_state != expected_state:
+        raise ValueError(f"{label}: expected state {expected_state!r}, observed {actual_state!r}.")
+    if isinstance(expected, str):
+        return
+
+    actual_facts = actual.get("facts") if isinstance(actual, dict) else None
+    if not isinstance(actual_facts, dict):
+        raise ValueError(f"{label}: observed facts are required.")
+    for key, value in expected["facts"].items():
+        if key not in actual_facts:
+            raise ValueError(f"{label}: missing fact {key!r}.")
+        seen = actual_facts[key]
+        if seen != value or isinstance(seen, bool) != isinstance(value, bool):
+            raise ValueError(f"{label}: fact {key!r} expected {value!r}, observed {seen!r}.")
 
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("contract")
-    parser.add_argument("--observed", help="JSON file produced by a browser test")
+    parser.add_argument("--observed", help="JSON state and fact traces captured by a browser or integration test")
     args = parser.parse_args()
     try:
         traces = expected_traces(read_json(args.contract))

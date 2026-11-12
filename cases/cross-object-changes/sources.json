@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "case_id": "DCL-X04",
+  "status": "comparative_official_documentation_and_design_derivation",
+  "sources": [
+    {
+      "id": "X04-S01",
+      "url": "https://docs.github.com/en/issues/tracking-your-work-with-issues/administering-issues/transferring-an-issue-to-another-repository",
+      "title": "GitHub · 转移 Issue",
+      "locator": "适用条件、保留内容、重定向和操作步骤",
+      "kind": "official_product_documentation",
+      "retrieved_on": "2026-11-12",
+      "limits": "文档说明，未执行转移。"
+    },
+    {
+      "id": "X04-S02",
+      "url": "https://www.zotero.org/support/duplicate_detection#merging_duplicates",
+      "title": "Zotero · 合并重复条目",
+      "locator": "Merging Duplicates，主记录、字段与关系",
+      "kind": "official_product_documentation",
+      "retrieved_on": "2026-11-12",
+      "limits": "文档说明，未执行合并。"
+    },
+    {
+      "id": "X04-S03",
+      "url": "https://helpx.adobe.com/lightroom-classic/desktop/export-photos/export-files-disk-or-cd.html",
+      "title": "Adobe · Lightroom Classic 导出文件",
+      "locator": "Export Location，目标、目录库与同名处理",
+      "kind": "official_product_documentation",
+      "retrieved_on": "2026-11-12",
+      "limits": "文档说明，未执行导出。"
+    },
+    {
+      "id": "X04-S04",
+      "url": "https://docs.stripe.com/api/idempotent_requests",
+      "title": "Stripe · 幂等请求",
+      "locator": "按同一请求标识重试以及 API 版本语义",
+      "kind": "official_engineering_reference",
+      "retrieved_on": "2026-11-12",
+      "limits": "工程参考，未把 Stripe 的具体重试规则套用为交互规范。"
+    }
+  ],
+  "assets": []
+}

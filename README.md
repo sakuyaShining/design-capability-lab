@@ -1,6 +1,6 @@
 # Design Capability Lab
 
-DCL-001 · v0.7 · 应用设计研究 · 更新 2026-11-12
+DCL-001 · v0.8 · 应用设计研究 · 更新 2026-11-12
 
 ## Primary Objective
 
@@ -8,7 +8,7 @@ DCL-001 · v0.7 · 应用设计研究 · 更新 2026-11-12
 
 首个风格实例是鹰角／终末地，首个应用场景是独立的项目总控台。案例和实验用于提炼、修订可迁移的设计知识。
 
-**当前交付为 `dcl-design` Skill 0.1.0 预览版。** 它包含简短调用入口、按需参考、JSON 行为契约与可执行校验器。独立新会话、不同产品、可操作交互、自动与人工评估、跨项目复用及版本改进的证据要求见 [验收约定](evaluations/acceptance.md)。独立迁移和人工评审尚未完成。总控台状态实验仍待审阅，终末地首轮十例的完整工作过程仍为 partial。
+**当前本地交付为 `dcl-design` Skill 0.2.0 预览版。** 它包含简短调用入口、按需参考、JSON 行为契约与可执行校验器。跨对象操作可验证状态及对象数量、关联等实际结果。独立新会话、不同产品、可操作交互、自动与人工评估、跨项目复用及版本改进的证据要求见 [验收约定](evaluations/acceptance.md)。独立迁移和人工评审尚未完成。总控台状态实验仍待审阅，终末地首轮十例的完整工作过程仍为 partial。
 
 ### 如何调用
 
@@ -24,10 +24,10 @@ DCL-001 · v0.7 · 应用设计研究 · 更新 2026-11-12
 
 | 入口 | 用途与状态 |
 | --- | --- |
-| [调用入口](.agents/skills/dcl-design/SKILL.md) · [验收与首次迁移任务](evaluations/acceptance.md) | 0.1.0 预览版，可携带的设计参考、状态契约检查、浏览器证据与人工评审约定。 |
+| [调用入口](.agents/skills/dcl-design/SKILL.md) · [验收与首次迁移任务](evaluations/acceptance.md) | 0.2.0 本地预览，行为契约可核对观察到的状态和对象事实，兼容旧版状态轨迹。 |
 | [打开任务状态实验](applications/project-console/state-study/index.html) · [总控台状态方案](applications/project-console/state-study/state-model.md) | v0.2 候选规则含转移表、统一提交、冲突和撤销判据，待审阅。直接打开 v0.1 小样试用本地状态，修改只存在页面内存。 |
 | [状态转移 UI 规范](standards/interface-capability/state-transitions.md) · [流程验证](runs/state-study/verification.json) | 三份 Skill 的方法用于任务守卫、视觉引导和交互检查。固定布局与语义色，九类情境及五档屏宽已检查。 |
-| [规范资产0.2](standards/interface-capability/README.md) | 9 条规则卡。R02 补充首屏、等权条目、已满足记录和下钻焦点的检查方法 |
+| [规范资产 0.3](standards/interface-capability/README.md) · [跨对象案例对照](cases/cross-object-changes/case.md) | 10 条规则卡。新增 R10，覆盖来源、目的地、关系、恢复和结果入口 |
 | [UI 与交互 Skill 候选](references/ui-design-skills.md) | 交互设计、视觉引导及实现评审的上游候选，含 I 小样的筛选恢复试用 |
 | [第二轮复盘](docs/review-02.md) · [用户反馈原话](applications/project-console/human-feedback.md) | 8项发现，含跨分支伪造依赖路径的修正；保留有效工作，暂停无充分证据的优选 |
 | [跨产品机制对照](cases/cross-product-navigation/case.md) · [视觉层次对照](cases/surface-hierarchy-comparison/case.md) | GitHub、Blender、GOV.UK三类流程；Carbon、Atlassian、Material三体系及W3C要求；支持与冲突分别记录 |
@@ -36,7 +36,7 @@ DCL-001 · v0.7 · 应用设计研究 · 更新 2026-11-12
 | [G/H 视觉复盘](applications/project-console/layer-study/evaluation.md#gh-视觉复盘) | 用户再次指出偏素。记录首屏焦点、条目层次与下钻状态的复测，以及后续小样判据 |
 | [新旧视觉对照](runs/review-02/comparison.png) · [最终实验检查](runs/review-02/layers-final/verification.json) · [本轮文件核查](runs/review-02/final-audit.json) | 合成数据、16组屏宽／主题、冻结实现哈希、媒体与引用核查；没有真人审美评分 |
 | [Endfield Menu 玩家复刻](cases/endfield-menu-fan-recreation/case.md) | DCL-RF01，用户提供的第三方实现参考。固定上游版本，已初审菜单分层、开合与减少动效路径，待运行验证。 |
-| [完整案例索引](cases/README.md) · [首轮研究综合](docs/research-synthesis.md) | 15 份 DCL 报告及来源清单，含科研工作台协作案例。索引也链接到总控台早期研究和公开版。首轮综合记录 C01—C10 的证据缺口和候选原则。 |
+| [完整案例索引](cases/README.md) · [首轮研究综合](docs/research-synthesis.md) | 16 份 DCL 报告及来源清单，含科研工作台及跨对象操作对照。索引也链接到总控台早期研究和公开版。首轮综合记录 C01—C10 的证据缺口和候选原则。 |
 | [总控台整体规划原件](../project-console/.sites-checkout/planning/overall-plan.md) | 工作／项目／资料／记录的信息架构、对象关系、六个流程、可回滚操作规划；属于产品项目，待审阅 |
 | [打开六种交互小样](applications/project-console/prototypes/index.html) | A 分栏、B 关系图、C 逐层栏、D 阻塞档案、E 排查队列、F 依赖矩阵；浏览器直接打开后顶部切换 |
 | [小样使用与来源](applications/project-console/prototypes/README.md) | 离线使用、可选本机服务、合成数据、依赖和字体许可 |
@@ -46,7 +46,7 @@ DCL-001 · v0.7 · 应用设计研究 · 更新 2026-11-12
 | [最终主流程检查](runs/prototypes-final/verification.json) · [屏宽／主题／键盘检查](runs/prototypes-final/responsive-keyboard.json) | 六种主流程、48 组屏宽／主题组合及目标键盘操作；合成数据，无真人指标 |
 | [首轮文件核查](runs/final-audit.json) | 历史快照：51条媒体记录、46个唯一SHA256，不是51个独立观察；本轮核查从上方进入 |
 | [提交与回退记录](docs/change-record.md) | 本地 Git 分项范围、依赖及恢复方法；无远端备份 |
-| [project.yaml](project.yaml) | DCL 项目元数据，版本 0.7 |
+| [project.yaml](project.yaml) | DCL 项目元数据，版本 0.8 |
 
 ## 原件、源码、证据的组织
 

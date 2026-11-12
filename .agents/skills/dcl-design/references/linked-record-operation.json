@@ -1,0 +1,143 @@
+{
+  "states": [
+    "idle",
+    "preview",
+    "saving",
+    "linked",
+    "unknown"
+  ],
+  "initial": "idle",
+  "transitions": [
+    {
+      "from": "idle",
+      "event": "preview",
+      "to": "preview"
+    },
+    {
+      "from": "preview",
+      "event": "cancel",
+      "to": "idle"
+    },
+    {
+      "from": "preview",
+      "event": "confirm",
+      "to": "saving"
+    },
+    {
+      "from": "saving",
+      "event": "saved",
+      "to": "linked"
+    },
+    {
+      "from": "saving",
+      "event": "response_lost",
+      "to": "unknown"
+    },
+    {
+      "from": "unknown",
+      "event": "recover_existing",
+      "to": "linked"
+    },
+    {
+      "from": "linked",
+      "event": "repeat_same_intent",
+      "to": "linked"
+    }
+  ],
+  "scenarios": {
+    "cancel": [
+      {
+        "event": "preview",
+        "state": "preview",
+        "facts": {
+          "sourcePresent": true,
+          "targetCount": 0,
+          "linkedTarget": null
+        }
+      },
+      {
+        "event": "cancel",
+        "state": "idle",
+        "facts": {
+          "sourcePresent": true,
+          "targetCount": 0,
+          "linkedTarget": null
+        }
+      }
+    ],
+    "confirm": [
+      {
+        "event": "preview",
+        "state": "preview"
+      },
+      {
+        "event": "confirm",
+        "state": "saving"
+      },
+      {
+        "event": "saved",
+        "state": "linked",
+        "facts": {
+          "sourcePresent": true,
+          "targetCount": 1,
+          "linkedTarget": "shortlist-1"
+        }
+      }
+    ],
+    "repeat": [
+      {
+        "event": "preview",
+        "state": "preview"
+      },
+      {
+        "event": "confirm",
+        "state": "saving"
+      },
+      {
+        "event": "saved",
+        "state": "linked",
+        "facts": {
+          "sourcePresent": true,
+          "targetCount": 1,
+          "linkedTarget": "shortlist-1"
+        }
+      },
+      {
+        "event": "repeat_same_intent",
+        "state": "linked",
+        "facts": {
+          "sourcePresent": true,
+          "targetCount": 1,
+          "linkedTarget": "shortlist-1"
+        }
+      }
+    ],
+    "recover": [
+      {
+        "event": "preview",
+        "state": "preview"
+      },
+      {
+        "event": "confirm",
+        "state": "saving"
+      },
+      {
+        "event": "response_lost",
+        "state": "unknown",
+        "facts": {
+          "sourcePresent": true,
+          "canCheckResult": true
+        }
+      },
+      {
+        "event": "recover_existing",
+        "state": "linked",
+        "facts": {
+          "sourcePresent": true,
+          "targetCount": 1,
+          "linkedTarget": "shortlist-1"
+        }
+      }
+    ]
+  }
+}

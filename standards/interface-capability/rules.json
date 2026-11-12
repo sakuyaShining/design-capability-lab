@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "asset_version": "0.2",
-  "updated_on": "2026-11-11",
+  "asset_version": "0.3",
+  "updated_on": "2026-11-12",
   "scope": "task context, navigation and visual hierarchy; not a universal design system",
   "rules": [
     {
@@ -283,6 +283,42 @@
           "feedback_ids": [
             "FB-DCL-01",
             "FB-DCL-02"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "DCL-R10",
+      "kind": "interaction_hypothesis",
+      "problem": "跨对象变更后用户难以核对新旧对象、关系和恢复位置",
+      "applies_when": "移动、合并、导出或创建关联记录会改变对象归属、关系或可见结果",
+      "avoid_when": "纯查看、筛选、布局变化；简单单对象修改可按影响采用更轻的反馈",
+      "decision": "提交前说清来源、目标及实际变化，必要时处理冲突；提交后提供可核对的结果、具体入口和可用恢复路径",
+      "invariants": "预期保留、移动、新建和替换分别有明确语义；取消、重试或部分失败时可解释实际结果；引用应指向可验证的目标",
+      "freedom": "目标可为新对象、合并后的对象或输出位置；是否保留旧入口、允许重复或要求冲突预览由业务决定",
+      "anti_pattern": "只显示成功提示，无法定位结果；将移动、合并、复制、导出都套成同一种语义",
+      "evidence_path": "cases/cross-object-changes/case.md",
+      "evidence_ids": "X04-S01,X04-S02,X04-S03,X04-S04; RF02-S02",
+      "validation": "由目标产品采集状态及对象事实，覆盖正常结果、取消、冲突或适用的重试；人工核对结果能否找到、是否理解保留与替换",
+      "limitations": "公开文档和协作项目源码支持候选规则，真实失败恢复、端到端迁移和人工体验待试验",
+      "version": "0.1",
+      "status": "candidate",
+      "evidence_refs": [
+        {
+          "report": "cases/cross-object-changes/case.md",
+          "manifest": "cases/cross-object-changes/sources.json",
+          "source_ids": [
+            "X04-S01",
+            "X04-S02",
+            "X04-S03",
+            "X04-S04"
+          ]
+        },
+        {
+          "report": "cases/grad-research-workbench-v2/case.md",
+          "manifest": "cases/grad-research-workbench-v2/sources.json",
+          "source_ids": [
+            "RF02-S02"
           ]
         }
       ]

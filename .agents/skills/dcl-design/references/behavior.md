@@ -10,7 +10,12 @@ Run from the skill folder with Python 3.
 
 ```sh
 python scripts/validate_behavior.py references/interruptible-panel.json
+python scripts/validate_behavior.py references/linked-record-operation.json
 python scripts/validate_behavior.py contract.json --observed observed-states.json
 ```
 
-The first form validates references, determinism, reachability and scenario consistency. For the second, an actual browser test should reset to the initial state for each scenario, perform each action, read the visible state or an accessible state marker, and write an object mapping scenario names to arrays of observed states after each action. The validator compares that file to the contract. An example shape is `{"interrupted-exit":["opening","open","closing","opening","open"]}`. Derive observations from the running UI. Keep assertions about permissions, focus, input preservation, downstream side effects and timing in project tests.
+Without `--observed`, the script validates references, determinism, reachability and scenario consistency. With `--observed`, supply an object mapping scenario names to arrays of observations, one for each step. Reset the implementation for each scenario and capture observations after performing the actions.
+
+For state-only contracts, a string remains valid, for example `"linked"`. When a scenario step adds a `facts` object with named scalar JSON values, the matching observation needs `state` and `facts` fields, for example `{"state":"linked","facts":{"targetCount":1,"linkedTarget":"shortlist-1"}}`. The script checks every fact named by the contract and allows extra observed facts. Read target counts, identities and relationships from rendered results or persisted test state. The [cross-object guide](object-changes.md) explains how to select meaningful facts, and the [linked-record example](linked-record-operation.json) illustrates cancellation, success, repeating the same intent and recovering an uncertain result.
+
+Keep checks that need interaction semantics, such as focus or whether a link actually opens, in project tests. A passed comparison covers the specified state and facts at captured steps. Reachability of every relevant business outcome and completeness of the chosen scenarios require separate review.

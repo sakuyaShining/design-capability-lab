@@ -1,7 +1,7 @@
 project:
   id: DCL-001
   name: Design Capability Lab
-  version: 0.7
+  version: 0.8
   type: applied_design_research
   status: capability_skill_preview
 
@@ -15,7 +15,7 @@ objective:
 capability_package:
   form: codex_skill
   name: dcl-design
-  version: "0.1.0"
+  version: "0.2.0"
   entry: .agents/skills/dcl-design/SKILL.md
   acceptance: evaluations/acceptance.md
   status: preview_pending_independent_transfer_and_human_review
@@ -76,12 +76,14 @@ research:
     visual_guidance_families: [Carbon, Atlassian, Material]
     focused_workspace_entry: cases/focused-workspaces/case.md
     focused_workspace_families: [Ableton_Live, Grafana_Explore, Lightroom_Classic]
+    cross_object_operations_entry: cases/cross-object-changes/case.md
+    cross_object_workflows: [GitHub_issue_transfer, Zotero_merge, Lightroom_Classic_export]
     normative_reference: W3C_WCAG22
     status: documentary_comparison_not_independent_usability_validation
   reusable_assets:
     entry: standards/interface-capability/README.md
-    version: 0.2
-    rule_cards: 9
+    version: 0.3
+    rule_cards: 10
     visual_status: candidate
     review: docs/review-02.md
 
