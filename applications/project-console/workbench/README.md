@@ -1,6 +1,6 @@
 # 项目总控台 · 工作台改稿
 
-2026-11-15 / 本地可试用 / 待审阅。
+2026-11-22 / 本地可试用 / P1 已修复，P2 待审阅。
 
 变体为冰蓝强调、冷灰纸面、标准切角、局部低反差底纹、紧凑密度和短交互反馈。  
 主画面由保留任务范围的底面、半透队列及前景任务详情组成，项目概览位于下方。  
@@ -22,7 +22,7 @@
 
 试稿使用 Archify 3.2.0，工具只作为可重建的本机缓存。若任务 README 的依赖变化，先同步候选 JSON，再从 DCL 根目录用 Archify 的 `finalize workflow <候选 JSON> <输出 HTML> --quality showcase --json` 重生成。 [独立图](tasks/T-12/archify.html) · [候选 JSON](tasks/T-12/archify.workflow.json) · [Archify 验证](../../../runs/project-workbench/task-readmes/archify-t-12/archify.finalize-summary.json) · [版本来源](https://github.com/tt-a1i/archify/tree/a7ed6fd6657da90414831d1d42cf95987188750c/archify)
 
-任务页接入后于 11 月 22 日重跑整套工作台检查：11 组浏览器检查、10 个屏宽×主题组合通过，报告记录的源码哈希与当前实现一致。[接入后复核](../../../runs/project-workbench/task-readme-integration/verification.json)
+任务页接入后于 11 月 22 日重跑整套工作台检查（11 组）；同日修复 P1 的完成资格与结果留存后重跑至 14 组，10 个屏宽×主题组合通过，报告记录的源码哈希与当前实现一致。[接入后复核](../../../runs/project-workbench/task-readme-integration/verification.json) · [修复后复核](../../../runs/project-workbench/p1-fixes/verification.json)
 
 ## 离线样例操作
 
@@ -31,13 +31,13 @@
 3. 返回 T-12，查看 T-11。T-11 的旧记录只有人工阻塞，解除时须选择阻塞前的阶段。两项前置都完成后，T-12 会显示「可以开始」，此时由你确认开始。
 4. 将队列筛到“集创赛”，从 T-15 查看跨项目的 T-14。当前项会注明在筛选范围外，返回后保留原筛选。项目概览的“查看任务”可直接按项目筛选队列。
 
-[同结构浅面无纹对照](index.html?look=flat) · [深色](index.html?theme=dark) · [直接前置标记为完成的反例](index.html?scenario=clear) · [解除阻塞后仍有前置](index.html?scenario=blocked) · [重开受依赖方限制](index.html?scenario=downstream) · [缺失引用](index.html?scenario=missing) · [循环引用](index.html?scenario=cycle)
+[同结构浅面无纹对照](index.html?look=flat) · [深色](index.html?theme=dark) · [前置真正完成的样例](index.html?scenario=clear) · [完成记录与前置冲突](index.html?scenario=conflict) · [解除阻塞后仍有前置](index.html?scenario=blocked) · [重开受依赖方限制](index.html?scenario=downstream) · [缺失引用](index.html?scenario=missing) · [循环引用](index.html?scenario=cycle)
 
 ## 状态转移与使用
 
 从 [数据结构、状态图和按钮决策表](state-guide.md) 可以核对当前实现的存储位置、T-12 内存对象、五种业务操作的守卫及完整操作路径。
 
-[流程与状态转移复盘](workflow-review.md)记录了当前守卫、结果留存、等待引导和影响提示的缺口，附离线浏览器反例及修订验收条件，待设计审阅。
+[流程与状态转移复盘](workflow-review.md)记录 P1 的完成资格冲突与结果留存已修复，以及仍待处理的等待引导、依赖分型和影响提示缺口（P2），附修复前后的证据与验收条件。
 
 T-12 是样例任务编号，当前任务、依赖方向与阶段使用单独的文字和位置表达。T-12 的名称和预期产出只在本工作台样例中明确化，规则和依赖关系继续沿用已有模型。下一步由当前实际条件决定，只有一项直接前置可推进时，提供直达建议，多项时保留列表让用户选择。
 
@@ -45,13 +45,13 @@ T-12 是样例任务编号，当前任务、依赖方向与阶段使用单独的
 | --- | --- |
 | 查看前置 / 返回 | 沿真实依赖进入详情或回到原任务。只改变查看位置，筛选、进度和任务结果保留。 |
 | 开始任务 | 已承诺、待开始、直接前置均满足且无人工阻塞。确认后进入进行中。 |
-| 记录完成 | 进行中且仍具备推进条件，填写实际结果或产物位置。确认后进入已完成，依赖方重算可推进性并保持原阶段。 |
-| 登记 / 解除人工阻塞 | 登记需记录原因，保留当前阶段。旧记录阶段未知时，解除需补记原阶段。解除后仍要按前置检查是否可推进。 |
-| 重新打开 | 已完成且没有已完成的任务直接依赖它。确认后回到待开始，依赖方重新等待。样例不提供历史归档。 |
+| 记录完成 | 进行中且仍具备推进条件，填写实际结果或产物位置。确认后进入已完成，结果写入任务记录，依赖方重算可推进性并保持原阶段。 |
+| 登记 / 解除人工阻塞 | 登记需记录原因，保留当前阶段。旧记录阶段未知时，解除需补记原阶段，可选填解除依据；原原因保留在任务记录。解除后仍要按前置检查是否可推进。 |
+| 重新打开 | 已完成且没有已完成的任务直接依赖它。确认后回到待开始，此前结果和可选重开原因留在任务记录，依赖方重新等待。 |
 
-预览列出对象及后果，取消恢复触发点。字段未通过校验时停在原表单，补齐后可再次提交。共享 [任务状态模型](../state-study/model.js) 提供实际守卫，交互沿用 [状态转移 UI 规范](../../../standards/interface-capability/state-transitions.md)。本轮验证范围为内存样例，产品 v0.2 的服务端事务、复核版本、审计与补偿撤销仍待集成。[完整状态提案](../state-study/state-model.md)
+前置的完成记录会递归校验；上游已完成但前置未完成时，下游列出冲突编号与根因并拒绝推进。预览列出对象及后果，取消恢复触发点。字段未通过校验时停在原表单，补齐后可再次提交。共享 [任务状态模型](../state-study/model.js) 提供实际守卫，交互沿用 [状态转移 UI 规范](../../../standards/interface-capability/state-transitions.md)。本轮验证范围为内存样例，产品 v0.2 的服务端事务、复核版本、审计与补偿撤销仍待集成。[完整状态提案](../state-study/state-model.md)
 
-11 组浏览器检查、10 个屏宽与主题组合、两条实测契约轨迹及 8 项现有单元测试通过。390×844 下第一条前置仍位于首屏。 [T-12 等待](../../../runs/project-workbench/state-clarity/direction.png) · [T-12 可以开始](../../../runs/project-workbench/state-clarity/direction-ready.png) · [完成校验](../../../runs/project-workbench/state-clarity/finish-validation.png) · [解除后仍等待](../../../runs/project-workbench/state-clarity/released-waiting.png) · [验证记录](../../../runs/project-workbench/state-clarity/verification.json) · [实测轨迹](../../../runs/project-workbench/state-clarity/observed.json)
+14 组浏览器检查、10 个屏宽与主题组合、两条实测契约轨迹及 8 项现有单元测试通过。390×844 下第一条前置仍位于首屏。 [T-12 等待](../../../runs/project-workbench/state-clarity/direction.png) · [T-12 可以开始](../../../runs/project-workbench/state-clarity/direction-ready.png) · [完成校验](../../../runs/project-workbench/state-clarity/finish-validation.png) · [解除后仍等待](../../../runs/project-workbench/state-clarity/released-waiting.png) · [验证记录](../../../runs/project-workbench/p1-fixes/verification.json) · [实测轨迹](../../../runs/project-workbench/p1-fixes/observed.json)
 
 ## 《终末地》空间表达复核
 

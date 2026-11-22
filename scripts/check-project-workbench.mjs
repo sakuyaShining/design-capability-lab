@@ -148,6 +148,19 @@ try {
   assert.equal(await data('follow', 'scheme').count(), 0);
   report.checks.push('All prerequisites met does not mark the task done. Missing records and cyclic back-edges cannot be opened.');
 
+  await open('?scenario=conflict');
+  assert.equal(await $('next-title').innerText(), '上游完成记录有冲突');
+  assert.equal(await data('change', 'start').count(), 0);
+  assert.equal(await page.locator('.segments .conflict').count(), 2);
+  assert.match(await $('dependencies').innerText(), /T-12 等待 T-10、T-11/);
+  await screenshot('conflict-guard.png');
+  await page.locator('.conflict-block [data-follow="direction"]').click();
+  assert.equal(await $('execution-phase').innerText(), '已完成');
+  assert.equal(await $('next-title').innerText(), '完成记录与前置冲突');
+  assert.match(await page.locator('.next-step').innerText(), /T-10、T-11 尚未完成/);
+  assert.equal(await data('change', 'reopen').count(), 1);
+  report.checks.push('Conflicting upstream completions are named, cannot unlock the dependent task, and can be reopened from the conflict block.');
+
   async function capture(scenario) {
     const phase = await $('execution-phase').innerText();
     const next = await $('next-title').innerText();
@@ -168,6 +181,36 @@ try {
     await submit();
   };
   const start = async () => { await change('start'); await submit(); };
+
+  await open('');
+  await data('open', 'rules').click();
+  await start();
+  await finish('第一次结果：规则版本 A。');
+  await change('reopen');
+  await $('task-change').locator('textarea').fill('复核新要求');
+  await screenshot('record-reopen.png');
+  await submit();
+  assert.match(await $('history').innerText(), /第一次结果/);
+  assert.match(await $('history').innerText(), /复核新要求/);
+  await start();
+  await finish('第二次结果：规则版本 B。');
+  const record = await $('history').innerText();
+  assert.match(record, /第一次结果/);
+  assert.match(record, /第二次结果/);
+  assert.equal(await $('history').locator('li').count(), 3);
+  await screenshot('record-history.png');
+  report.checks.push('Reopening keeps the earlier result and the reopen reason; completing again leaves both results distinguishable in the record.');
+
+  await open('');
+  await data('open', 'mentor').click();
+  await change('release');
+  await $('task-change').locator('select').selectOption('todo');
+  await $('task-change').locator('textarea').fill('负责人已书面确认');
+  await submit();
+  const releaseRecord = await $('history').innerText();
+  assert.match(releaseRecord, /等待校内负责人的确认/);
+  assert.match(releaseRecord, /负责人已书面确认/);
+  report.checks.push('Releasing a manual block keeps its original reason and the recorded basis.');
   await open();
   await capture('unlock-direction');
   await data('follow', 'direction').click();

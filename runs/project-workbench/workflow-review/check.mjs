@@ -11,6 +11,11 @@ const sources = Object.fromEntries([entry, app, model, data].map(url => [
   url.pathname.split('/applications/')[1],
   createHash('sha256').update(readFileSync(url)).digest('hex'),
 ]));
+// Historical reproduction of the 2026-11-15 faults. Builds with the completion guard skip it.
+if (readFileSync(model, 'utf8').includes('completionTrust')) {
+  console.log('SKIP: pre-fix reproduction; see runs/project-workbench/p1-fixes/ for the fixed build.');
+  process.exit(0);
+}
 const playwright = process.env.DCL_PLAYWRIGHT || 'C:/Users/Sakuya/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright/index.mjs';
 const executablePath = process.env.DCL_EDGE || 'C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe';
 const { chromium } = await import(pathToFileURL(playwright));

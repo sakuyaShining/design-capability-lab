@@ -11,8 +11,9 @@ globalThis.TaskWorkflow = (() => {
         id: record.id, code: record.code, title: record.title, project: record.project,
         kind: record.kind, deps: [...record.deps], output: record.output,
         phase: blocked ? previous : phaseByStatus[record.status] ?? 'unknown',
-        blocker: blocked ? { reason: record.reason || '旧记录未填写阻塞原因。' } : null,
+        blocker: blocked ? { reason: record.reason || '旧记录未填写阻塞原因。', stage: previous } : null,
         completion: record.completion || '',
+        history: Array.isArray(record.history) ? record.history.map(entry => ({ ...entry })) : [],
       };
     });
   }
@@ -39,10 +40,46 @@ globalThis.TaskWorkflow = (() => {
     return { cycle, missing: [...missing] };
   }
 
+  // A completion is only usable when every prerequisite carries a usable completion of its own.
+  function completionTrust(tasks) {
+    const byId = new Map(tasks.map(task => [task.id, task]));
+    const memo = new Map();
+    const visiting = new Set();
+    function trusted(id) {
+      if (memo.has(id)) return memo.get(id);
+      const task = byId.get(id);
+      if (!task || task.phase !== 'done' || visiting.has(id)) return false;
+      visiting.add(id);
+      const usable = task.deps.every(dep => trusted(dep));
+      visiting.delete(id);
+      memo.set(id, usable);
+      return usable;
+    }
+    return { byId, trusted };
+  }
+
+  // Collect the unfinished ancestors that make a completion unusable.
+  function unmetCauses(byId, id, seen = new Set()) {
+    const task = byId.get(id);
+    if (!task) return [id];
+    if (task.phase !== 'done') return [task.code];
+    if (seen.has(id)) return [task.code];
+    seen.add(id);
+    return task.deps.flatMap(dep => unmetCauses(byId, dep, seen));
+  }
+
   function inspect(tasks, task) {
-    const direct = task.deps.map(id => ({ id, task: tasks.find(candidate => candidate.id === id) }));
+    const { byId, trusted } = completionTrust(tasks);
+    const direct = task.deps.map(id => {
+      const dep = byId.get(id);
+      return { id, task: dep, conflict: Boolean(dep && dep.phase === 'done' && !trusted(dep.id)) };
+    });
     const pending = direct.filter(entry => entry.task?.phase !== 'done');
+    const conflicts = direct.filter(entry => entry.conflict)
+      .map(entry => ({ ...entry, causes: unmetCauses(byId, entry.id) }));
     const { cycle, missing } = dependencyIssues(tasks, task.id);
+    const selfConflict = task.phase === 'done' && !trusted(task.id);
+    const causes = selfConflict ? unmetCauses(byId, task.id) : [];
     const reasons = [];
     if (task.kind !== '已承诺任务') reasons.push('先确认任务承诺。');
     if (task.phase === 'unknown') reasons.push('请确认阻塞前的进度。');
@@ -50,7 +87,9 @@ globalThis.TaskWorkflow = (() => {
     if (missing.length) reasons.push(`依赖记录缺失：${missing.join('、')}。`);
     if (task.blocker) reasons.push(task.blocker.reason);
     if (pending.length) reasons.push(`还有 ${pending.length} 项直接前置待满足。`);
-    return { direct, pending, cycle, missing, reasons, ready: reasons.length === 0 };
+    if (conflicts.length) reasons.push(`上游完成记录与前置冲突：${conflicts.map(entry => entry.task.code).join('、')}。`);
+    if (selfConflict) reasons.push(`完成记录与前置冲突：${causes.join('、')} 尚未完成。`);
+    return { direct, pending, conflicts, selfConflict, causes, cycle, missing, reasons, ready: reasons.length === 0 };
   }
 
   function actions(task, conditions) {
@@ -79,8 +118,15 @@ globalThis.TaskWorkflow = (() => {
     if (action === 'start') after.phase = 'active';
     if (action === 'block' || action === 'finish') {
       if (!note || note.length > 500) return { error: action === 'block' ? '请填写阻塞原因（1–500 字）。' : '请填写实际结果或产物位置（1–500 字）。' };
-      if (action === 'block') after.blocker = { reason: note };
-      if (action === 'finish') { after.phase = 'done'; after.completion = note; }
+      if (action === 'block') {
+        after.blocker = { reason: note, stage: before.phase };
+        after.history = [...before.history, { action: 'block', note, stage: before.phase }];
+      }
+      if (action === 'finish') {
+        after.phase = 'done';
+        after.completion = note;
+        after.history = [...before.history, { action: 'finish', note }];
+      }
     }
     if (action === 'release') {
       if (before.phase === 'unknown') {
@@ -88,6 +134,9 @@ globalThis.TaskWorkflow = (() => {
         after.phase = input.phase;
       }
       after.blocker = null;
+      after.history = [...before.history, {
+        action: 'release', note: before.blocker?.reason || '', basis: note, stage: after.phase,
+      }];
     }
     if (action === 'reopen') {
       if (reopenImpact(tasks, id).completed.length) {
@@ -95,6 +144,7 @@ globalThis.TaskWorkflow = (() => {
       }
       after.phase = 'todo';
       after.completion = '';
+      after.history = [...before.history, { action: 'reopen', note, result: before.completion }];
     }
     return { before, after, tasks: tasks.map(task => task.id === id ? after : task) };
   }

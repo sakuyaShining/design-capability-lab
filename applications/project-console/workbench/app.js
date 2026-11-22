@@ -11,7 +11,8 @@
   ];
   const query = new URLSearchParams(location.search);
   const scenarios = {
-    clear: record => ['direction', 'reuse', 'socbase'].includes(record.id) ? { ...record, status: '已完成' } : record,
+    clear: record => ['rules', 'mentor', 'direction', 'reuse', 'socbase'].includes(record.id) ? { ...record, status: '已完成' } : record,
+    conflict: record => ['direction', 'reuse'].includes(record.id) ? { ...record, status: '已完成' } : record,
     missing: record => record.id === 'scheme' ? { ...record, deps: [...record.deps, 'missing-record'] } : record,
     cycle: record => record.id === 'direction' ? { ...record, deps: [...record.deps, 'scheme'] } : record,
     blocked: record => record.id === 'direction' ? { ...record, status: '阻塞中', previousPhase: 'active', reason: '等待补齐方向对照材料。' } : record,
@@ -49,7 +50,9 @@
   function condition(task) {
     const data = info.get(task.id);
     if (task.blocker) return '人工阻塞';
+    if (data.selfConflict) return '完成记录冲突';
     if (data.cycle || data.missing.length) return '依赖需核对';
+    if (data.conflicts.length) return `待核对 ${data.conflicts.length} 项完成记录`;
     if (data.pending.length) return `待满足 ${data.pending.length} 项`;
     if (group(task) === 'ready') return task.phase === 'active' ? '可继续' : '可开始';
     return '';
@@ -73,8 +76,21 @@
     }
     if (task.phase === 'done') {
       const impact = TaskWorkflow.reopenImpact(tasks, task.id);
-      if (impact.completed.length) return { title: '当前不能重开', text: `已完成的 ${taskCodes(impact.completed)} 依赖此任务。请先核对这些任务。` };
+      if (impact.completed.length) {
+        return { title: '当前不能重开', text: `已完成的 ${taskCodes(impact.completed)} 依赖此任务。请先核对这些任务。${detail.selfConflict ? ` 该任务的完成记录还与 ${detail.causes.join('、')} 冲突。` : ''}` };
+      }
+      if (detail.selfConflict) {
+        return {
+          title: '完成记录与前置冲突',
+          text: `${task.code} 标记为已完成，但 ${detail.causes.join('、')} 尚未完成。核对后可重开；此前结果保留在任务记录。`,
+          primary: 'reopen',
+        };
+      }
       return { title: '已记录完成', text: task.completion || '这条样例没有单独的实际结果。', primary: 'reopen' };
+    }
+    if (detail.conflicts.length) {
+      const list = detail.conflicts.map(entry => `${entry.task.code}（${entry.causes.join('、')}）`).join('、');
+      return { title: '上游完成记录有冲突', text: `这些任务标为已完成，但前置尚未完成：${list}。核对前不能开始，也不会使用这些完成记录。`, jump: true };
     }
     if (!detail.ready) {
       const available = pending.filter(item => group(item) === 'ready');
@@ -161,7 +177,7 @@
 
   function renderFocus(task, detail, motion) {
     const count = detail.pending.length;
-    const done = detail.direct.length - count;
+    const met = detail.direct.filter(entry => entry.task?.phase === 'done' && !entry.conflict).length;
     const parent = byId.get(view.path.at(-2)?.id);
     const route = parent ? `<nav class="path" aria-label="前置依赖路径">${view.path.slice(0, -1).map((entry, index) => {
       const item = byId.get(entry.id);
@@ -187,8 +203,8 @@
         <p>直接前置</p>
         ${detail.direct.length ? `<p class="meter-count"><strong>${pad(count)}</strong><span>项待满足</span></p>
         <div class="segments" aria-hidden="true" style="--total: ${detail.direct.length}">${detail.direct.map(entry =>
-          `<i class="${entry.task?.phase === 'done' ? 'met' : 'unmet'}"></i>`).join('')}</div>
-        <p class="meter-legend">已满足 ${done} / 共 ${detail.direct.length} 项</p>`
+          `<i class="${entry.conflict ? 'conflict' : entry.task?.phase === 'done' ? 'met' : 'unmet'}"></i>`).join('')}</div>
+        <p class="meter-legend">${detail.conflicts.length ? `已满足 ${met}/${detail.direct.length} · ${detail.conflicts.length} 项冲突` : `已满足 ${met} / 共 ${detail.direct.length} 项`}</p>`
         : '<p class="meter-empty">没有直接前置</p>'}
       </div>
     </div>
@@ -212,12 +228,14 @@
   }
 
   function renderDependencies(task, detail) {
-    const done = detail.direct.filter(entry => entry.task?.phase === 'done');
+    const conflicts = detail.conflicts;
+    const done = detail.direct.filter(entry => entry.task?.phase === 'done' && !entry.conflict);
     $('dependencies').innerHTML = `
-      <header class="section-head"><div><p class="eyebrow">// DEPENDENCIES</p><h2 id="dependency-title" tabindex="-1">前置与阻塞</h2></div><span class="meta">${escape(task.code)} / ${detail.pending.length} 项待满足</span></header>
+      <header class="section-head"><div><p class="eyebrow">// DEPENDENCIES</p><h2 id="dependency-title" tabindex="-1">前置与阻塞</h2></div><span class="meta">${escape(task.code)} / ${detail.pending.length} 项待满足${conflicts.length ? ` · ${conflicts.length} 项冲突` : ''}</span></header>
+      ${conflicts.length ? `<div class="conflict-block"><p class="blocker">上游完成记录与前置冲突：${conflicts.map(entry => `${entry.task.code} 等待 ${entry.causes.join('、')}`).join('；')}。核对前不使用这些完成记录。</p><ul class="dependency-list conflict-list">${conflicts.map(entry => dependencyRow(entry, task)).join('')}</ul></div>` : ''}
       ${detail.cycle || detail.missing.length ? `<p class="blocker">${detail.cycle ? '依赖链存在循环。' : ''}${detail.missing.length ? `缺失记录：${escape(detail.missing.join('、'))}。` : ''}</p>` : ''}
       ${detail.pending.length ? `<ul class="dependency-list">${detail.pending.map(entry => dependencyRow(entry, task)).join('')}</ul>`
-      : `<p class="empty">${detail.direct.length ? '直接前置已全部满足。' : '本任务没有直接前置。'}</p>`}
+      : conflicts.length ? '' : `<p class="empty">${detail.direct.length ? '直接前置已全部满足。' : '本任务没有直接前置。'}</p>`}
       ${done.length ? `<details id="completed-deps"><summary>已满足 ${done.length} 项</summary><ul class="dependency-list">${done.map(entry => dependencyRow(entry, task)).join('')}</ul></details>` : ''}`;
   }
 
@@ -238,10 +256,29 @@
     if (diagramView.getAttribute('src') !== src) diagramView.src = src;
   }
 
+  function renderHistory(task) {
+    const section = $('history');
+    const entries = (task.history || []).slice().reverse();
+    section.hidden = !entries.length;
+    if (!entries.length) return;
+    const labels = { finish: '记录完成', reopen: '重新打开', block: '登记阻塞', release: '解除阻塞' };
+    const body = entry => {
+      if (entry.action === 'finish') return `<p>${escape(entry.note)}</p>`;
+      if (entry.action === 'block') return `<p>原因：${escape(entry.note)}</p>`;
+      if (entry.action === 'release') {
+        return `<p>原阻塞：${escape(entry.note)}${entry.basis ? ` · 解除依据：${escape(entry.basis)}` : ''} · 恢复阶段：${escape(TaskWorkflow.phases[entry.stage])}</p>`;
+      }
+      return `<p>${entry.note ? `原因：${escape(entry.note)} · ` : ''}保留此前结果：${escape(entry.result || '未填写。')}</p>`;
+    };
+    section.innerHTML = `<header class="section-head"><div><p class="eyebrow">// RECORD</p><h2 id="history-title" tabindex="-1">任务记录</h2></div><span class="meta">${escape(task.code)} / ${pad(entries.length)} 项</span></header>
+      <ol class="history-list">${entries.map(entry => `<li><span class="history-action">${labels[entry.action] || entry.action}</span>${body(entry)}</li>`).join('')}</ol>`;
+  }
+
   function render(motion) {
     const task = current();
     renderFocus(task, info.get(task.id), motion);
     renderDependencies(task, info.get(task.id));
+    renderHistory(task);
     renderDiagram(task);
     updateQueueContext();
     if (motion) $('task-receipt').hidden = true;
@@ -255,15 +292,17 @@
     const dependents = tasks.filter(item => item.deps.includes(task.id));
     const effects = {
       start: '待开始 → 进行中。',
-      finish: '进行中 → 已完成。记录实际结果后会重新计算依赖方是否可以推进。',
-      block: `当前执行阶段「${phase(task)}」保留，登记后暂缓推进。`,
-      release: task.phase === 'unknown' ? '解除人工阻塞，同时补记阻塞前的执行阶段。' : `解除人工阻塞，保留「${phase(task)}」。`,
-      reopen: '已完成 → 待开始。依赖方将重新等待此前置。',
+      finish: '进行中 → 已完成。记录实际结果后会重新计算依赖方是否可以推进，结果同时写入任务记录。',
+      block: `当前执行阶段「${phase(task)}」保留，登记后暂缓推进；原因写入任务记录。`,
+      release: task.phase === 'unknown' ? '解除人工阻塞，同时补记阻塞前的执行阶段；原阻塞原因保留在任务记录。' : `解除人工阻塞，保留「${phase(task)}」；原阻塞原因保留在任务记录。`,
+      reopen: '已完成 → 待开始。此前完成结果保留在任务记录，依赖方将重新等待此前置。',
     };
     const fields = {
       block: '<label>人工阻塞原因<textarea name="note" maxlength="500" rows="3" aria-describedby="change-error"></textarea></label>',
       finish: '<label>实际结果或产物位置<textarea name="note" maxlength="500" rows="3" aria-describedby="change-error"></textarea></label>',
-      release: task.phase === 'unknown' ? '<label>阻塞前的执行阶段<select name="phase" aria-describedby="change-error"><option value="">选择原阶段</option><option value="todo">待开始</option><option value="active">进行中</option></select></label>' : '',
+      reopen: '<label>重开原因（可选）<textarea name="note" maxlength="500" rows="2" aria-describedby="change-error"></textarea></label>',
+      release: (task.phase === 'unknown' ? '<label>阻塞前的执行阶段<select name="phase" aria-describedby="change-error"><option value="">选择原阶段</option><option value="todo">待开始</option><option value="active">进行中</option></select></label>' : '')
+        + '<label>解除依据（可选）<textarea name="note" maxlength="500" rows="2" aria-describedby="change-error"></textarea></label>',
     };
     const label = TaskWorkflow.actionLabels[action];
     const followup = (action === 'finish' || action === 'reopen') && dependents.length
@@ -307,7 +346,9 @@
     renderQueue();
     render();
     const status = action === 'release' ? '人工阻塞已解除'
-      : action === 'block' ? '已登记人工阻塞' : phase(result.after);
+      : action === 'block' ? '已登记人工阻塞'
+      : action === 'reopen' ? '已重开，此前结果保留在任务记录'
+      : action === 'finish' ? '已完成' : phase(result.after);
     const updates = unlocked.length ? ` ${taskCodes(unlocked)} 现在可推进，执行阶段保持原样。` : '';
     const receipt = $('task-receipt');
     receipt.textContent = `${result.after.code}：${status}。 ${next.text}${updates}`;
