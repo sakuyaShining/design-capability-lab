@@ -5,6 +5,7 @@ import path from 'node:path';
 import { pathToFileURL } from 'node:url';
 
 const output = process.argv[2] || 'runs/project-workbench/state-clarity';
+const revision = process.argv[3] || 'state-clarity';
 const entry = 'applications/project-console/workbench/index.html';
 const url = pathToFileURL(path.resolve(entry)).href;
 const playwright = process.env.DCL_PLAYWRIGHT || 'C:/Users/Sakuya/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright/index.mjs';
@@ -13,8 +14,8 @@ const { chromium } = await import(pathToFileURL(playwright));
 const browser = await chromium.launch({ headless: true, executablePath });
 fs.mkdirSync(output, { recursive: true });
 const report = {
-  run: '2026-11-15',
-  revision: 'state-clarity',
+  run: process.argv[4] || '2026-11-15',
+  revision,
   engine: browser.version(),
   checks: [], layouts: [], pageErrors: [], network: [],
   sources: Object.fromEntries([

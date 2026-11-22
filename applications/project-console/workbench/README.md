@@ -22,6 +22,8 @@
 
 试稿使用 Archify 3.2.0，工具只作为可重建的本机缓存。若任务 README 的依赖变化，先同步候选 JSON，再从 DCL 根目录用 Archify 的 `finalize workflow <候选 JSON> <输出 HTML> --quality showcase --json` 重生成。 [独立图](tasks/T-12/archify.html) · [候选 JSON](tasks/T-12/archify.workflow.json) · [Archify 验证](../../../runs/project-workbench/task-readmes/archify-t-12/archify.finalize-summary.json) · [版本来源](https://github.com/tt-a1i/archify/tree/a7ed6fd6657da90414831d1d42cf95987188750c/archify)
 
+任务页接入后于 11 月 22 日重跑整套工作台检查：11 组浏览器检查、10 个屏宽×主题组合通过，报告记录的源码哈希与当前实现一致。[接入后复核](../../../runs/project-workbench/task-readme-integration/verification.json)
+
 ## 离线样例操作
 
 1. 点右上“可推进”，队列会找出当前可推进的任务。默认算出 1 项，可查看 T-10。独立选一项任务会从该任务开始浏览。
@@ -91,8 +93,8 @@ T-12 是样例任务编号，当前任务、依赖方向与阶段使用单独的
 - 交互与状态沿用 [DCL 样例](../prototypes/data.js) 和 [任务模型](../state-study/model.js) 的阶段、派生条件、缺失和循环检测。任务设为已承诺的演示样本，默认手动选定 T-15 作比较起点。画面按 [dcl-design 0.2.0](../../../.agents/skills/dcl-design/SKILL.md)、[规范 0.3](../../../standards/interface-capability/rules.json) 与 [endfield-ui](C:/Users/Sakuya/.codex/skills/endfield-ui/SKILL.md) 实现，复用 [Saira 与 OFL](../prototypes/assets/Saira-OFL.txt)。图形由 CSS 和任务数据生成。
 - 唯一维护源码为本目录的 [HTML](index.html)、[CSS](style.css)、[JS](app.js) 和 [行为契约](behavior.json)。既有交互实验和产品源码各自在原入口。真实任务写入、全站集成、真人试用、屏幕阅读器和大规模数据表现仍待验证。
 
-从 DCL 仓库根目录运行 `node scripts/check-project-workbench.mjs`。测试复用本机 Edge 与 Playwright，可通过 `DCL_EDGE` 和 `DCL_PLAYWRIGHT` 指定浏览器和 Playwright `index.mjs` 的绝对路径。
+从 DCL 仓库根目录运行 `node scripts/check-project-workbench.mjs`。可选参数依次为输出目录、revision 名和运行日期，省略时写入 `runs/project-workbench/state-clarity`。测试复用本机 Edge 与 Playwright，可通过 `DCL_EDGE` 和 `DCL_PLAYWRIGHT` 指定浏览器和 Playwright `index.mjs` 的绝对路径。
 
-用 `python .agents/skills/dcl-design/scripts/validate_behavior.py applications/project-console/workbench/behavior.json --observed runs/project-workbench/state-clarity/observed.json` 复核浏览器轨迹。
+用 `python .agents/skills/dcl-design/scripts/validate_behavior.py applications/project-console/workbench/behavior.json --observed runs/project-workbench/task-readme-integration/observed.json` 复核浏览器轨迹。
 
 首版 7 组浏览器检查与 10 个屏宽×主题组合通过。390×844 下第一条前置按钮下缘为 642px，返回实测恢复原滚动位置。旧 A—F 结构中 B/C/F 的 5 组路径回归，以及 8 项既有 Python 测试通过。报告的五个 SHA256 标记被验证源码与样本版本。 [首版手机](../../../runs/project-workbench/mobile.png) · [首版人工阻塞](../../../runs/project-workbench/blocked.png) · [首版深色](../../../runs/project-workbench/dark.png) · [首版平面对照](../../../runs/project-workbench/flat.png) · [首版验证记录](../../../runs/project-workbench/verification.json) · [旧路径回归](../../../runs/project-workbench/path-regression.json)
