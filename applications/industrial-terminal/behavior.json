@@ -1,0 +1,134 @@
+{
+  "title": "Inspection order registration",
+  "initial": "idle",
+  "states": [
+    "idle",
+    "draft",
+    "stale",
+    "registered"
+  ],
+  "transitions": [
+    {
+      "from": "idle",
+      "event": "preview",
+      "to": "draft"
+    },
+    {
+      "from": "draft",
+      "event": "cancel",
+      "to": "idle"
+    },
+    {
+      "from": "draft",
+      "event": "register",
+      "to": "registered"
+    },
+    {
+      "from": "draft",
+      "event": "reject-stale",
+      "to": "stale"
+    },
+    {
+      "from": "stale",
+      "event": "refresh",
+      "to": "draft"
+    },
+    {
+      "from": "stale",
+      "event": "cancel",
+      "to": "idle"
+    },
+    {
+      "from": "registered",
+      "event": "open-result",
+      "to": "registered"
+    }
+  ],
+  "scenarios": {
+    "register": [
+      {
+        "event": "preview",
+        "state": "draft",
+        "facts": {
+          "source": "P-204",
+          "orders": 1,
+          "limitAlerts": 3
+        }
+      },
+      {
+        "event": "register",
+        "state": "registered",
+        "facts": {
+          "source": "P-204",
+          "orders": 2,
+          "created": "WO-015",
+          "linkedSource": "P-204",
+          "limitAlerts": 3,
+          "revision": 17
+        }
+      },
+      {
+        "event": "open-result",
+        "state": "registered",
+        "facts": {
+          "source": "P-204",
+          "orders": 2,
+          "focusedResult": "WO-015"
+        }
+      }
+    ],
+    "cancel": [
+      {
+        "event": "preview",
+        "state": "draft"
+      },
+      {
+        "event": "cancel",
+        "state": "idle",
+        "facts": {
+          "source": "P-204",
+          "orders": 1,
+          "focusedControl": "create-order"
+        }
+      }
+    ],
+    "stale-recovery": [
+      {
+        "event": "preview",
+        "state": "draft"
+      },
+      {
+        "event": "reject-stale",
+        "state": "stale",
+        "facts": {
+          "source": "P-204",
+          "orders": 1,
+          "note": "\u590d\u6838\u56de\u8def\u538b\u529b",
+          "limitAlerts": 3
+        }
+      },
+      {
+        "event": "refresh",
+        "state": "draft",
+        "facts": {
+          "source": "P-204",
+          "orders": 1,
+          "note": "\u590d\u6838\u56de\u8def\u538b\u529b",
+          "latest": "0.34 MPa"
+        }
+      },
+      {
+        "event": "register",
+        "state": "registered",
+        "facts": {
+          "source": "P-204",
+          "orders": 2,
+          "created": "WO-015",
+          "linkedSource": "P-204",
+          "limitAlerts": 3,
+          "revision": 18
+        }
+      }
+    ]
+  }
+}

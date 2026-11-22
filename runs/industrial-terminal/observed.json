@@ -1,0 +1,121 @@
+{
+  "register": [
+    {
+      "state": "draft",
+      "facts": {
+        "source": "P-204",
+        "orders": 1,
+        "limitAlerts": 3,
+        "focusedControl": "note",
+        "focusedResult": "note",
+        "latest": "0.36 MPa",
+        "note": ""
+      }
+    },
+    {
+      "state": "registered",
+      "facts": {
+        "source": "P-204",
+        "orders": 2,
+        "limitAlerts": 3,
+        "focusedControl": "view-order",
+        "focusedResult": "view-order",
+        "latest": "0.36 MPa",
+        "created": "WO-015",
+        "linkedSource": "P-204",
+        "revision": 17
+      }
+    },
+    {
+      "state": "registered",
+      "facts": {
+        "source": "P-204",
+        "orders": 2,
+        "limitAlerts": 3,
+        "focusedControl": "WO-015",
+        "focusedResult": "WO-015",
+        "latest": "0.36 MPa",
+        "created": "WO-015",
+        "linkedSource": "P-204",
+        "revision": 17
+      }
+    }
+  ],
+  "cancel": [
+    {
+      "state": "draft",
+      "facts": {
+        "source": "P-204",
+        "orders": 1,
+        "limitAlerts": 3,
+        "focusedControl": "note",
+        "focusedResult": "note",
+        "latest": "0.36 MPa",
+        "note": ""
+      }
+    },
+    {
+      "state": "idle",
+      "facts": {
+        "source": "P-204",
+        "orders": 1,
+        "limitAlerts": 3,
+        "focusedControl": "create-order",
+        "focusedResult": "create-order",
+        "latest": "0.36 MPa"
+      }
+    }
+  ],
+  "stale-recovery": [
+    {
+      "state": "draft",
+      "facts": {
+        "source": "P-204",
+        "orders": 1,
+        "limitAlerts": 3,
+        "focusedControl": "note",
+        "focusedResult": "note",
+        "latest": "0.36 MPa",
+        "note": ""
+      }
+    },
+    {
+      "state": "stale",
+      "facts": {
+        "source": "P-204",
+        "orders": 1,
+        "limitAlerts": 3,
+        "focusedControl": "refresh",
+        "focusedResult": "refresh",
+        "latest": "0.36 MPa",
+        "note": "复核回路压力"
+      }
+    },
+    {
+      "state": "draft",
+      "facts": {
+        "source": "P-204",
+        "orders": 1,
+        "limitAlerts": 3,
+        "focusedControl": "confirm",
+        "focusedResult": "confirm",
+        "latest": "0.34 MPa",
+        "note": "复核回路压力"
+      }
+    },
+    {
+      "state": "registered",
+      "facts": {
+        "source": "P-204",
+        "orders": 2,
+        "limitAlerts": 3,
+        "focusedControl": "view-order",
+        "focusedResult": "view-order",
+        "latest": "0.34 MPa",
+        "created": "WO-015",
+        "linkedSource": "P-204",
+        "revision": 18
+      }
+    }
+  ]
+}

@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="zh-CN" data-ef-accent="yellow" data-ef-paper="warm" data-ef-cut="tight" data-ef-ground="plain" data-ef-density="compact" data-ef-motion="calm">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>产线监控 | 设备运维终端</title>
+  <link rel="stylesheet" href="style.css">
+  <script defer src="fixture.js"></script>
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <header class="command">
+    <div class="command-inner">
+      <div class="brand"><i aria-hidden="true"></i><span><small>OPERATIONS TERMINAL</small><strong>设备运维终端</strong></span></div>
+      <div class="command-tools"><span class="simulation">离线模拟</span><button id="theme" class="cut" type="button">深色模式</button></div>
+    </div>
+  </header>
+  <main>
+    <div class="overview">
+      <header class="page-head">
+        <p class="label">// LINE MONITORING</p><h1>产线监控</h1>
+        <div class="snapshot"><span>北区制造中心 / A 区公用工程</span><span id="snapshot"></span></div>
+      </header>
+      <section class="metrics" aria-label="区域设备概况" id="metrics"></section>
+    </div>
+    <div class="queue-shortcut"><button type="button" class="cut" id="open-queue">跳到设备队列 <span aria-hidden="true">↓</span></button></div>
+    <div class="workspace">
+      <section class="fleet" id="fleet" aria-labelledby="fleet-title">
+        <header class="section-head">
+          <div><p class="label">// ASSET QUEUE</p><h2 id="fleet-title" tabindex="-1">设备队列</h2></div>
+          <span id="visible-count" class="field" role="status"></span>
+        </header>
+        <div class="filters" role="group" aria-label="筛选设备">
+          <button type="button" class="cut" data-filter="all" aria-pressed="true">全部 <b></b></button>
+          <button type="button" class="cut" data-filter="pending" aria-pressed="false">待巡检 <b></b></button>
+          <button type="button" class="cut" data-filter="ticket" aria-pressed="false">已登记 <b></b></button>
+          <button type="button" class="cut" data-filter="offline" aria-pressed="false">遥测中断 <b></b></button>
+        </div>
+        <p id="outside" class="outside" hidden></p>
+        <div id="rows"></div>
+      </section>
+      <section id="detail" class="detail" aria-label="设备诊断"></section>
+    </div>
+    <section class="journal" aria-labelledby="journal-title">
+      <header class="section-head"><div><p class="label">// SHIFT LOG</p><h2 id="journal-title">班次记录</h2></div><span class="field" id="log-count"></span></header>
+      <ol id="log"></ol>
+    </section>
+  </main>
+  <dialog id="dialog" aria-labelledby="dialog-title">
+    <form id="dispatch">
+      <p class="label">// INSPECTION ORDER</p>
+      <h2 id="dialog-title">登记巡检工单</h2>
+      <p id="target"></p>
+      <p id="preview" class="preview"></p>
+      <label for="note">巡检备注 <span>（选填）</span></label>
+      <textarea id="note" rows="3" maxlength="160" autofocus placeholder="输入交接给巡检班的备注"></textarea>
+      <p id="rejection" class="rejection" role="alert" hidden></p>
+      <div class="dialog-actions">
+        <button id="cancel" class="cut" type="button">取消</button>
+        <button id="refresh" class="cut primary" type="button" hidden>载入最新读数</button>
+        <button id="confirm" class="cut primary" type="submit">确认登记</button>
+      </div>
+    </form>
+  </dialog>
+</body>
+</html>

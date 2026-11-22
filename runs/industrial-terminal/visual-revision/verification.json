@@ -1,0 +1,158 @@
+{
+  "reviewDate": "2026-11-15",
+  "browser": "Edge 157.0.4341.60",
+  "node": "v24.18.0",
+  "implementation": {
+    "index.html": "9a59d0c0a0b7ab44e4c328dbc4993cd72ec56846f2a2b842052b5a1bd193d65b",
+    "style.css": "d8737c5cbedb0f91ebfafce3a874120b2af2cd502d9bdf9f9dea16d618d9d983",
+    "app.js": "12716a75a84893761c70f5596d1cb55b3b3b3cecc39191abe411ad8efd2d86e3",
+    "fixture.js": "6bab14ffc0a82ef98a3245bf77d0614a1aaacf6df49e80fc295f7a55d8d464ed",
+    "behavior.json": "8f2dc9a7dc451a6c939dbf3fec99fc3a3cc417ebd8e492dd42ff43ae3f6a5302"
+  },
+  "checks": [
+    "Confirm creates one linked order. Pending filter is preserved, alert remains, and receipt opens the correct record.",
+    "Keyboard enters preview. Escape writes nothing and returns focus to the initiating control.",
+    "Stale snapshot is refused. The typed note survives refresh, and only explicit confirmation registers against r18.",
+    "Upper limit, missing telemetry and normal device render different conditions. Filtering does not mutate the global counts.",
+    "Latest reading has stronger type hierarchy. Shading follows the upper and lower limits, and all 12 exact values are keyboard-accessible.",
+    "Narrow-screen target is 44px or taller, detail heading receives keyboard focus, and reduced motion disables transition.",
+    "Theme toggle works. Removing the yellow fills, English headers and brand motif preserves the business text.",
+    "Held-out fixture: long asset name at 360px, sample exactly at limit, and empty pending filter with two remaining alerts."
+  ],
+  "layouts": [
+    {
+      "width": 360,
+      "height": 844,
+      "theme": "light",
+      "cut": "wide",
+      "overflow": 0,
+      "clippedButtons": []
+    },
+    {
+      "width": 360,
+      "height": 844,
+      "theme": "dark",
+      "cut": "wide",
+      "overflow": 0,
+      "clippedButtons": []
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "theme": "light",
+      "cut": "wide",
+      "overflow": 0,
+      "clippedButtons": []
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "theme": "dark",
+      "cut": "wide",
+      "overflow": 0,
+      "clippedButtons": []
+    },
+    {
+      "width": 768,
+      "height": 844,
+      "theme": "light",
+      "cut": "wide",
+      "overflow": 0,
+      "clippedButtons": []
+    },
+    {
+      "width": 768,
+      "height": 844,
+      "theme": "dark",
+      "cut": "wide",
+      "overflow": 0,
+      "clippedButtons": []
+    },
+    {
+      "width": 1024,
+      "height": 844,
+      "theme": "light",
+      "cut": "wide",
+      "overflow": 0,
+      "clippedButtons": []
+    },
+    {
+      "width": 1024,
+      "height": 844,
+      "theme": "dark",
+      "cut": "wide",
+      "overflow": 0,
+      "clippedButtons": []
+    },
+    {
+      "width": 1440,
+      "height": 844,
+      "theme": "light",
+      "cut": "wide",
+      "overflow": 0,
+      "clippedButtons": []
+    },
+    {
+      "width": 1440,
+      "height": 844,
+      "theme": "dark",
+      "cut": "wide",
+      "overflow": 0,
+      "clippedButtons": []
+    }
+  ],
+  "comparisons": [
+    {
+      "width": 390,
+      "height": 844,
+      "mobileButtonBottom": 722,
+      "queueButtonBottom": 1455
+    }
+  ],
+  "network": [],
+  "pageErrors": [],
+  "contrast": [
+    {
+      "role": "light",
+      "foreground": "#5c5c5c",
+      "background": "#f3f1ea",
+      "ratio": 5.92
+    },
+    {
+      "role": "light",
+      "foreground": "#5c5c5c",
+      "background": "#fffefa",
+      "ratio": 6.63
+    },
+    {
+      "role": "dark",
+      "foreground": "#b6b2a8",
+      "background": "#1b1a17",
+      "ratio": 8.22
+    },
+    {
+      "role": "dark",
+      "foreground": "#b6b2a8",
+      "background": "#24221e",
+      "ratio": 7.5
+    },
+    {
+      "role": "signal",
+      "foreground": "#161616",
+      "background": "#fffa00",
+      "ratio": 16.31
+    },
+    {
+      "role": "instrument-secondary",
+      "foreground": "#bbb7ac",
+      "background": "#1e1e1b",
+      "ratio": 8.34
+    },
+    {
+      "role": "instrument-primary",
+      "foreground": "#f4f1e8",
+      "background": "#1e1e1b",
+      "ratio": 14.8
+    }
+  ]
+}
