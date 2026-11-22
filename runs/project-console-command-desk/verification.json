@@ -1,0 +1,111 @@
+{
+  "run": "2026-11-22",
+  "revision": "command-desk-0.1",
+  "browser": "158.0.4370.33",
+  "node": "v24.18.0",
+  "sources": {
+    "index.html": "7007c6235caf197c21654768b03f4a7e0cd6e4fea4b8062d50a21b82c6add305",
+    "style.css": "2bca341e503206956d30c8a87809ed2607d270a0da7b3ad3131c4d0c911b1145",
+    "app.js": "33303a63b058bb1c58c2959e70e4852ae0f6b0189034fa628965a1f58071a042",
+    "model.js": "85e0494f0d74810483dbfc220b8424698bf5e2e41902d8cbbd6fca44d38dd4c1",
+    "data.js": "70870a3605c97403c1493756f9cdc9647e3f23e3f1b94110ba207a016e969078",
+    "behavior.json": "9da2a8996f22712fdb1cff128722b57b6b276623d697980a35798129571704d9"
+  },
+  "checks": [
+    "Finishing T-04 exposes and unlocks T-09; the downstream task can start and finish through the same guidance.",
+    "A waiting task names its blocking prerequisite, cannot start, follows the real dependency and returns with context.",
+    "An uncommitted idea is visibly separated from execution; committing it enables the start action.",
+    "A manual block states its stage, releases back to it, and keeps the reason plus release basis in the record.",
+    "This-week scope, state filters and project selection constrain the queue without losing the open task.",
+    "The primary transition opens with Enter, closes with Escape and restores focus to its trigger.",
+    "Ten viewport and theme combinations avoid horizontal overflow; the dock appears from 1080px down and the current tab is scrolled into view."
+  ],
+  "layouts": [
+    {
+      "width": 1440,
+      "height": 900,
+      "theme": "dark",
+      "overflow": true,
+      "dock": false
+    },
+    {
+      "width": 1280,
+      "height": 800,
+      "theme": "dark",
+      "overflow": true,
+      "dock": false
+    },
+    {
+      "width": 1024,
+      "height": 800,
+      "theme": "dark",
+      "overflow": true,
+      "dock": true
+    },
+    {
+      "width": 768,
+      "height": 900,
+      "theme": "dark",
+      "overflow": true,
+      "dock": true
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "theme": "dark",
+      "overflow": true,
+      "dock": true
+    },
+    {
+      "width": 360,
+      "height": 800,
+      "theme": "dark",
+      "overflow": true,
+      "dock": true
+    },
+    {
+      "width": 1440,
+      "height": 900,
+      "theme": "light",
+      "overflow": true,
+      "dock": false
+    },
+    {
+      "width": 1280,
+      "height": 800,
+      "theme": "light",
+      "overflow": true,
+      "dock": false
+    },
+    {
+      "width": 1024,
+      "height": 800,
+      "theme": "light",
+      "overflow": true,
+      "dock": true
+    },
+    {
+      "width": 768,
+      "height": 900,
+      "theme": "light",
+      "overflow": true,
+      "dock": true
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "theme": "light",
+      "overflow": true,
+      "dock": true
+    },
+    {
+      "width": 360,
+      "height": 800,
+      "theme": "light",
+      "overflow": true,
+      "dock": true
+    }
+  ],
+  "pageErrors": [],
+  "network": []
+}

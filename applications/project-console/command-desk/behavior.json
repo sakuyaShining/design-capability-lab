@@ -1,0 +1,191 @@
+{
+  "title": "Command desk task state and guidance",
+  "initial": "active",
+  "states": [
+    "uncommitted",
+    "waiting",
+    "ready",
+    "active",
+    "blocked",
+    "done"
+  ],
+  "transitions": [
+    {
+      "from": "active",
+      "event": "read",
+      "to": "active"
+    },
+    {
+      "from": "active",
+      "event": "finish",
+      "to": "done"
+    },
+    {
+      "from": "active",
+      "event": "open-waiting",
+      "to": "waiting"
+    },
+    {
+      "from": "active",
+      "event": "open-idea",
+      "to": "uncommitted"
+    },
+    {
+      "from": "active",
+      "event": "open-blocked",
+      "to": "blocked"
+    },
+    {
+      "from": "done",
+      "event": "open-ready",
+      "to": "ready"
+    },
+    {
+      "from": "waiting",
+      "event": "open-ready",
+      "to": "ready"
+    },
+    {
+      "from": "uncommitted",
+      "event": "commit",
+      "to": "ready"
+    },
+    {
+      "from": "ready",
+      "event": "start",
+      "to": "active"
+    },
+    {
+      "from": "blocked",
+      "event": "release",
+      "to": "active"
+    }
+  ],
+  "scenarios": {
+    "finish-unlocks": [
+      {
+        "event": "read",
+        "state": "active",
+        "facts": {
+          "code": "T-04",
+          "phase": "进行中",
+          "pending": 0
+        }
+      },
+      {
+        "event": "finish",
+        "state": "done",
+        "facts": {
+          "code": "T-04",
+          "phase": "已完成",
+          "pending": 0
+        }
+      },
+      {
+        "event": "open-ready",
+        "state": "ready",
+        "facts": {
+          "code": "T-09",
+          "phase": "待开始",
+          "pending": 0
+        }
+      },
+      {
+        "event": "start",
+        "state": "active",
+        "facts": {
+          "code": "T-09",
+          "phase": "进行中",
+          "pending": 0
+        }
+      },
+      {
+        "event": "finish",
+        "state": "done",
+        "facts": {
+          "code": "T-09",
+          "phase": "已完成",
+          "pending": 0
+        }
+      }
+    ],
+    "waiting-to-start": [
+      {
+        "event": "open-waiting",
+        "state": "waiting",
+        "facts": {
+          "code": "T-08",
+          "phase": "待开始",
+          "pending": 1
+        }
+      },
+      {
+        "event": "open-ready",
+        "state": "ready",
+        "facts": {
+          "code": "T-02",
+          "phase": "待开始",
+          "pending": 0
+        }
+      },
+      {
+        "event": "start",
+        "state": "active",
+        "facts": {
+          "code": "T-02",
+          "phase": "进行中",
+          "pending": 0
+        }
+      }
+    ],
+    "commit-idea": [
+      {
+        "event": "open-idea",
+        "state": "uncommitted",
+        "facts": {
+          "code": "T-05",
+          "phase": "待开始",
+          "pending": 0
+        }
+      },
+      {
+        "event": "commit",
+        "state": "ready",
+        "facts": {
+          "code": "T-05",
+          "phase": "待开始",
+          "pending": 0
+        }
+      },
+      {
+        "event": "start",
+        "state": "active",
+        "facts": {
+          "code": "T-05",
+          "phase": "进行中",
+          "pending": 0
+        }
+      }
+    ],
+    "release-block": [
+      {
+        "event": "open-blocked",
+        "state": "blocked",
+        "facts": {
+          "code": "T-06",
+          "phase": "进行中",
+          "pending": 0
+        }
+      },
+      {
+        "event": "release",
+        "state": "active",
+        "facts": {
+          "code": "T-06",
+          "phase": "进行中",
+          "pending": 0
+        }
+      }
+    ]
+  }
+}

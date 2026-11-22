@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>指挥席 | 项目总控台</title>
+  <link rel="stylesheet" href="style.css">
+  <script defer src="data.js"></script>
+  <script defer src="model.js"></script>
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <a class="skip" href="#dossier">跳到当前任务</a>
+
+  <div class="field" aria-hidden="true">
+    <div class="field-grid"></div>
+    <div class="field-orbit"></div>
+    <div class="field-glow"></div>
+    <p class="field-coord">47.22 / 31.2N &nbsp;·&nbsp; OFFLINE SNAPSHOT</p>
+  </div>
+
+  <header class="topbar">
+    <a class="brand" href="#dossier" aria-label="项目总控台首页">
+      <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span>
+      <span class="brand-text"><small>PROJECT CONSOLE</small><b>项目总控台</b></span>
+    </a>
+    <p class="week"><span id="week-label">WEEK 47</span><span id="week-range">2026.11.22</span><em>合成快照</em></p>
+    <div id="totals" class="totals" aria-label="全局任务概况"></div>
+    <div class="top-actions">
+      <a class="ghost" href="#portfolio">项目组合</a>
+      <button id="theme" class="ghost" type="button" aria-pressed="false">浅色</button>
+    </div>
+  </header>
+
+  <main class="stage">
+    <section id="portfolio" class="portfolio" aria-labelledby="portfolio-title">
+      <header class="micro-row">
+        <h2 id="portfolio-title" class="micro">01 / 项目组合</h2>
+        <p class="micro">按优先级 · 点击筛选任务</p>
+      </header>
+      <ul id="project-list" class="projects"></ul>
+      <p id="project-brief" class="project-brief"></p>
+    </section>
+
+    <div class="workspace">
+      <nav id="queue" class="queue" aria-labelledby="queue-title">
+        <header class="queue-head">
+          <h2 id="queue-title" class="micro" tabindex="-1">02 / 任务队列</h2>
+          <div id="scope" class="scope" role="group" aria-label="任务范围">
+            <button type="button" data-scope="week" aria-pressed="true">本周</button>
+            <button type="button" data-scope="all" aria-pressed="false">全部</button>
+          </div>
+          <span id="queue-count" class="count" role="status"></span>
+        </header>
+        <div id="filters" class="filters" role="group" aria-label="任务筛选">
+          <button type="button" data-filter="all" aria-pressed="true">全部</button>
+          <button type="button" data-filter="ready" aria-pressed="false">可推进</button>
+          <button type="button" data-filter="waiting" aria-pressed="false">等待</button>
+          <button type="button" data-filter="done" aria-pressed="false">完成</button>
+        </div>
+        <p id="queue-note" class="queue-note" hidden></p>
+        <ul id="queue-list" class="tabs"></ul>
+      </nav>
+
+      <div class="dossier-wrap">
+      <article id="dossier" class="dossier" tabindex="-1" aria-labelledby="task-title">
+        <div class="dossier-spine" aria-hidden="true"><span>DOSSIER</span><i></i><b id="spine-code">T-04</b></div>
+        <header class="dossier-head">
+          <div id="path" class="path"></div>
+          <p id="task-kicker" class="task-kicker"></p>
+          <h1 id="task-title" tabindex="-1"></h1>
+          <p id="task-output" class="task-output"></p>
+        </header>
+        <div id="task-stamp" class="stamp" aria-hidden="true"></div>
+
+        <section class="block gates" aria-labelledby="gates-title">
+          <header class="block-head"><h2 id="gates-title">进入条件</h2><span id="gates-meta" class="block-meta"></span></header>
+          <ul id="gate-list" class="gate-list"></ul>
+        </section>
+
+        <section class="block output-block" aria-labelledby="output-title">
+          <header class="block-head"><h2 id="output-title">产出与证据</h2><span id="output-meta" class="block-meta"></span></header>
+          <div id="output-body" class="output-body"></div>
+        </section>
+
+        <section class="block records" aria-labelledby="records-title">
+          <header class="block-head"><h2 id="records-title">任务记录</h2><span id="records-meta" class="block-meta"></span></header>
+          <ol id="record-list" class="record-list"></ol>
+        </section>
+      </article>
+      </div>
+
+      <aside id="console" class="console" tabindex="-1" aria-label="状态转换与操作"></aside>
+    </div>
+  </main>
+
+  <footer class="statusline">
+    <p class="legend"><span><i class="dot ready"></i>可推进</span><span><i class="dot active"></i>进行中</span><span><i class="dot waiting"></i>等待前置</span><span><i class="dot held"></i>人工阻塞</span><span><i class="dot done"></i>已完成</span></p>
+    <p class="method">DCL 方法 0.2.0 · 合成数据 · 刷新重置</p>
+    <p class="keys">Tab 移动 · Enter 打开 · Esc 关闭</p>
+  </footer>
+
+  <div id="mobile-dock" class="mobile-dock" aria-label="当前任务操作"></div>
+  <dialog id="transaction" aria-labelledby="transaction-title"><form id="transaction-form" novalidate></form></dialog>
+  <div id="receipt" class="receipt" role="status" tabindex="-1" hidden></div>
+</body>
+</html>

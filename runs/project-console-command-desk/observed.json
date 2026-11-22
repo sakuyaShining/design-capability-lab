@@ -1,0 +1,114 @@
+{
+  "finish-unlocks": [
+    {
+      "state": "active",
+      "facts": {
+        "code": "T-04",
+        "phase": "进行中",
+        "pending": 0
+      }
+    },
+    {
+      "state": "done",
+      "facts": {
+        "code": "T-04",
+        "phase": "已完成",
+        "pending": 0
+      }
+    },
+    {
+      "state": "ready",
+      "facts": {
+        "code": "T-09",
+        "phase": "待开始",
+        "pending": 0
+      }
+    },
+    {
+      "state": "active",
+      "facts": {
+        "code": "T-09",
+        "phase": "进行中",
+        "pending": 0
+      }
+    },
+    {
+      "state": "done",
+      "facts": {
+        "code": "T-09",
+        "phase": "已完成",
+        "pending": 0
+      }
+    }
+  ],
+  "waiting-to-start": [
+    {
+      "state": "waiting",
+      "facts": {
+        "code": "T-08",
+        "phase": "待开始",
+        "pending": 1
+      }
+    },
+    {
+      "state": "ready",
+      "facts": {
+        "code": "T-02",
+        "phase": "待开始",
+        "pending": 0
+      }
+    },
+    {
+      "state": "active",
+      "facts": {
+        "code": "T-02",
+        "phase": "进行中",
+        "pending": 0
+      }
+    }
+  ],
+  "commit-idea": [
+    {
+      "state": "uncommitted",
+      "facts": {
+        "code": "T-05",
+        "phase": "待开始",
+        "pending": 0
+      }
+    },
+    {
+      "state": "ready",
+      "facts": {
+        "code": "T-05",
+        "phase": "待开始",
+        "pending": 0
+      }
+    },
+    {
+      "state": "active",
+      "facts": {
+        "code": "T-05",
+        "phase": "进行中",
+        "pending": 0
+      }
+    }
+  ],
+  "release-block": [
+    {
+      "state": "blocked",
+      "facts": {
+        "code": "T-06",
+        "phase": "进行中",
+        "pending": 0
+      }
+    },
+    {
+      "state": "active",
+      "facts": {
+        "code": "T-06",
+        "phase": "进行中",
+        "pending": 0
+      }
+    }
+  ]
+}

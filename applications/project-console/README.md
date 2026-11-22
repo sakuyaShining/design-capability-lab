@@ -6,6 +6,8 @@
 
 [任务入口试点](workbench/task-entry.md)使用一次真实的重开规则核对，实测本机中断续做、提交结果和从下游查证。[离线任务总览](workbench/tasks/index.html)可直接打开 10 项任务的步骤图、前置和交付标准。
 
+2026-11-22 新增[指挥席重新设计](command-desk/index.html)：不沿用工作台结构，把当前任务做成一张有背衬的纸，队列签压在纸下，右侧状态仪器显示承诺→待开始→进行中→已完成四站阶梯与提交影响。[设计说明](command-desk/README.md) · [自评](command-desk/review.md) · [验证](../../runs/project-console-command-desk/verification.json)
+
 审阅从 v0.2 状态方案进入，试用从 v0.1 状态实验进入。试用「执行中受阻」查看解除条件和阶段保留，再试「可开始」和「已有完成的依赖方」比较允许动作。G/H/I 仍可用于视觉对照。[任务状态实验](state-study/index.html) · [状态方案](state-study/state-model.md) · [状态转移 UI 规范](../../standards/interface-capability/state-transitions.md) · [G/H/I](layer-study/index.html)
 
 - [整体规划原件](../../../project-console/.sites-checkout/planning/overall-plan.md)：信息架构、对象与关系、贯通流程、视觉与动效原则、分阶段落地。
