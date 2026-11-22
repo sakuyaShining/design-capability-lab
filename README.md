@@ -1,6 +1,6 @@
 # Design Capability Lab
 
-DCL-001 · v0.8 · 应用设计研究 · 更新 2026-11-12
+DCL-001 · v0.8 · 应用设计研究 · 更新 2026-11-15
 
 ## Primary Objective
 
@@ -25,6 +25,9 @@ DCL-001 · v0.8 · 应用设计研究 · 更新 2026-11-12
 | 入口 | 用途与状态 |
 | --- | --- |
 | [调用入口](.agents/skills/dcl-design/SKILL.md) · [验收与首次迁移任务](evaluations/acceptance.md) | 0.2.0 本地预览，行为契约可核对观察到的状态和对象事实，兼容旧版状态轨迹。 |
+| [工业终端试用](applications/industrial-terminal/index.html) · [使用说明](applications/industrial-terminal/README.md) · [验收评审](applications/industrial-terminal/review.md) | 11 月 15 日视觉改稿，墨色仪表突出所选设备读数与越限区。浏览器直接打开，8 组浏览器检查和 3 条实测契约轨迹通过。干净会话迁移、真人复核与版本增益仍待验证。 |
+| [总控台工作台改稿](applications/project-console/workbench/index.html) · [数据结构和状态图](applications/project-console/workbench/state-guide.md) · [验证证据](applications/project-console/workbench/README.md) · [流程评审](applications/project-console/workbench/workflow-review.md) | 11 月 15 日离线样张，可试用开始、完成、阻塞及重开。原有主流程检查通过。反例评审复现上游完成状态冲突仍放行、重开清除完成结果等缺口，待设计审阅。 |
+| [离线任务总览](applications/project-console/workbench/tasks/index.html) · [任务入口实际试点](applications/project-console/workbench/task-entry.md) · [T-12 内嵌流程图](applications/project-console/workbench/tasks/T-12/index.html) | 10 项任务有独立 README 和步骤依赖图，双击即可阅读。T-12 的 Archify 图已经嵌入工作台和任务页。 |
 | [打开任务状态实验](applications/project-console/state-study/index.html) · [总控台状态方案](applications/project-console/state-study/state-model.md) | v0.2 候选规则含转移表、统一提交、冲突和撤销判据，待审阅。直接打开 v0.1 小样试用本地状态，修改只存在页面内存。 |
 | [状态转移 UI 规范](standards/interface-capability/state-transitions.md) · [流程验证](runs/state-study/verification.json) | 三份 Skill 的方法用于任务守卫、视觉引导和交互检查。固定布局与语义色，九类情境及五档屏宽已检查。 |
 | [规范资产 0.3](standards/interface-capability/README.md) · [跨对象案例对照](cases/cross-object-changes/case.md) | 10 条规则卡。新增 R10，覆盖来源、目的地、关系、恢复和结果入口 |
@@ -57,6 +60,7 @@ DCL-001 · v0.8 · 应用设计研究 · 更新 2026-11-12
 - [cases/](cases/README.md)：从完整索引进入各例 case.md、sources.json 和可用证据。原始公开媒体与派生帧分开记录；作者图像批注不当作游戏 UI。案例目录不按聊天复制。
 - docs/：[十次研究原计划与当前进度](docs/ten-case-study-plan.md)、研究综合、提交记录、[原项目组织核查](docs/project-console-organization.md)。
 - applications/project-console/：实验约定、评价与原型源码。总控台产品规划唯一原件继续在产品仓库 planning/，本项目链接过去。
+- [applications/industrial-terminal/](applications/industrial-terminal/README.md)：工业终端原型、模拟样本、行为契约及规则评审。截图、哈希与轨迹从 [首版证据](runs/industrial-terminal/verification.json) 和 [改稿证据](runs/industrial-terminal/visual-revision/verification.json) 进入。
 - runs/：各批及最终浏览器截图／验证结果。源媒体在 cases/；截图与对照图属于生成证据，保留逐批记录。
 - scripts/：视频抽帧与浏览器检查工具，复用本机已有运行库，无新增大型 SDK。
 - standards/interface-capability/：项目规范原件、角色token源码与生成CSS。每次复用注明规则ID和版本，不在全局Skill中另复制维护。
