@@ -20,6 +20,8 @@ DCL-001 · v0.8 · 应用设计研究 · 更新 2026-11-15
 
 [本地发布副本](dist/github-preview/README.md) 位于 `dist/github-preview/`，Git 历史独立。此仓库维护原件，发布副本按清单更新。首发校验了四个状态契约场景、九张规则卡、48 组指定色对和浏览器回归，远端文件清单与提交已核对。[本地浏览器记录](dist/github-preview/runs/state-study/verification.json) · [发布版验收约定](dist/github-preview/evaluations/acceptance.md)
 
+2026-11-22 原件仓库配置 `origin`，把 `master` 推送为 [`research` 分支](https://github.com/sakuyaShining/design-capability-lab/tree/research)。`main` 继续作为发布预览，两者历史独立；原件的新提交只影响 `research`，发布预览仍按清单从 `dist/github-preview/` 更新。
+
 ## 从哪里打开
 
 | 入口 | 用途与状态 |
