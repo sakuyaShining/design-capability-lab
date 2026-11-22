@@ -1,0 +1,73 @@
+{
+  "schema_version": 2,
+  "diagram_type": "workflow",
+  "meta": {
+    "title": "T-12 · 确定竞赛主选与备选方向",
+    "locale": "zh-CN",
+    "quality_profile": "showcase",
+    "output": "applications/project-console/workbench/tasks/T-12/archify.html",
+    "legend": {
+      "entries": {
+        "external": { "label": "跨任务输入" },
+        "backend": { "label": "任务内步骤" },
+        "security": { "label": "汇合条件" },
+        "database": { "label": "交付物" }
+      }
+    }
+  },
+  "lanes": [
+    { "id": "eligibility", "label": "赛题依据" },
+    { "id": "selection", "label": "T-12 方向选择" },
+    { "id": "campus", "label": "校内依据" }
+  ],
+  "phases": [
+    { "id": "inputs", "label": "整理输入", "fromCol": 0, "toCol": 0 },
+    { "id": "comparison", "label": "并行核对与汇合", "fromCol": 1, "toCol": 2 },
+    { "id": "decision", "label": "定案与交付", "fromCol": 3, "toCol": 4, "variant": "emphasis" }
+  ],
+  "nodes": [
+    { "id": "rules", "lane": "eligibility", "col": 0, "type": "external", "icon": "none", "label": "T-10 赛题规则", "sublabel": "规则原文与核验清单" },
+    { "id": "fit", "lane": "eligibility", "col": 1, "type": "backend", "icon": "none", "label": "核对赛题适配", "sublabel": "按候选方向比较" },
+    { "id": "prepare", "lane": "selection", "col": 0, "type": "backend", "icon": "start", "label": "整理候选方向", "sublabel": "明确比较维度" },
+    { "id": "join", "lane": "selection", "col": 2, "type": "security", "icon": "decision", "label": "两项核对完成", "sublabel": "赛题和校内约束均核清" },
+    { "id": "select", "lane": "selection", "col": 3, "type": "backend", "icon": "none", "label": "确定主选与备选", "sublabel": "根据比较结果各选一项" },
+    { "id": "record", "lane": "selection", "col": 4, "type": "database", "icon": "success", "label": "记录选择依据", "sublabel": "附暂缓条件" },
+    { "id": "school", "lane": "campus", "col": 0, "type": "external", "icon": "none", "label": "T-11 校内路径", "sublabel": "导师与盖章办理条件" },
+    { "id": "constraints", "lane": "campus", "col": 1, "type": "backend", "icon": "none", "label": "核对校内约束", "sublabel": "确认候选方向能办理" }
+  ],
+  "edges": [
+    { "id": "rules-fit", "from": "rules", "to": "fit" },
+    { "id": "school-constraints", "from": "school", "to": "constraints" },
+    { "id": "prepare-fit", "from": "prepare", "to": "fit", "role": "branch" },
+    { "id": "prepare-constraints", "from": "prepare", "to": "constraints", "role": "branch" },
+    { "id": "fit-join", "from": "fit", "to": "join" },
+    { "id": "constraints-join", "from": "constraints", "to": "join" },
+    { "id": "join-select", "from": "join", "to": "select", "variant": "emphasis" },
+    { "id": "select-record", "from": "select", "to": "record", "variant": "emphasis" }
+  ],
+  "semanticChecks": {
+    "allowedRoots": ["rules", "prepare", "school"],
+    "allowedTerminals": ["record"],
+    "requiredEdges": [
+      { "from": "fit", "to": "join" },
+      { "from": "constraints", "to": "join" },
+      { "from": "join", "to": "select" }
+    ],
+    "requiredPaths": [
+      { "from": "rules", "to": "record" },
+      { "from": "school", "to": "record" }
+    ]
+  },
+  "cards": [
+    {
+      "dot": "cyan",
+      "title": "交付标准",
+      "items": ["主选、备选各一项", "每项有可追溯的比较依据，注明暂缓条件"]
+    },
+    {
+      "dot": "slate",
+      "title": "工作台推进条件",
+      "items": ["图示为任务内建议顺序", "工作台开始与完成均取决于 T-10、T-11 的完成状态及人工阻塞情况"]
+    }
+  ]
+}

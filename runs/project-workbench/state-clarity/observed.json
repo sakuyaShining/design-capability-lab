@@ -1,0 +1,198 @@
+{
+  "unlock-direction": [
+    {
+      "state": "waiting",
+      "facts": {
+        "phase": "待开始",
+        "code": "T-15",
+        "pending": 2
+      }
+    },
+    {
+      "state": "waiting",
+      "facts": {
+        "phase": "待开始",
+        "code": "T-12",
+        "pending": 2
+      }
+    },
+    {
+      "state": "ready",
+      "facts": {
+        "phase": "待开始",
+        "code": "T-10",
+        "pending": 0
+      }
+    },
+    {
+      "state": "ready",
+      "facts": {
+        "phase": "待开始",
+        "code": "T-10",
+        "pending": 0
+      }
+    },
+    {
+      "state": "active",
+      "facts": {
+        "phase": "进行中",
+        "code": "T-10",
+        "pending": 0
+      }
+    },
+    {
+      "state": "active",
+      "facts": {
+        "phase": "进行中",
+        "code": "T-10",
+        "pending": 0
+      }
+    },
+    {
+      "state": "done",
+      "facts": {
+        "phase": "已完成",
+        "code": "T-10",
+        "pending": 0
+      }
+    },
+    {
+      "state": "waiting",
+      "facts": {
+        "phase": "待开始",
+        "code": "T-12",
+        "pending": 1
+      }
+    },
+    {
+      "state": "blocked",
+      "facts": {
+        "phase": "原进度待确认",
+        "code": "T-11",
+        "pending": 0
+      }
+    },
+    {
+      "state": "blocked",
+      "facts": {
+        "phase": "原进度待确认",
+        "code": "T-11",
+        "pending": 0
+      }
+    },
+    {
+      "state": "ready",
+      "facts": {
+        "phase": "待开始",
+        "code": "T-11",
+        "pending": 0
+      }
+    },
+    {
+      "state": "active",
+      "facts": {
+        "phase": "进行中",
+        "code": "T-11",
+        "pending": 0
+      }
+    },
+    {
+      "state": "done",
+      "facts": {
+        "phase": "已完成",
+        "code": "T-11",
+        "pending": 0
+      }
+    },
+    {
+      "state": "ready",
+      "facts": {
+        "phase": "待开始",
+        "code": "T-12",
+        "pending": 0
+      }
+    },
+    {
+      "state": "active",
+      "facts": {
+        "phase": "进行中",
+        "code": "T-12",
+        "pending": 0
+      }
+    },
+    {
+      "state": "done",
+      "facts": {
+        "phase": "已完成",
+        "code": "T-12",
+        "pending": 0
+      }
+    },
+    {
+      "state": "waiting",
+      "facts": {
+        "phase": "待开始",
+        "code": "T-15",
+        "pending": 1
+      }
+    },
+    {
+      "state": "active",
+      "facts": {
+        "phase": "进行中",
+        "code": "T-14",
+        "pending": 0
+      }
+    },
+    {
+      "state": "done",
+      "facts": {
+        "phase": "已完成",
+        "code": "T-14",
+        "pending": 0
+      }
+    },
+    {
+      "state": "ready",
+      "facts": {
+        "phase": "待开始",
+        "code": "T-15",
+        "pending": 0
+      }
+    },
+    {
+      "state": "active",
+      "facts": {
+        "phase": "进行中",
+        "code": "T-15",
+        "pending": 0
+      }
+    }
+  ],
+  "release-with-pending": [
+    {
+      "state": "waiting",
+      "facts": {
+        "phase": "待开始",
+        "code": "T-15",
+        "pending": 2
+      }
+    },
+    {
+      "state": "blocked",
+      "facts": {
+        "phase": "进行中",
+        "code": "T-12",
+        "pending": 2
+      }
+    },
+    {
+      "state": "active-waiting",
+      "facts": {
+        "phase": "进行中",
+        "code": "T-12",
+        "pending": 2
+      }
+    }
+  ]
+}

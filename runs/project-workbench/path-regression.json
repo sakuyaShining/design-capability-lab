@@ -1,0 +1,51 @@
+{
+  "date": "2026-11-11",
+  "results": [
+    {
+      "name": "B click second-depth leaf",
+      "path": [
+        "scheme",
+        "direction",
+        "rules"
+      ],
+      "origin": "scheme",
+      "valid": true
+    },
+    {
+      "name": "C revisit earlier branch",
+      "path": [
+        "scheme",
+        "reuse"
+      ],
+      "origin": "scheme",
+      "valid": true
+    },
+    {
+      "name": "F unrelated current row cell",
+      "path": [
+        "scheme",
+        "reuse",
+        "rules"
+      ],
+      "origin": "scheme",
+      "valid": true
+    },
+    {
+      "name": "F column changes origin",
+      "path": [
+        "mentor"
+      ],
+      "origin": "mentor",
+      "valid": true
+    },
+    {
+      "name": "unrelated object switches origin",
+      "path": [
+        "archive"
+      ],
+      "origin": "archive",
+      "valid": true
+    }
+  ],
+  "page_errors": []
+}

@@ -1,0 +1,26 @@
+{
+  "initial": "todo",
+  "states": ["todo", "active", "done"],
+  "transitions": [
+    {"from": "todo", "event": "open-source", "to": "todo"},
+    {"from": "todo", "event": "check-downstream-before-result", "to": "todo"},
+    {"from": "todo", "event": "start", "to": "active"},
+    {"from": "active", "event": "save-progress", "to": "active"},
+    {"from": "active", "event": "resume-after-restart", "to": "active"},
+    {"from": "active", "event": "submit-without-evidence", "to": "active"},
+    {"from": "active", "event": "submit-with-evidence", "to": "done"},
+    {"from": "done", "event": "trace-result-from-downstream", "to": "done"}
+  ],
+  "scenarios": {
+    "resume": [
+      {"event": "open-source", "state": "todo", "facts": {"phase": "待开始", "sourceOpened": true}},
+      {"event": "check-downstream-before-result", "state": "todo", "facts": {"downstreamWaiting": true, "resultCount": 0}},
+      {"event": "start", "state": "active", "facts": {"phase": "进行中"}},
+      {"event": "save-progress", "state": "active", "facts": {"phase": "进行中", "draftPersisted": true, "resultCount": 0}},
+      {"event": "resume-after-restart", "state": "active", "facts": {"phase": "进行中", "draftRestored": true, "sameTask": true}},
+      {"event": "submit-without-evidence", "state": "active", "facts": {"phase": "进行中", "inputPreserved": true, "resultCount": 0}},
+      {"event": "submit-with-evidence", "state": "done", "facts": {"phase": "已完成", "resultId": "PC-01-result", "resultCount": 1}},
+      {"event": "trace-result-from-downstream", "state": "done", "facts": {"resultId": "PC-01-result", "downstreamSourceOpened": true, "roundTrip": true}}
+    ]
+  }
+}

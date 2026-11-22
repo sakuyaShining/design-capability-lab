@@ -1,0 +1,64 @@
+{
+  "resume": [
+    {
+      "state": "todo",
+      "facts": {
+        "phase": "待开始",
+        "sourceOpened": true
+      }
+    },
+    {
+      "state": "todo",
+      "facts": {
+        "downstreamWaiting": true,
+        "resultCount": 0
+      }
+    },
+    {
+      "state": "active",
+      "facts": {
+        "phase": "进行中"
+      }
+    },
+    {
+      "state": "active",
+      "facts": {
+        "phase": "进行中",
+        "draftPersisted": true,
+        "resultCount": 0
+      }
+    },
+    {
+      "state": "active",
+      "facts": {
+        "phase": "进行中",
+        "draftRestored": true,
+        "sameTask": true
+      }
+    },
+    {
+      "state": "active",
+      "facts": {
+        "phase": "进行中",
+        "inputPreserved": true,
+        "resultCount": 0
+      }
+    },
+    {
+      "state": "done",
+      "facts": {
+        "phase": "已完成",
+        "resultId": "PC-01-result",
+        "resultCount": 1
+      }
+    },
+    {
+      "state": "done",
+      "facts": {
+        "resultId": "PC-01-result",
+        "downstreamSourceOpened": true,
+        "roundTrip": true
+      }
+    }
+  ]
+}

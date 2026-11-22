@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="zh-CN" data-ef-accent="ice">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>任务续做试点 | 项目总控台</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="task-entry.css">
+  <script defer src="task-entry.js"></script>
+</head>
+<body>
+  <header class="command">
+    <div class="shell command-bar">
+      <a class="brand" href="index.html"><i aria-hidden="true"></i><span><small>PROJECT CONSOLE</small><b>项目总控台</b></span></a>
+      <nav aria-label="入口"><a href="index.html">返回工作台</a></nav>
+    </div>
+  </header>
+  <main class="shell">
+    <p id="entry-status" class="entry-status" role="status">正在读取任务。</p>
+    <div id="entry" class="work-area entry-area" hidden>
+      <nav class="entry-queue" aria-label="试点任务">
+        <h2>试点任务</h2>
+        <a href="?task=PC-01"><span class="code">PC-01</span> 核对重开规则</a>
+        <a href="?task=PC-02"><span class="code">PC-02</span> 评估是否统一重开规则</a>
+      </nav>
+      <article class="focus entry-focus">
+        <header class="focus-task">
+          <div class="task-meta"><span id="entry-id" class="code"></span><span id="entry-phase" class="phase"></span><a id="entry-readme" class="task-readme" target="_blank" rel="noopener">任务 README ↗</a></div>
+          <h1 id="current-task"></h1>
+          <p id="entry-goal" class="expected"></p>
+        </header>
+        <section id="entry-input" class="entry-section" aria-labelledby="entry-sources-title">
+          <h2 id="entry-sources-title">源码原件</h2>
+          <p id="source-revision" class="meta"></p>
+          <ul id="entry-sources"></ul>
+        </section>
+        <section id="entry-start" class="entry-section" hidden>
+          <button id="start-entry" class="cut focus-action" type="button">开始核对</button>
+        </section>
+        <form id="entry-form" class="entry-section" novalidate hidden>
+          <h2>核对记录</h2>
+          <label for="entry-draft">已核对内容和下次要做的事</label>
+          <textarea id="entry-draft" rows="4" maxlength="3000"></textarea>
+          <button id="save-entry" class="cut" type="button">保存进展</button>
+          <p id="entry-saved" class="meta"></p>
+          <div class="entry-submit">
+            <label for="entry-finding">核对结论</label>
+            <textarea id="entry-finding" rows="4" maxlength="3000"></textarea>
+            <fieldset>
+              <legend>选择结论引用的源码</legend>
+              <div id="entry-evidence"></div>
+            </fieldset>
+            <button class="cut focus-action" type="submit">提交结论并完成</button>
+          </div>
+        </form>
+        <section id="entry-result" class="entry-section" aria-labelledby="entry-result-title" hidden>
+          <h2 id="entry-result-title">已提交的核对结论</h2>
+          <p id="result-text"></p>
+          <p id="result-version" class="meta"></p>
+          <ul id="result-sources"></ul>
+          <a id="downstream" class="cut focus-action" href="?task=PC-02" hidden>查看下游任务 PC-02</a>
+          <a id="upstream" class="cut" href="?task=PC-01#entry-result" hidden>在 PC-01 查看原记录</a>
+        </section>
+        <section id="entry-wait" class="entry-section" hidden>
+          <p>等 PC-01 提交核对结论后，再评估是否统一规则。</p>
+          <a href="?task=PC-01">查看前置任务 PC-01</a>
+        </section>
+        <p id="entry-message" class="entry-section" role="status" tabindex="-1" hidden></p>
+      </article>
+    </div>
+  </main>
+</body>
+</html>

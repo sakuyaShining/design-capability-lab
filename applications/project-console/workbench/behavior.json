@@ -1,0 +1,321 @@
+{
+  "title": "Project workbench task phase and readiness",
+  "initial": "waiting",
+  "states": [
+    "waiting",
+    "ready",
+    "active",
+    "done",
+    "blocked",
+    "active-waiting"
+  ],
+  "transitions": [
+    {
+      "from": "waiting",
+      "event": "read-root",
+      "to": "waiting"
+    },
+    {
+      "from": "waiting",
+      "event": "view-direction",
+      "to": "waiting"
+    },
+    {
+      "from": "waiting",
+      "event": "view-rules",
+      "to": "ready"
+    },
+    {
+      "from": "ready",
+      "event": "cancel-start",
+      "to": "ready"
+    },
+    {
+      "from": "ready",
+      "event": "confirm-start",
+      "to": "active"
+    },
+    {
+      "from": "active",
+      "event": "reject-empty-result",
+      "to": "active"
+    },
+    {
+      "from": "active",
+      "event": "confirm-finish",
+      "to": "done"
+    },
+    {
+      "from": "done",
+      "event": "return-direction",
+      "to": "waiting"
+    },
+    {
+      "from": "waiting",
+      "event": "view-mentor",
+      "to": "blocked"
+    },
+    {
+      "from": "blocked",
+      "event": "reject-unknown-phase",
+      "to": "blocked"
+    },
+    {
+      "from": "blocked",
+      "event": "confirm-release-todo",
+      "to": "ready"
+    },
+    {
+      "from": "done",
+      "event": "return-direction-ready",
+      "to": "ready"
+    },
+    {
+      "from": "done",
+      "event": "return-scheme",
+      "to": "waiting"
+    },
+    {
+      "from": "waiting",
+      "event": "view-reuse",
+      "to": "active"
+    },
+    {
+      "from": "done",
+      "event": "return-scheme-ready",
+      "to": "ready"
+    },
+    {
+      "from": "waiting",
+      "event": "view-blocked-direction",
+      "to": "blocked"
+    },
+    {
+      "from": "blocked",
+      "event": "release-retains-waiting",
+      "to": "active-waiting"
+    }
+  ],
+  "scenarios": {
+    "unlock-direction": [
+      {
+        "event": "read-root",
+        "state": "waiting",
+        "facts": {
+          "code": "T-15",
+          "phase": "待开始",
+          "pending": 2
+        }
+      },
+      {
+        "event": "view-direction",
+        "state": "waiting",
+        "facts": {
+          "code": "T-12",
+          "phase": "待开始",
+          "pending": 2
+        }
+      },
+      {
+        "event": "view-rules",
+        "state": "ready",
+        "facts": {
+          "code": "T-10",
+          "phase": "待开始",
+          "pending": 0
+        }
+      },
+      {
+        "event": "cancel-start",
+        "state": "ready",
+        "facts": {
+          "code": "T-10",
+          "phase": "待开始",
+          "pending": 0
+        }
+      },
+      {
+        "event": "confirm-start",
+        "state": "active",
+        "facts": {
+          "code": "T-10",
+          "phase": "进行中",
+          "pending": 0
+        }
+      },
+      {
+        "event": "reject-empty-result",
+        "state": "active",
+        "facts": {
+          "code": "T-10",
+          "phase": "进行中",
+          "pending": 0
+        }
+      },
+      {
+        "event": "confirm-finish",
+        "state": "done",
+        "facts": {
+          "code": "T-10",
+          "phase": "已完成",
+          "pending": 0
+        }
+      },
+      {
+        "event": "return-direction",
+        "state": "waiting",
+        "facts": {
+          "code": "T-12",
+          "phase": "待开始",
+          "pending": 1
+        }
+      },
+      {
+        "event": "view-mentor",
+        "state": "blocked",
+        "facts": {
+          "code": "T-11",
+          "phase": "原进度待确认",
+          "pending": 0
+        }
+      },
+      {
+        "event": "reject-unknown-phase",
+        "state": "blocked",
+        "facts": {
+          "code": "T-11",
+          "phase": "原进度待确认",
+          "pending": 0
+        }
+      },
+      {
+        "event": "confirm-release-todo",
+        "state": "ready",
+        "facts": {
+          "code": "T-11",
+          "phase": "待开始",
+          "pending": 0
+        }
+      },
+      {
+        "event": "confirm-start",
+        "state": "active",
+        "facts": {
+          "code": "T-11",
+          "phase": "进行中",
+          "pending": 0
+        }
+      },
+      {
+        "event": "confirm-finish",
+        "state": "done",
+        "facts": {
+          "code": "T-11",
+          "phase": "已完成",
+          "pending": 0
+        }
+      },
+      {
+        "event": "return-direction-ready",
+        "state": "ready",
+        "facts": {
+          "code": "T-12",
+          "phase": "待开始",
+          "pending": 0
+        }
+      },
+      {
+        "event": "confirm-start",
+        "state": "active",
+        "facts": {
+          "code": "T-12",
+          "phase": "进行中",
+          "pending": 0
+        }
+      },
+      {
+        "event": "confirm-finish",
+        "state": "done",
+        "facts": {
+          "code": "T-12",
+          "phase": "已完成",
+          "pending": 0
+        }
+      },
+      {
+        "event": "return-scheme",
+        "state": "waiting",
+        "facts": {
+          "code": "T-15",
+          "phase": "待开始",
+          "pending": 1
+        }
+      },
+      {
+        "event": "view-reuse",
+        "state": "active",
+        "facts": {
+          "code": "T-14",
+          "phase": "进行中",
+          "pending": 0
+        }
+      },
+      {
+        "event": "confirm-finish",
+        "state": "done",
+        "facts": {
+          "code": "T-14",
+          "phase": "已完成",
+          "pending": 0
+        }
+      },
+      {
+        "event": "return-scheme-ready",
+        "state": "ready",
+        "facts": {
+          "code": "T-15",
+          "phase": "待开始",
+          "pending": 0
+        }
+      },
+      {
+        "event": "confirm-start",
+        "state": "active",
+        "facts": {
+          "code": "T-15",
+          "phase": "进行中",
+          "pending": 0
+        }
+      }
+    ],
+    "release-with-pending": [
+      {
+        "event": "read-root",
+        "state": "waiting",
+        "facts": {
+          "code": "T-15",
+          "phase": "待开始",
+          "pending": 2
+        }
+      },
+      {
+        "event": "view-blocked-direction",
+        "state": "blocked",
+        "facts": {
+          "code": "T-12",
+          "phase": "进行中",
+          "pending": 2
+        }
+      },
+      {
+        "event": "release-retains-waiting",
+        "state": "active-waiting",
+        "facts": {
+          "code": "T-12",
+          "phase": "进行中",
+          "pending": 2
+        }
+      }
+    ]
+  }
+}

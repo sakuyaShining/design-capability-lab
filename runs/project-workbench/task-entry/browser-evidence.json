@@ -1,0 +1,43 @@
+{
+  "browser": "157.0.4341.60",
+  "runs": [
+    {
+      "stage": "begin",
+      "serverPid": 10612,
+      "startedAt": "2026-11-15T13:08:16.677Z",
+      "stableUrl": "http://127.0.0.1:5187/applications/project-console/workbench/task-entry.html?task=PC-01",
+      "input": "http://127.0.0.1:5187/source/app/page.tsx?sha256=cc677887382749ba64b18332f5f1c253bfa6d712c62e275c4e5b3afe99a6372e",
+      "pageClosed": true,
+      "savedVersion": 2,
+      "endedAt": "2026-11-15T13:08:18.243Z"
+    },
+    {
+      "stage": "resume",
+      "serverPid": 19088,
+      "startedAt": "2026-11-15T13:09:56.561Z",
+      "resumedVersion": 2,
+      "inputs": [
+        "http://127.0.0.1:5187/source/app/api/state/route.ts?sha256=9f1694685b49b6615761fcd19296dd181139993217ed02fa3e9c89f5383b7996",
+        "http://127.0.0.1:5187/source/app/validate.ts?sha256=c5fce00f5f88f267b0132bdc1e63aebab94ad3d5103fd2c597717b63e781c038",
+        "http://127.0.0.1:5187/source/app/agent.ts?sha256=96443a7c74aa03148df9cb811a711914237e43e7b862b37db365bf6bb7aa3d6c"
+      ],
+      "resultId": "PC-01-result",
+      "downstreamSource": "http://127.0.0.1:5187/source/app/agent.ts?sha256=96443a7c74aa03148df9cb811a711914237e43e7b862b37db365bf6bb7aa3d6c",
+      "endedAt": "2026-11-15T13:09:59.590Z"
+    },
+    {
+      "stage": "inspect",
+      "serverPid": 9080,
+      "startedAt": "2026-11-15T13:14:40.583Z",
+      "mobile": {
+        "viewport": {
+          "width": 390,
+          "height": 844
+        },
+        "resultId": "PC-01-result",
+        "overflow": false
+      },
+      "endedAt": "2026-11-15T13:14:41.774Z"
+    }
+  ]
+}

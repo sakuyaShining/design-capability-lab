@@ -1,0 +1,34 @@
+{
+  "version": 3,
+  "phase": "done",
+  "draft": "已从任务入口核对 app/page.tsx 的任务行。「已完成」分支会把目标任务改回「待开始」，只在完成未完成项时检查其前置。下次核对 app/api/state/route.ts、app/validate.ts 与 app/agent.ts，并用一对已完成的前置和下游对照实际守卫。",
+  "result": {
+    "id": "PC-01-result",
+    "finding": "Web 与 Agent 的重开规则不一致。产品源码 8ad63a7 的隔离测试中，有已完成下游时，Web PUT 仍返回 200 并保存「前置待开始、下游已完成」；Agent upsert_task 拒绝重开，写入 0 次。把下游改为「进行中」后，两条路径都允许重开前置。源码依据为 Web 任务行的状态切换、Web PUT 的结构校验及 Agent 的全局完成约束。运行使用内存数据库替身。",
+    "evidence": [
+      {
+        "path": "app/page.tsx",
+        "href": "/source/app/page.tsx?sha256=cc677887382749ba64b18332f5f1c253bfa6d712c62e275c4e5b3afe99a6372e",
+        "sha256": "cc677887382749ba64b18332f5f1c253bfa6d712c62e275c4e5b3afe99a6372e"
+      },
+      {
+        "path": "app/agent.ts",
+        "href": "/source/app/agent.ts?sha256=96443a7c74aa03148df9cb811a711914237e43e7b862b37db365bf6bb7aa3d6c",
+        "sha256": "96443a7c74aa03148df9cb811a711914237e43e7b862b37db365bf6bb7aa3d6c"
+      },
+      {
+        "path": "app/api/state/route.ts",
+        "href": "/source/app/api/state/route.ts?sha256=9f1694685b49b6615761fcd19296dd181139993217ed02fa3e9c89f5383b7996",
+        "sha256": "9f1694685b49b6615761fcd19296dd181139993217ed02fa3e9c89f5383b7996"
+      },
+      {
+        "path": "app/validate.ts",
+        "href": "/source/app/validate.ts?sha256=c5fce00f5f88f267b0132bdc1e63aebab94ad3d5103fd2c597717b63e781c038",
+        "sha256": "c5fce00f5f88f267b0132bdc1e63aebab94ad3d5103fd2c597717b63e781c038"
+      }
+    ],
+    "revision": "8ad63a751e34f5834de9f1e73f3ed43ed30205a5",
+    "submittedAt": "2026-11-15T13:09:59.146Z"
+  },
+  "updatedAt": "2026-11-15T13:09:59.146Z"
+}

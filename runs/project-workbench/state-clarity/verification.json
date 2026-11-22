@@ -1,0 +1,107 @@
+{
+  "run": "2026-11-15",
+  "revision": "state-clarity",
+  "engine": "157.0.4341.60",
+  "checks": [
+    "Open rows use the page surface, selection uses a solid surface, and compact completed rows stay selectable by keyboard.",
+    "Initial queue and real 1/3 prerequisite meter. Global ready count opens its actual queue while preserving the selected task.",
+    "Cross-project drill-down and return preserve original filters and restore source focus.",
+    "Multi-level edges and manual blocker; returning from a completed prerequisite reopens its source group.",
+    "Portfolio sorts by priority, project jump filters the queue, and empty results can be cleared.",
+    "All prerequisites met does not mark the task done. Missing records and cyclic back-edges cannot be opened.",
+    "End-to-end: T-10 and T-11 enable T-12; T-12 and T-14 enable T-15. Viewing, cancellation and validation do not advance execution.",
+    "Releasing preserves the original phase and remaining prerequisites. Reopening is constrained by completed dependents.",
+    "Ten layouts, full long task title at 360px, first dependency action in the viewport, and exact mobile scroll restoration.",
+    "Theme toggle and same-content flat comparison remove the overlap and backdrop while preserving readable task context.",
+    "The task view overlaps the queue surface without covering controls; context stays fixed on follow, with reversible motion and reduced-motion support."
+  ],
+  "layouts": [
+    {
+      "width": 360,
+      "theme": "light",
+      "cut": "wide",
+      "overflow": 0,
+      "clipped": []
+    },
+    {
+      "width": 360,
+      "theme": "dark",
+      "cut": "wide",
+      "overflow": 0,
+      "clipped": []
+    },
+    {
+      "width": 390,
+      "theme": "light",
+      "cut": "wide",
+      "overflow": 0,
+      "clipped": []
+    },
+    {
+      "width": 390,
+      "theme": "dark",
+      "cut": "wide",
+      "overflow": 0,
+      "clipped": []
+    },
+    {
+      "width": 768,
+      "theme": "light",
+      "cut": "wide",
+      "overflow": 0,
+      "clipped": []
+    },
+    {
+      "width": 768,
+      "theme": "dark",
+      "cut": "wide",
+      "overflow": 0,
+      "clipped": []
+    },
+    {
+      "width": 1024,
+      "theme": "light",
+      "cut": "wide",
+      "overflow": 0,
+      "clipped": []
+    },
+    {
+      "width": 1024,
+      "theme": "dark",
+      "cut": "wide",
+      "overflow": 0,
+      "clipped": []
+    },
+    {
+      "width": 1440,
+      "theme": "light",
+      "cut": "wide",
+      "overflow": 0,
+      "clipped": []
+    },
+    {
+      "width": 1440,
+      "theme": "dark",
+      "cut": "wide",
+      "overflow": 0,
+      "clipped": []
+    }
+  ],
+  "pageErrors": [],
+  "network": [],
+  "sources": {
+    "applications/project-console/workbench/index.html": "cf3521728f33af96d3ce32d843768c28df065785eafbeda56c1e7aa9aacdd196",
+    "applications/project-console/workbench/app.js": "1b3372510fbdaa61e90d91618df32f1391dcc906f2cc969db3e1254fa2bf8948",
+    "applications/project-console/workbench/style.css": "abfd42338bb2763f81cf5bcaef9000741de740f4e82bbfbf6523a2e627bea402",
+    "applications/project-console/workbench/behavior.json": "aa8f9f5b1b4dea1bef973afa31f61c2ff76ffb07c724ce690b7895ec99c65801",
+    "applications/project-console/prototypes/data.js": "d6b79a4d408ba00926033e1f7ab74067f209d4e352b0d0210538fdf054e3a483",
+    "applications/project-console/state-study/model.js": "cadd81eaaaacc7d46f41d255a7ed94ba17363265c8c541dd7106c04fd66c9157"
+  },
+  "desktopOverlap": 16,
+  "mobile": {
+    "width": 390,
+    "height": 844,
+    "firstFollowBottom": 734,
+    "jumpHeight": 44
+  }
+}

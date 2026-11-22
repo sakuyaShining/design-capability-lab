@@ -1,0 +1,56 @@
+{
+  "revision": "8ad63a751e34f5834de9f1e73f3ed43ed30205a5",
+  "database": "in-memory D1 replacement",
+  "results": [
+    {
+      "downstreamPhase": "已完成",
+      "web": {
+        "http": 200,
+        "response": {
+          "revision": 5
+        },
+        "writes": 1,
+        "revision": 5,
+        "phases": [
+          "待开始",
+          "已完成"
+        ]
+      },
+      "agent": {
+        "toolError": true,
+        "message": "已完成任务需要验收产出且所有前置任务已完成",
+        "writes": 0,
+        "revision": 4,
+        "phases": [
+          "已完成",
+          "已完成"
+        ]
+      }
+    },
+    {
+      "downstreamPhase": "进行中",
+      "web": {
+        "http": 200,
+        "response": {
+          "revision": 5
+        },
+        "writes": 1,
+        "revision": 5,
+        "phases": [
+          "待开始",
+          "进行中"
+        ]
+      },
+      "agent": {
+        "toolError": false,
+        "message": "{\"saved\":true,\"revision\":5,\"record_id\":\"probe-upstream\"}",
+        "writes": 1,
+        "revision": 5,
+        "phases": [
+          "待开始",
+          "进行中"
+        ]
+      }
+    }
+  ]
+}

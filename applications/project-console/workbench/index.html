@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="zh-CN" data-ef-accent="ice" data-ef-paper="cool" data-ef-cut="standard" data-ef-ground="plain" data-ef-density="compact" data-ef-motion="calm">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>工作台 | 项目总控台</title>
+  <link rel="stylesheet" href="style.css">
+  <script defer src="../prototypes/data.js"></script>
+  <script defer src="../state-study/model.js"></script>
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <header class="command">
+    <div class="shell command-bar">
+      <a class="brand" href="#work"><i aria-hidden="true"></i><span><small>PROJECT CONSOLE</small><b>项目总控台</b></span></a>
+      <nav aria-label="页面区段"><a href="#work">本周工作</a><a href="#projects">项目概览</a><a href="task-entry.html?task=PC-01">续做试点</a></nav>
+      <button id="theme" class="cut" type="button">深色模式</button>
+    </div>
+  </header>
+  <main class="shell" id="work">
+    <header class="masthead">
+      <div><p class="eyebrow">// WEEKLY WORK</p><h1>本周工作</h1></div>
+      <div class="overview"><p>本地演示 / 刷新重置 · <a href="tasks/index.html" target="_blank" rel="noopener">任务总览 ↗</a></p><div id="totals" class="totals" aria-label="全局任务概况"></div></div>
+    </header>
+    <div class="work-area">
+      <div class="work-context">
+        <div><span>任务范围</span><strong id="scope-name"></strong></div>
+        <div><span>起点任务</span><strong id="origin-name"></strong></div>
+      </div>
+      <div class="inspection">
+        <section id="focus" class="focus" aria-label="当前任务"></section>
+        <p id="task-receipt" class="task-receipt" role="status" tabindex="-1" hidden></p>
+        <section id="dependencies" class="dependencies" aria-labelledby="dependency-title"></section>
+      </div>
+      <section id="queue" class="queue" aria-labelledby="queue-title">
+        <header class="section-head"><div><p class="eyebrow">// TASK QUEUE</p><h2 id="queue-title" tabindex="-1">任务队列</h2></div><span id="queue-count" class="meta" role="status"></span></header>
+        <div class="queue-controls">
+          <div class="filters" id="filters" role="group" aria-label="任务状态筛选">
+            <button type="button" class="cut" data-filter="all" aria-pressed="true">全部</button>
+            <button type="button" class="cut" data-filter="ready" aria-pressed="false">可推进</button>
+            <button type="button" class="cut" data-filter="waiting" aria-pressed="false">待处理</button>
+            <button type="button" class="cut" data-filter="done" aria-pressed="false">已完成</button>
+          </div>
+          <label for="project-filter">项目<select id="project-filter"></select></label>
+        </div>
+        <p id="outside" class="outside" hidden></p>
+        <div id="queue-list" class="queue-list"></div>
+      </section>
+    </div>
+    <section class="task-diagram" id="task-diagram" data-task="direction" aria-labelledby="task-diagram-title" hidden>
+      <header class="section-head">
+        <div><h2 id="task-diagram-title" tabindex="-1">T-12 任务流程图</h2><p class="meta">建议执行顺序</p></div>
+        <div class="diagram-actions">
+          <button class="cut" type="button" data-jump="current-task">回到任务 ↑</button>
+          <a class="cut" href="tasks/T-12/archify.html" target="_blank" rel="noopener">独立打开 ↗</a>
+        </div>
+      </header>
+      <iframe id="task-diagram-view" class="diagram-frame" data-src="tasks/T-12/archify.html"
+        title="T-12 任务步骤与依赖" loading="lazy"></iframe>
+    </section>
+    <section class="projects" id="projects" aria-labelledby="projects-title">
+      <header class="section-head"><div><p class="eyebrow">// PROJECT PORTFOLIO</p><h2 id="projects-title">项目概览</h2></div><span class="meta">按优先级排列</span></header>
+      <ul id="project-list"></ul>
+    </section>
+  </main>
+  <dialog id="task-dialog" aria-labelledby="change-title"><form id="task-change" novalidate></form></dialog>
+</body>
+</html>

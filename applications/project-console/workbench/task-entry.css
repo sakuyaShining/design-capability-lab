@@ -1,0 +1,36 @@
+.entry-area {
+  grid-template-areas: "queue inspection";
+  grid-template-columns: minmax(175px, .34fr) minmax(0, 1fr);
+  gap: 16px;
+  padding: 20px;
+}
+.entry-queue { grid-area: queue; color: var(--field-ink); }
+.entry-queue h2, .entry-section h2 { font-size: 18px; }
+.entry-queue a { display: block; padding: 10px; text-decoration: none; border-block-end: 1px solid var(--field-line); }
+.entry-queue a:first-of-type { margin-block-start: 10px; border-block-start: 1px solid var(--field-line); }
+.entry-queue a[aria-current="page"] { background: var(--panel); color: var(--ink); box-shadow: inset 3px 0 var(--command); }
+.entry-queue .code { display: inline-block; margin-inline-end: 6px; }
+.entry-focus { grid-area: inspection; min-width: 0; border: 1px solid var(--field-line); }
+.entry-section { padding: 14px clamp(14px, 3vw, 23px); border-top: 1px solid var(--rule); }
+.entry-section li { margin-block-start: 4px; }
+.entry-section a { overflow-wrap: anywhere; text-underline-offset: 3px; }
+.entry-section a.cut { display: inline-block; margin-block-start: 12px; text-decoration: none; }
+.entry-section textarea {
+  display: block; width: 100%; margin: 4px 0 9px; padding: 8px;
+  border: 1px solid var(--field-line); border-radius: 0; background: var(--paper); color: var(--ink);
+  font: inherit; resize: vertical;
+}
+.entry-section fieldset { min-inline-size: 0; margin: 0 0 12px; border: 1px solid var(--rule); }
+#entry-evidence { display: flex; flex-wrap: wrap; gap: 5px 15px; }
+#entry-evidence label { overflow-wrap: anywhere; margin-inline-end: 8px; }
+.entry-submit { margin-top: 16px; padding-top: 12px; border-top: 1px solid var(--rule); }
+.entry-status { margin-bottom: 10px; }
+#entry-message { background: var(--chip); }
+#entry-message[data-error] { border-inline-start: 4px solid #a43c26; }
+#entry-saved { display: inline; margin-inline-start: 10px; }
+#result-text { white-space: pre-wrap; overflow-wrap: anywhere; margin-block: 8px; }
+@media (max-width: 640px) {
+  .entry-area { grid-template-areas: "queue" "inspection"; grid-template-columns: minmax(0, 1fr); padding: 8px; }
+  .entry-queue a { padding: 6px 8px; }
+  .entry-focus .focus-task { padding: 14px; }
+}

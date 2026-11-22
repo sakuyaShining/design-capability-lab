@@ -1,0 +1,179 @@
+{
+  "browser": "157.0.4341.60",
+  "sources": {
+    "project-console/workbench/index.html": "cf3521728f33af96d3ce32d843768c28df065785eafbeda56c1e7aa9aacdd196",
+    "project-console/workbench/app.js": "1b3372510fbdaa61e90d91618df32f1391dcc906f2cc969db3e1254fa2bf8948",
+    "project-console/state-study/model.js": "cadd81eaaaacc7d46f41d255a7ed94ba17363265c8c541dd7106c04fd66c9157",
+    "project-console/prototypes/data.js": "d6b79a4d408ba00926033e1f7ab74067f209d4e352b0d0210538fdf054e3a483"
+  },
+  "observations": {
+    "completedPrerequisitePropagation": {
+      "schemeBefore": {
+        "task": "T-15",
+        "phase": "待开始",
+        "pending": 0,
+        "guidance": "可以开始",
+        "explanation": "前置已就绪。确认开始后进入进行中。",
+        "operations": [
+          "start",
+          "block"
+        ],
+        "suggestedTask": []
+      },
+      "direction": {
+        "task": "T-12",
+        "phase": "已完成",
+        "pending": 2,
+        "guidance": "已记录完成",
+        "explanation": "这条样例没有单独的实际结果。",
+        "operations": [
+          "reopen"
+        ],
+        "suggestedTask": []
+      },
+      "reuse": {
+        "task": "T-14",
+        "phase": "已完成",
+        "pending": 1,
+        "guidance": "已记录完成",
+        "explanation": "这条样例没有单独的实际结果。",
+        "operations": [
+          "reopen"
+        ],
+        "suggestedTask": []
+      },
+      "schemeAfter": {
+        "task": "T-15",
+        "phase": "已完成",
+        "pending": 0,
+        "guidance": "已记录完成",
+        "explanation": "。",
+        "operations": [
+          "reopen"
+        ],
+        "suggestedTask": []
+      }
+    },
+    "guidance": {
+      "scheme": {
+        "task": "T-15",
+        "phase": "待开始",
+        "pending": 2,
+        "guidance": "当前不能开始",
+        "explanation": "等待 T-12、T-14 完成。",
+        "operations": [
+          "block"
+        ],
+        "suggestedTask": []
+      },
+      "direction": {
+        "task": "T-12",
+        "phase": "待开始",
+        "pending": 2,
+        "guidance": "当前不能开始",
+        "explanation": "等待 T-10、T-11 完成。",
+        "operations": [
+          "block"
+        ],
+        "suggestedTask": [
+          "rules"
+        ]
+      },
+      "blockedMentor": {
+        "task": "T-11",
+        "phase": "原进度待确认",
+        "pending": 0,
+        "guidance": "先解除人工阻塞",
+        "explanation": "等待校内负责人的确认，尚无可执行的办理路径。 解除时须补记阻塞前的阶段。",
+        "operations": [
+          "release"
+        ],
+        "suggestedTask": []
+      },
+      "releaseFields": [
+        "phase"
+      ],
+      "releasedMentor": {
+        "task": "T-11",
+        "phase": "待开始",
+        "pending": 0,
+        "guidance": "可以开始",
+        "explanation": "前置已就绪。确认开始后进入进行中。",
+        "operations": [
+          "start",
+          "block"
+        ],
+        "suggestedTask": []
+      },
+      "activeWithPending": {
+        "task": "T-14",
+        "phase": "进行中",
+        "pending": 1,
+        "guidance": "暂不能记录完成",
+        "explanation": "等待 T-10 完成。",
+        "operations": [
+          "block"
+        ],
+        "suggestedTask": [
+          "rules"
+        ]
+      }
+    },
+    "reopenAndReceipt": {
+      "recorded": {
+        "task": "T-10",
+        "phase": "已完成",
+        "pending": 0,
+        "guidance": "已记录完成",
+        "explanation": "评审留痕：已核对规则版本和资格清单。",
+        "operations": [
+          "reopen"
+        ],
+        "suggestedTask": []
+      },
+      "finishReceipt": "T-10：已完成。 评审留痕：已核对规则版本和资格清单。 T-14 现在可推进，执行阶段保持原样。",
+      "reopenPreview": "已完成 → 待开始。依赖方将重新等待此前置。\n\n直接依赖方：T-12、T-14。",
+      "afterReopen": {
+        "task": "T-10",
+        "phase": "待开始",
+        "pending": 0,
+        "guidance": "可以开始",
+        "explanation": "前置已就绪。确认开始后进入进行中。",
+        "operations": [
+          "start",
+          "block"
+        ],
+        "suggestedTask": []
+      },
+      "reopenReceipt": "T-10：待开始。 前置已就绪。确认开始后进入进行中。",
+      "reuseAfterReopen": {
+        "task": "T-14",
+        "phase": "进行中",
+        "pending": 1,
+        "guidance": "暂不能记录完成",
+        "explanation": "等待 T-10 完成。",
+        "operations": [
+          "block"
+        ],
+        "suggestedTask": [
+          "rules"
+        ]
+      }
+    },
+    "filteredReopenRefusal": {
+      "task": "T-12",
+      "phase": "已完成",
+      "pending": 0,
+      "guidance": "当前不能重开",
+      "explanation": "已完成的 T-15 依赖此任务。请先核对这些任务。",
+      "operations": [],
+      "suggestedTask": [],
+      "focusLinks": [
+        "任务队列 ↓"
+      ],
+      "schemeInQueue": 0
+    }
+  },
+  "pageErrors": [],
+  "network": []
+}

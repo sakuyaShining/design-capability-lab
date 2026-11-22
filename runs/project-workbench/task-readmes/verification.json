@@ -1,0 +1,99 @@
+{
+  "browser": "157.0.4341.60",
+  "mode": "offline file://",
+  "tasks": [
+    {
+      "code": "PC-01",
+      "task": "核对 Web 与 Agent 的任务重开规则",
+      "stages": 4,
+      "steps": 5,
+      "dependencies": []
+    },
+    {
+      "code": "PC-02",
+      "task": "评估是否统一 Web 与 Agent 的重开规则",
+      "stages": 4,
+      "steps": 5,
+      "dependencies": [
+        "PC-01"
+      ]
+    },
+    {
+      "code": "T-10",
+      "task": "核对赛题与参赛规则",
+      "stages": 4,
+      "steps": 5,
+      "dependencies": []
+    },
+    {
+      "code": "T-11",
+      "task": "确认导师与校内盖章办理路径",
+      "stages": 4,
+      "steps": 5,
+      "dependencies": []
+    },
+    {
+      "code": "T-12",
+      "task": "确定竞赛主选与备选方向",
+      "stages": 4,
+      "steps": 5,
+      "dependencies": [
+        "T-10",
+        "T-11"
+      ]
+    },
+    {
+      "code": "T-13",
+      "task": "定义 SoC 最小计算闭环",
+      "stages": 4,
+      "steps": 5,
+      "dependencies": []
+    },
+    {
+      "code": "T-14",
+      "task": "验证竞赛与个人 SoC 能否共享成果",
+      "stages": 4,
+      "steps": 5,
+      "dependencies": [
+        "T-10",
+        "T-13"
+      ]
+    },
+    {
+      "code": "T-15",
+      "task": "写下最小方案与可检验的验收标准",
+      "stages": 4,
+      "steps": 5,
+      "dependencies": [
+        "T-12",
+        "T-14",
+        "T-13"
+      ]
+    },
+    {
+      "code": "T-16",
+      "task": "整理旧工程的独有证据与可复用资产",
+      "stages": 4,
+      "steps": 5,
+      "dependencies": []
+    },
+    {
+      "code": "T-17",
+      "task": "复核方案的共享、成本与验收约束",
+      "stages": 4,
+      "steps": 5,
+      "dependencies": [
+        "T-15",
+        "T-11"
+      ]
+    }
+  ],
+  "checks": [
+    "All ten offline pages have the task title, step diagram, completion criteria and original README.",
+    "The live Archify frame is shown for T-12. A node click highlights its path, the frame follows the workbench theme, and jump and return preserve filters, phase and URL.",
+    "Selected task opens its README while preserving the original tab. The pilot entry resolves offline and the downstream shows the persisted PC-01 conclusion.",
+    "T-12 branch and two cross-task links verified, with narrow layout and successful navigation."
+  ],
+  "network": [],
+  "errors": []
+}

@@ -1,0 +1,102 @@
+{
+  "run": "2026-11-15",
+  "revision": "queue-revision",
+  "engine": "157.0.4341.60",
+  "checks": [
+    "Open rows use the page surface, selection uses a solid surface, and compact completed rows stay selectable by keyboard.",
+    "Initial queue and real 1/3 prerequisite meter. Global ready count opens its actual queue while preserving the selected task.",
+    "Cross-project drill-down and return preserve original filters and restore source focus.",
+    "Multi-level edges and manual blocker; returning from a completed prerequisite reopens its source group.",
+    "Portfolio sorts by priority, project jump filters the queue, and empty results can be cleared.",
+    "All prerequisites met does not mark the task done. Missing records and cyclic back-edges cannot be opened.",
+    "Ten layouts, full long task title at 360px, first dependency action in the viewport, and exact mobile scroll restoration.",
+    "Theme toggle and same-content flat comparison. Status remains readable without hatching or ink surface."
+  ],
+  "layouts": [
+    {
+      "width": 360,
+      "theme": "light",
+      "cut": "wide",
+      "overflow": 0,
+      "clipped": []
+    },
+    {
+      "width": 360,
+      "theme": "dark",
+      "cut": "wide",
+      "overflow": 0,
+      "clipped": []
+    },
+    {
+      "width": 390,
+      "theme": "light",
+      "cut": "wide",
+      "overflow": 0,
+      "clipped": []
+    },
+    {
+      "width": 390,
+      "theme": "dark",
+      "cut": "wide",
+      "overflow": 0,
+      "clipped": []
+    },
+    {
+      "width": 768,
+      "theme": "light",
+      "cut": "wide",
+      "overflow": 0,
+      "clipped": []
+    },
+    {
+      "width": 768,
+      "theme": "dark",
+      "cut": "wide",
+      "overflow": 0,
+      "clipped": []
+    },
+    {
+      "width": 1024,
+      "theme": "light",
+      "cut": "wide",
+      "overflow": 0,
+      "clipped": []
+    },
+    {
+      "width": 1024,
+      "theme": "dark",
+      "cut": "wide",
+      "overflow": 0,
+      "clipped": []
+    },
+    {
+      "width": 1440,
+      "theme": "light",
+      "cut": "wide",
+      "overflow": 0,
+      "clipped": []
+    },
+    {
+      "width": 1440,
+      "theme": "dark",
+      "cut": "wide",
+      "overflow": 0,
+      "clipped": []
+    }
+  ],
+  "pageErrors": [],
+  "network": [],
+  "sources": {
+    "applications/project-console/workbench/index.html": "0d84f02cf41d2e284c3c60ac906b8e1850bdd9ad92ee53a3a5294b4c97f31b4f",
+    "applications/project-console/workbench/app.js": "46b61184978bbad7f88afe1724b6c77b3cccab03e253490e5252c308f5f967bd",
+    "applications/project-console/workbench/style.css": "eb2e8adb9306d3ccf0720d09ad6b4ca5b7687233b554155507581bd439ad2b9c",
+    "applications/project-console/prototypes/data.js": "d6b79a4d408ba00926033e1f7ab74067f209d4e352b0d0210538fdf054e3a483",
+    "applications/project-console/state-study/model.js": "cadd81eaaaacc7d46f41d255a7ed94ba17363265c8c541dd7106c04fd66c9157"
+  },
+  "mobile": {
+    "width": 390,
+    "height": 844,
+    "firstFollowBottom": 642,
+    "jumpHeight": 44
+  }
+}

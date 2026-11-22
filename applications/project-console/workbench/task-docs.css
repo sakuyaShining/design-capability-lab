@@ -1,0 +1,139 @@
+.doc-title {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 14px 26px;
+  margin-bottom: 18px;
+}
+.doc-title h1 { font-size: clamp(30px, 4.3vw, 52px); line-height: 1.12; margin-block: 4px 8px; text-wrap: balance; }
+.doc-title p { max-width: 72ch; color: var(--muted); }
+.doc-title .cut { flex: none; text-decoration: none; }
+.doc-board { display: grid; gap: 1px; background: var(--field-line); border: 1px solid var(--field-line); }
+.doc-section { background: var(--panel); min-width: 0; padding: clamp(15px, 3vw, 30px); }
+.doc-section h2 { font-size: 19px; margin-bottom: 10px; }
+.doc-section-title { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 4px 14px; }
+.doc-section-title .doc-interactive { background: var(--signal); text-decoration: none; }
+.doc-section-title .doc-interactive:hover { background: var(--panel); }
+.doc-steps .diagram-frame { border: 1px solid var(--field-line); margin-top: 8px; }
+.doc-flow-fallback { margin-top: 10px; }
+.doc-flow-fallback summary { width: fit-content; cursor: pointer; }
+.doc-steps {
+  background-color: color-mix(in srgb, var(--panel) 75%, var(--field));
+  background-image: linear-gradient(90deg, #7e929c20 1px, transparent 1px), linear-gradient(#7e929c20 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+.doc-flow {
+  --wire: #507183;
+  display: grid;
+  grid-template-columns: repeat(var(--stages), minmax(0, 1fr));
+  align-items: center;
+  gap: 34px;
+  list-style: none;
+  padding: 0;
+  margin: 20px 0 14px;
+}
+.doc-stage { position: relative; min-width: 0; }
+.stage-nodes { display: grid; grid-auto-rows: 1fr; gap: 9px; }
+.stage-nodes > li {
+  display: grid;
+  align-content: center;
+  position: relative;
+  min-height: 62px;
+  border: 1px solid var(--field-line);
+  padding: 10px 12px;
+  background: var(--panel);
+  overflow-wrap: anywhere;
+}
+.connected .doc-stage:first-child .stage-nodes > li { box-shadow: inset 4px 0 var(--wire); }
+.connected .doc-stage:last-child .stage-nodes > li { border-color: var(--wire); background: color-mix(in srgb, var(--panel) 63%, var(--signal)); }
+.connected .doc-stage + .doc-stage::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 100%;
+  width: 34px;
+  height: 1px;
+  background: var(--wire);
+}
+.connected .doc-stage + .doc-stage::after {
+  content: "";
+  position: absolute;
+  top: calc(50% - 3px);
+  right: calc(100% + 2px);
+  width: 6px;
+  height: 6px;
+  border: solid var(--wire);
+  border-width: 1px 1px 0 0;
+  transform: rotate(45deg);
+}
+.connected .stage-nodes.branch::before, .connected .stage-nodes.branch::after {
+  content: "";
+  position: absolute;
+  inset-block: calc(25% - 2.25px);
+  width: 1px;
+  background: var(--wire);
+}
+.connected .stage-nodes.branch::before { left: -9px; }
+.connected .stage-nodes.branch::after { right: -9px; }
+.connected .branch > li::before, .connected .branch > li::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 9px;
+  height: 1px;
+  background: var(--wire);
+}
+.connected .branch > li::before { right: 100%; }
+.connected .branch > li::after { left: 100%; }
+.connected .doc-stage:first-child .branch::before, .connected .doc-stage:first-child .branch > li::before,
+.connected .doc-stage:last-child .branch::after, .connected .doc-stage:last-child .branch > li::after { display: none; }
+.doc-support { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr); gap: 1px; }
+.doc-task-link {
+  display: grid;
+  grid-template-columns: 54px minmax(0, 1fr);
+  gap: 7px;
+  align-items: baseline;
+  min-height: 44px;
+  padding: 9px 11px;
+  border: 1px solid var(--rule);
+  background: var(--paper);
+  text-decoration: none;
+}
+.doc-task-link:hover { border-color: var(--field-line); background: var(--chip); }
+.doc-task-link b { color: var(--field-ink); }
+.doc-links { display: grid; gap: 5px; }
+.doc-catalog { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: 8px; }
+.doc-snapshot { background: color-mix(in srgb, var(--panel) 86%, var(--field)); }
+.doc-snapshot .meta { margin-block: 8px 12px; }
+.doc-snapshot .doc-task-link { max-width: 460px; }
+.doc-references { display: flex; flex-wrap: wrap; gap: 10px 20px; }
+.doc-references a { text-underline-offset: 3px; }
+@media (max-width: 740px) {
+  .doc-title { flex-wrap: wrap; align-items: start; }
+  .doc-support, .doc-flow { grid-template-columns: minmax(0, 1fr); }
+  .doc-flow { gap: 22px; }
+  .stage-nodes.branch { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .stage-nodes > li { min-height: 52px; }
+  .connected .doc-stage + .doc-stage::before { width: 1px; height: 22px; top: auto; bottom: 100%; left: 50%; right: auto; }
+  .connected .doc-stage + .doc-stage::after {
+    top: -8px;
+    left: calc(50% - 3px);
+    right: auto;
+    transform: rotate(135deg);
+  }
+  .connected .stage-nodes.branch::before, .connected .stage-nodes.branch::after {
+    inset: auto calc(25% - 2.25px);
+    width: auto;
+    height: 1px;
+  }
+  .connected .stage-nodes.branch::before { top: -5px; }
+  .connected .stage-nodes.branch::after { bottom: -5px; }
+  .connected .branch > li::before, .connected .branch > li::after {
+    left: 50%;
+    right: auto;
+    width: 1px;
+    height: 5px;
+  }
+  .connected .branch > li::before { top: auto; bottom: 100%; }
+  .connected .branch > li::after { top: 100%; }
+}

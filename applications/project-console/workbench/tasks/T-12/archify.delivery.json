@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "receiptId": "ea911e92-8608-4d41-ae6f-c96a2d02fbec",
+  "status": "current",
+  "command": "deliver",
+  "type": "workflow",
+  "input": "D:\\Dev\\projects\\design-capability-lab\\applications\\project-console\\workbench\\tasks\\T-12\\archify.workflow.json",
+  "output": "D:\\Dev\\projects\\design-capability-lab\\applications\\project-console\\workbench\\tasks\\T-12\\archify.html",
+  "specification": {
+    "sha256": "2d230adf7950e378abcca75ba17adb4bc160d4503f253a4c0d568493ea55e856",
+    "bytes": 3701
+  },
+  "artifact": {
+    "sha256": "f99d26cbd8ede8c5ca2f8410f6ebfc7df31beb4a26b0a91fe2bbd80938a618b2",
+    "bytes": 837555
+  }
+}
